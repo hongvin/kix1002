@@ -1,0 +1,561 @@
+---
+id: tutorial1-2
+slug: /tutorial1-2
+title: Tutorial 1 & 2
+description: Differential Equations & First Order ODE
+sidebar_position: 1
+hide_table_of_contents: true
+---
+
+# Tutorial 1 & 2: Differential Equations & First Order ODE
+
+```mdx-code-block
+import Question from '/pdf/tutorials/KIX1002_Tutorial_1-2.pdf';
+import Link from '@docusaurus/Link';
+
+<Link
+  className="button button--primary"
+  target="_blank"
+  to={Question}>
+  Tutorial Question
+</Link>
+```
+
+1. Identify 5 physical laws/ theory that are frequently used in your field of study (i.e. Mechanical/Electrical/Chemical/Civil/Biomedical) and show that they can be transformed into the form of differential equation.
+
+    :::info[Sample Solution]
+
+    | **Field** | **Mechanical Engineering** |
+    | :-------: |:---------------------------|
+    | Thermodynamic | Fourier’s heat equation, $q=-k'\frac{dT}{dx}$ where $k'$ is the thermal conductivity, $\frac{dT}{dx}$ is the change of temperature in direction $x$ and $q$ is the rate of flow of heat energy/heat flux. |
+    | Fluid Mechanics | Law of conservation of mass, $\frac{dV}{dt} =0$, where the total volumetric flow of water enter and leaving the tank during duration $dt$ is equal, i.e $A_{1} v_{1} =A_{2} v_{2}$. |
+    | Applied Mechanics Field | Newton's 2nd law of motion, $\frac{dv(t)}{dt} =\frac{\sum F(t)}{m}$. |
+    | Vibration Field | Mass-damper-spring system: Equations of motion, $m\frac{d^{2} x}{dt^{2}} +c\frac{dx}{dt} +kx=0$ |
+    | Mechanics of Materials Field | Differential equation for the elastic curve, $EI\frac{d^{2} y}{dx^{2}} =-P\frac{a}{L} x$ |
+
+    | **Field** | **Biomedical Engineering** |
+    | :-------: | :------------------------- |
+    | Tumor growth kinetics | Tumor growth kinetics in the human body follow relatively law that can be expressed using ODE $\dot T=aT(1-bT)-cNT-DT-K_T(1-e^{-M})T$, where the $T(t)$, $N(t)$, $L(t)$, $C(t)$, $M(t)$ and $I(t)$ represent the tumour cell population |
+    | Mathematical models in oncology | Mathematical models in oncology aid in the design of drugs and understanding of their mechanisms of action by simulation of drug biodistribution, drug effects, and interaction between tumor and healthy cells. $\frac{dX_0}{dt}=-k_0X_0$, $\frac{dX_p}{dt}=k_0X_0+aX_t-\gamma X_p-\beta X_p$, $\frac{dX_t}{dt}=\gamma X_p-\alpha X_t$. The initial condition $X_0(0)$ is the given dose. The initial drug amount in the plasma compartment $X_p (0)$ and in the tumor compartment $X_t(0)$ is zero. |
+
+    :::
+
+2. Classify each equation according to its order, linearity/non-linearity, and homogeneity/non-homogeneity. Also identify its dependent & independent variables in each case. Hence, find the solutions except 2nd order ODE and nonhomogeneous $\frac{dy}{dx}=\frac{f(x,y)}{g(x,y)}$ cases. Verify that the solution that you find is a true solution.
+
+    i. $$5x\frac{d^{2} y}{dx^{2}} -\frac{4}{x}\frac{dy}{dx} -\sin 2x=0,\quad y( 0) =0,\quad y'( 0) =0$$
+
+    :::info[Solution]
+
+    - Dependent variable: $y$        
+    - Independent variable: $x$
+
+    2nd order linear nonhomogeneous ordinary differential equation. Initial conditions are provided.
+
+    :::
+
+    ii. $$x^{2}\frac{d^{2} y}{dx^{2}} -3x\frac{dy}{dx} =4y,\quad y( 0) =0,\quad y'(0) =0$$
+
+    :::info[Solution]
+
+    - Dependent variable: $$y$$        
+    - Independent variable: $$x$$
+
+    2nd order linear homogeneous ordinary differential equation. Boundary conditions are provided
+
+    :::
+
+    iii. $$5x^2y\frac{dy}{dx}+y^3+x^3=0,\qquad y(0)=3$$
+
+    :::info[Solution]
+
+    - Dependent variable: $$y$$        
+    - Independent variable: $$x$$
+
+    It is 1st order nonlinear ordinary differential equation. $\frac{d y}{d x}+\frac{4}{x} y=x^3 y^2$ because of nonlinear component $x^3 y^2$.
+
+    To check the homogeneity for $1^{\text {st }}$ order nonlinear differential equation, we rearrange it to the $\frac{d y}{d x}=\frac{f(x, y)}{g(x, y)}$ form, where $\frac{d y}{d x}=\frac{x^4 y^2-4 y}{x} \cdot \frac{f(\lambda x, \lambda y)}{g(\lambda x, \lambda y)}=\frac{(\lambda x)^4(\lambda y)^2-4(\lambda y)}{(\lambda x)}=\frac{\lambda^6 x^4 y^2-4(\lambda y)}{(\lambda x)}$. Since $f(x, y)$ and $g(x, y)$ are nonhomogenous equations of various degree, therefore it is a nonhomogeneous equation.
+
+    Nonhomogeneous $\frac{d y}{d x}=\frac{f(x, y)}{g(x, y)}$ method is not covered in this study. Check if other analytical approach is possible to solve the problem instead of using nonhomogeneous $\frac{d y}{d x}=\frac{f(x, y)}{g(x, y)}$ because there is at least one approach to solve a particular ODE.
+
+
+    | **Exact Differential Equation** | **Linear Differential Equation** | **Separable Differential Equation** | **Bernoulli Differential Equation** |
+    | :---: | :---: | :---: | :---: |
+    | Not suitable because can't find any formula that produce the derivate directly. To check there is exact solution or not use $\frac{\partial M(t, x)}{\partial t(x)}=\frac{\partial N(t, x)}{\partial x}$ | Not suitable for nonlinear ODE. | Not possible because it is not separable. | Possible. $\frac{d y}{d x}+\underbrace{\frac{4}{x}}_{p(x)} y=\underbrace{x^3}_{r(x)} \underbrace{y^2}_{y^n}$ |
+    
+    Using Bernoulli Differential Equation:
+
+    $$
+    \frac{d y}{d x}+\frac{4}{x} y=x^3 y^2
+    $$
+
+    Let $v=y^{-1}, \frac{d v}{d x}=-y^{-2} \frac{d y}{d x}$
+    $$
+    \begin{aligned}
+    \frac{d y}{d x}+\frac{4}{x} y&=x^3 y^2 \\
+    y^{-2} \frac{d y}{d x}+\frac{4}{x} y^{-1}&=x^3 \\
+    -\frac{d v}{d x}+\frac{4}{x} v&=x^3 \\ 
+    \frac{d v}{d x}-\frac{4}{x} v&=-x^3
+    \end{aligned}
+    $$
+
+    **Step 1:** Linear Form
+
+    $\frac{d v}{d x}-\frac{4}{x} v=-x^3$, where $p(x)=-\frac{4}{x}, q(x)=-x^3$
+
+    **Step 2:** Integrating Factor
+
+    $$
+    IF =e^{\int p(x) d x}=e^{\int-\frac{4}{x} d x}=e^{-4 \ln x}=x^4
+    $$
+
+    **Step 3:** Multiply
+
+    $$
+    x^{-4} \frac{d v}{d x}-x^4 \frac{4}{x} v=-x^{-1}
+    $$
+
+    **Step 4:** Exact
+
+    $$
+    \frac{d}{d x}\left(x^{-4} v\right)=-x^{-1}
+    $$
+
+    **Step 5:** Integrate
+
+    $$
+    \begin{aligned}
+    \int \frac{d}{d x}\left(x^4 v\right) d x&=\int-x^{-1} d x \\ 
+    x^4 v&=-\ln |x|+C \\ 
+    v&=-x^4 \ln |x|+C x^4 \\
+    v&=-x^4 \ln |x|+C x^4=y^{-1} \\ 
+    y^{-1}&=x^4(C-\ln |x|)
+    \end{aligned}
+    $$
+
+    Given $y(2)=-1$, we get $(-1)^{-1}=(2)^4(C-\ln |2|) \gg C=\ln |2|-\frac{1}{16}$
+
+    $$
+    \begin{aligned}
+    y^{-1}&=x^4\left(\ln |2|-\frac{1}{16}-\ln |x|\right) \\ 
+    y&=\frac{1}{x^4\left(\ln |2|-\frac{1}{16}-\ln |x|\right)}\\
+    &=\frac{-16}{x^4(-16 \ln |2|+1+16 \ln |x|)}\\
+    &=\frac{-16}{x^4\left(1+16 \ln \left|\frac{x}{2}\right| \right)}
+    \end{aligned}
+    $$
+
+    :::
+
+    iv. $$e^{-t^{3}}\frac{dx}{dt} -3t^{2} e{^{-t}}^{3} x=0,\quad x( 1) =2$$
+
+    :::info[Solution]
+
+    - Dependent variable: $$x$$	    
+    - Independent variable: $$t$$
+
+    It is 1st order linear homogeneous ordinary differential equation
+
+    | **Exact Differential Equation** | **Linear Differential Equation** | **Separable Differential Equation** | **Bernoulli Differential Equation** |
+    | :---: | :---: | :---: | :---: |
+    |Suitable. Recall product rule $$\frac{d( xy)}{dx} =x\frac{dy}{dx} +y\frac{dx}{dx}$$ | Suitable as it is linear ODE | Possible because it is separable. | Not possible. For nonlinear only |
+
+    Using Seperable Differential Equation:
+
+    $$
+    \begin{aligned}
+    \int \frac{dx}{x} & =\int 3t^{2} \ dt\\
+    \ln\vert x\vert  & =t^{3} +C
+    \end{aligned}
+    $$
+
+    Given $$x( 1) =2\Longrightarrow \ln\vert 2\vert =1^{3} +C\Longrightarrow C=\ln\vert 2\vert -1$$
+
+    $$
+    \begin{aligned}
+    \ln\vert x\vert  & =t^{3} +\ln\vert 2\vert -1\\
+    x & =e^{\left( t^{3} +\ln\vert 2\vert -1\right)}\\
+    \mathbf{x} & \mathbf{=0.736e^{t^{3}}}
+    \end{aligned}
+    $$
+
+    Using Exact Differential Equation:
+
+    Let $$M( t,x) =e^{-t^{3}} \ \Longrightarrow \ \frac{\delta M( t,x)}{\delta t} =-3t^{2} e^{-t^{3}}$$
+
+    $$N( t,x) =-3t^{2} e^{-t^{3}} x\Longrightarrow \frac{\delta N( t,x)}{\delta t} =-3t^{2} e^{-t^{3}}$$
+
+    Therefore there is an exact solution since $$\frac{\partial M( t,x)}{\partial t} =\frac{\partial N( t,x)}{\partial t}$$.
+
+    Recall product rule $$\frac{d( tx)}{dt} =t\frac{dx}{dt} +x\frac{dt}{dt}$$,
+
+    $$
+    \begin{aligned}
+    \frac{d}{dt}\left( xe^{-t^{3}}\right) & =0\\
+    \delta \frac{d}{dt}\left( xe^{-t^{3}}\right) \ dt & =\delta 0\ dt\\
+    xe^{-t^{3}} & =C\\
+    x & =Ce^{t^{3}}
+    \end{aligned}
+    $$
+
+    Given $$x( 1) =2\Longrightarrow xe^{-t^{3}} =C \Longrightarrow C=2e^{1^{3}} =0.736$$. Therefore, $$\mathbf{x=0.736e^{t^{3}}}$$
+
+    Using Linear Differential Equation:
+
+    **Step 1:** Arrange the differential equation in the linear form of $$\frac{dx}{dt} -p( t) x=q( t)$$.
+
+    $$e^{-t^{3}}\frac{dx}{dt} -3t^{2} e{^{-t}}^{3} x=0\ \Longrightarrow \ \frac{dx}{dt} -3t^{2} x=0$$		where $$p( t) =-3t^{2} ,\quad q( t) =0$$
+
+    **Step 2:** Create integrating factor
+
+    $$
+    IF=e^{\int p( t) dt} =e^{\int \left( -3t^{2}\right) dt} =e^{-t^{3}}
+    $$
+
+    **Step 3:** Multiply 1st ODE eqn by $$IF$$
+
+    $$
+    \begin{aligned}
+    IF\left(\frac{dx}{dt}\right) -IF( q( t) x) & =IF( q( t))\\
+    e^{-t^{3}}\frac{dx}{dt} -3t^{2} e^{-t^{3}} x & =0
+    \end{aligned}
+    $$
+
+
+    **Step 4:** Recognize the LHS is exact solution
+
+    $$
+    \frac{d}{dt}\left( e^{-t^{3}} x\right) =0
+    $$
+
+    **Step 5:** Integrate both side
+
+    $$
+    \begin{aligned}
+    \int \frac{d}{dt}\left( e^{-t^{3}} x\right) dt & =\int 0\ dt\\
+    e^{-t^{3}} x & =C\\
+    x & =Ce^{t^{3}}
+    \end{aligned}
+    $$
+
+    Given $$x( 1) =2\Longrightarrow xe^{-t^{3}} =C \Longrightarrow C=2e^{1^{3}} =0.736$$. 
+    
+    Therefore, $$\mathbf{x=0.736e^{t^{3}}}$$
+
+    :::success[Note]
+    It shows that all three methods have the same accuracy (i.e. same result $x=0.736e^{t^3}$). However, the efficiency is different. For an experience user, **Exact Differential Equation** is preferred due to its fast computation speed, for beginner it is recommended to use the **Linear Separable Equation**  and **Separable Differential Equation**.
+    :::
+
+
+    v. $$\frac{dv}{dt} -3t^{2} v+3t^{2} =0,\quad v(0) =2$$
+
+    :::info[Solution]
+
+    - Dependent variable: $$v$$	
+    - Independent variable: $$t$$
+
+    It is 1st order linear nonhomogeneous ordinary differential equation because $$\frac{dv}{dt} -3t^{2} v=\underbrace{-3t^{2}}_{\text{non-zero
+    forcing function}}$$.
+
+    | **Exact Differential Equation** | **Linear Differential Equation** | **Separable Differential Equation** | **Bernoulli Differential Equation** |
+    | :---: | :---: | :---: | :---: |
+    | Not suitable because can’t find any formula that produce the derivate directly. To check there is exact solution or not use $$\frac{\partial M( x,y)}{\partial y} =\frac{\partial N( x,y)}{\partial x}$$ | Suitable as it is linear ODE | Possible because it is separable. | Not possible. For nonlinear only |
+
+    Using Linear Differential Equation:
+
+    **Step 1:** Arrange the differential equation in the linear form of $$\frac{dx}{dt} -p( t) x=q( t)$$.
+
+    $$ \frac{dv}{dt} -3t^{2} v+3t^{2} =0\ \Longrightarrow \ \frac{dv}{dt} -3t^{2} v=-3t^{2}$$, where $$p( t) =-3t^{2} ,\quad q( t) =-3t^{2}$$
+
+
+    **Step 2:** Create integrating factor
+
+    $$
+    IF=e^{\int p( t) dt} =e^{\int \left( -3t^{2}\right) dt} =e^{-t^{3}}
+    $$
+
+    **Step 3:** Multiply 1st ODE eqn by $$IF$$
+
+    $$
+    \begin{aligned}
+    IF\left(\frac{dv}{dt}\right) -IF( q( t) v) & =IF( q( t))\\
+    e^{-t^{3}}\frac{dv}{dt} -3t^{2} e^{-t^{3}} v & =-3t^{2} e^{-t^{3}}
+    \end{aligned}
+    $$
+
+    **Step 4:** Recognize the LHS is exact solution
+
+    $$
+    \frac{d}{dt}\left( e^{-t^{3}} v\right) =-3t^{2} e^{-t^{3}}
+    $$
+
+    **Step 5:** Integrate both side
+
+    $$
+    \begin{aligned}
+    \int \frac{d}{dt}\left( e^{-t^{3}} v\right) dt & =\int \left(\underbrace{-3t^{2}}_{f'( x)}\underbrace{e^{-t^{3}}}_{f( x)}\right) \ dt\\
+    e^{-t^{3}} v & =e^{-t^{3}} +C
+    \end{aligned}
+    $$
+
+    Given $$v( 0) =2\Longrightarrow e^{-0^{3}}( 2) =e^{-0^{3}} +C \Longrightarrow C=1$$. 
+
+    $$
+    \begin{aligned}
+    e^{-t^{3}} v & =e^{-t^{3}} +1\\
+    \mathbf{v} & \mathbf{=1+e^{t^{3}}}
+    \end{aligned}
+    $$
+
+    Using Seperable Differential Equation,
+
+    $$
+    \begin{aligned}
+    \frac{dv}{dt} &=3t^2v-3t^2\\
+    \int \frac{dv}{(v-1)} &= \int 3t^2dt\\
+    \ln \lvert v-1 \rvert &=t^3+C\qquad \text{given } v(0)=2\\
+    \ln \lvert 2-1 \rvert &=-^3+C\Rightarrow C=0\\
+    v&=e^{t^3}+1
+    \end{aligned}
+    $$
+
+    :::
+
+    vi. $$\frac{dy}{dt} -3ty=\frac{t^{2} y^{3}}{y+1} ,\quad y( 0) =0$$
+
+    :::info[Solution]
+
+    - Dependent variable: $$y$$
+    - Independent variable: $$t$$
+
+    It is 1st order nonlinear ordinary differential equation because $$\frac{dy}{dt} -3ty=\frac{t^{2} y^{3}}{y+1}$$ because dependent variable $$y$$ exist in RHS.
+
+    | **Exact Differential Equation** | **Linear Differential Equation** | **Separable Differential Equation** | **Bernoulli Differential Equation** | **Homogeneous / Nonhomogeneous $$\frac{dy}{dx} =\frac{f( x,y)}{g( x,y)}$$** |
+    | :---: | :---: | :---: | :---: | :---: |
+    Not suitable because can’t find any formula that produce the derivate directly. To check there is exact solution or not use $$\frac{\partial M( t,x)}{\partial t} =\frac{\partial N( t,x)}{\partial x}$$ | Not suitable as it is nonlinear ODE. | Not possible because it is non-separable. | Not possible. For nonlinear only. | Suitable for nonlinear. |
+
+    Using Homogeneous/ Nonhomogeneous:
+
+    To check the homogeneity for 1st order nonlinear differential equation, we rearrange it to the $$\frac{dy}{dx} =\frac{f( t,y)}{g( t,y)}$$ form, where $$\frac{dy}{dt} =\frac{t^{2} y^{3}}{y+1} +\frac{3ty^{2} +3ty}{y+1} =\frac{t^{2} y^{3} +3ty^{2} +3ty}{y+1}$$.
+
+    $$
+    \begin{aligned}
+    \frac{f( \lambda t,\lambda y)}{g( \lambda t,\lambda y)} & =\frac{( \lambda t)^{2}( \lambda y)^{3} +3( \lambda t)( \lambda y)^{2} +3( \lambda t)( \lambda y)}{( \lambda y) +1}
+    \end{aligned}
+    $$
+
+    Since $$f( t,y)$$ and $$g( t,y)$$ have different degree, therefore it is a nonhomogeneous equation.
+
+    Solving 1st order ODE problem by using methods other than the five methods above is out of scope of this study.
+
+    :::
+
+    vii. $$ x^{2}\frac{d^{2} y}{dx^{2}} -3y\frac{dy}{dx} =0,\quad y( 0) =1,\quad y( 2) =4$$
+
+    :::info[Solution]
+
+    - Dependent variable: $$y$$	
+    - Independent variable: $$x$$
+
+    2nd order nonlinear ordinary differential equation because of nonlinear component $$-3y$$. Boundary conditions are provided.
+
+    :::
+
+    viii. $$x\frac{dy}{dx} +y=8,\quad y(0) =5$$
+
+    :::info[Solution]
+
+    - Dependent variable: $$y$$	
+    - Independent variable: $$x$$
+
+    1st order linear nonhomogeneous ordinary differential equation, $$x\frac{dy}{dx} +y=\underbrace{8}_{\text{forcing
+    function}}$$.
+
+    We should recognize the LHS easily where it is an exact equation where $$\frac{d}{dx}( xy) =x\frac{dy}{dx} +y$$ and  it can be solved easily. Let us assume we do not know it is an exact equation & try with other.
+
+    Using Linear Differential Equation:
+
+    **Step 1:** Arrange the differential equation in the linear form of $$\frac{dy}{dx} -p( x) y=q( x)$$.
+
+    $$x\frac{dy}{dx} +y=8\ \Longrightarrow \ \frac{dy}{dx} +\frac{y}{x} =\frac{8}{x}$$, where $$p( t) =\frac{1}{x} ,\quad q( t) =\frac{8}{x}$$
+
+    **Step 2:** Create integrating factor
+
+    $$
+    IF=e^{\int p( t) dt} =e^{\int \left(\frac{1}{x}\right) dt} =e^{\ln x} =x
+    $$
+
+    **Step 3:** Multiply 1st ODE eqn by $$IF$
+
+    $$
+    \begin{aligned}
+    IF\left(\frac{dy}{dx}\right) -IF( q( t) v) & =IF( q( t))\\
+    x\frac{dy}{dx} +y & =8
+    \end{aligned}
+    $$
+
+    **Step 4:** Recognize the LHS is exact solution
+
+    $$
+    \frac{d}{dx}( xy) =8
+    $$
+
+    **Step 5:** Integrate both side
+
+    $$
+    \begin{aligned}
+    \int \frac{d}{dx}( xy) dx & =\int ( 8) \ dx\\
+    xy & =8x+C\\
+    y & =8+\frac{C}{x}
+    \end{aligned}
+    $$
+
+    Given $$y( 3) =5\Longrightarrow 5 =8+\frac{C}{3} \Longrightarrow C=-9$$. 
+
+    $$
+    \begin{aligned}
+    \mathbf{y} & \mathbf{=8-\frac{9}{x}}
+    \end{aligned}
+    $$
+
+    :::
+
+    ix. $$\frac{dy}{dt} =\frac{y^{2} +yt}{t^{2}} ,\quad y( 1) =4$$
+
+    :::info[Solution]
+
+    - Dependent variable: $$y$$
+    - Independent variable: $$t$$
+
+    1st order nonlinear ordinary differential equation $$\frac{dy}{dt} -\underbrace{\frac{y^{2} +yt}{t^{2}}}_{\text{nonlinear}} =0$$.
+
+    Using Homogeneous/ Nonhomogeneous:
+
+    To check the homogeneity for 1st order nonlinear differential equation, we rearrange it to the $$\frac{dy}{dx} =\frac{f( t,y)}{g( t,y)}$$ form, where $$\frac{dy}{dt} =\frac{y^{2} +yt}{t^{2}}$$.
+
+    $$
+    \begin{aligned}
+    \frac{f( \lambda t,\lambda y)}{g( \lambda t,\lambda y)} & =\frac{( \lambda y)^{2} +( \lambda y)( \lambda t)}{( \lambda t)^{2}}
+    \end{aligned}
+    $$
+
+    Since $$f( t,y)$$ and $$g( t,y)$$ are homogeneous equation with same degree, therefore it is a homogeneous equation.
+
+    Let $$v=\frac{y}{t} ,\quad y=vt,\quad \frac{dy}{dt} =t\frac{dv}{dt} +v$$
+
+    $$
+    \begin{aligned}
+    -\frac{1}{v} & =\ln\vert t\vert +C\\
+    v & =-\frac{1}{\ln\vert t\vert +C}\\
+    \frac{y}{t} & =-\frac{1}{\ln\vert t\vert +C}\\
+    C & =-\ln\vert t\vert -\frac{t}{y}
+    \end{aligned}
+    $$
+
+    Given $$y( 1) \ =\ 4$$, we get $$C =-\ln\vert t\vert -\frac{t}{y}=-\ln\vert 1\vert -\frac{1}{4} =-\frac{1}{4}$$
+
+    Rearranging,
+
+    $$
+    \begin{aligned}
+    y & =-\frac{t}{\ln\vert t\vert +C}\\
+    \mathbf{y} & \mathbf{=-\frac{t}{\frac{1}{4} -\ln\vert t\vert }}
+    \end{aligned}
+    $$
+
+    :::
+
+    x. $$5x\frac{d^{3} y}{dx^{3}} -\frac{4}{x}\frac{dy}{dx} -5\tan x=0,\quad y( 0) =0,\quad y( 5) =4,\quad y( 10) =7$$
+
+    :::info[Solution]
+
+    - Dependent variable: $$y$$	
+    - Independent variable: $$t$$
+
+    3rd order linear nonhomogeneous ordinary differential equation where boundary conditions are provided, $$5x\frac{d^{3} y}{dx^{3}} -\frac{4}{x}\frac{dy}{dx} =\underbrace{5\tan x}_{\text{forcing
+    function}}$$
+
+    :::
+
+3. Solve
+
+    i. $$\frac{dy}{dx}+2xy=4x$$
+
+    :::info[Solution]
+
+    The integrating factor is given immediately by
+    $$
+    \mu(x)=\exp \left\{\int 2 x d x\right\}=\exp x^2 .
+    $$
+
+    Multiplying through the ODE by $\mu(x)=\exp x^2$ and integrating, we have
+    $$
+    y \exp x^2=4 \int x \exp x^2 d x=2 \exp x^2+c .
+    $$
+
+    The solution to the ODE is therefore given by $y=2+c \exp \left(-x^2\right)$.
+
+    :::
+
+    ii. $$\frac{dy}{dx}=-\frac{2}{y}-\frac{3y}{2x}$$
+
+    :::info[Solution]
+
+    $$
+    \left(4 x+3 y^2\right) d x+2 x y d y=0, \tag{1}
+    $$
+    i.e. $A(x, y)=4 x+3 y^2$ and $B(x, y)=2 x y$. Now
+    $$
+    \frac{\partial A}{\partial y}=6 y, \quad \frac{\partial B}{\partial x}=2 y,
+    $$
+    so the ODE is not exact in its present form. However, we see that
+    $$
+    \frac{1}{B}\left(\frac{\partial A}{\partial y}-\frac{\partial B}{\partial x}\right)=\frac{2}{x}
+    $$
+    a function of $x$ alone. Therefore an integrating factor exists that is also a function of $x$ alone and, ignoring the arbitrary constant of integration, is given by
+    $$
+    \mu(x)=\exp \left\{2 \int \frac{d x}{x}\right\}=\exp (2 \ln x)=x^2 .
+    $$
+
+    Multiplying (1) through by $\mu(x)=x^2$ we obtain
+    $$
+    \left(4 x^3+3 x^2 y^2\right) d x+2 x^3 y d y=4 x^3 d x+\left(3 x^2 y^2 d x+2 x^3 y d y\right)=0 .
+    $$
+
+    By inspection this integrates immediately to give the solution $x^4+y^2 x^3=c$, where $c$ is a constant.
+
+    :::
+
+    iii. $$\frac{dy}{dx}=\frac{y}{x}+\tan\left(\frac{y}{x}\right)$$
+
+    :::info[Solution]
+
+    This is now a separable equation and can be integrated directly to give
+    $$
+    \int \frac{d v}{F(v)-v}=\int \frac{d x}{x} \tag{2}
+    $$
+
+    Substituting $y=v x$ we obtain
+    $$
+    v+x \frac{d v}{d x}=v+\tan v .
+    $$
+
+    Cancelling $v$ on both sides, rearranging and integrating gives
+    $$
+    \int \cot v d v=\int \frac{d x}{x}=\ln x+c_1 .
+    $$
+
+    But
+    $$
+    \int \cot v d v=\int \frac{\cos v}{\sin v} d v=\ln (\sin v)+c_2,
+    $$
+    so the solution to the ODE is $y=x \sin ^{-1} A x$, where $A$ is a constant.
+
+
+    :::success[Notes]
+
+    Check to see whether the equation is homogeneous. If so, make the substitution $y=v x$, separate variables as in (2) and then integrate directly. Finally replace $v$ by $y / x$ to obtain the solution.
+
+    :::
+
+    :::
+
+

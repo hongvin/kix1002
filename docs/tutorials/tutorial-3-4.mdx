@@ -1,0 +1,61 @@
+---
+id: tutorial3-4
+slug: /tutorial3-4
+title: Tutorial 3 & 4
+description: 2nd Order Ordinary Differential Equations
+sidebar_position: 2
+hide_table_of_contents: true
+---
+
+# Tutorial 3 & 4: 2nd Order Ordinary Differential Equations
+
+1. Use the Wronskian to show whether the give set of functions is linearly dependent or linearly independent.
+
+    a. $y_1=x \qquad y_2=x+1$
+
+    :::info[Solution]
+
+    $$
+    \begin{aligned}
+    y_1&=x, \qquad &y'_1&=1\\
+    y_2&=x+1, \qquad &y'_2&=1
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    W(x,x+1)&=\left| \begin{array}{cc}x&x+1\\1&1\end{array} \right|\\
+    &=x-(x-1)\\
+    &=1 \neq 0
+    \end{aligned}
+    $$
+
+    Since $W(x,x+1)\neq 0$, thus $\{ x, x+1 \}$ are linearly independent
+
+    :::
+
+    b. $y_1=e^{\alpha x}\sin\beta x \qquad y_2=e^{\alpha x}\cos\beta x$
+
+    :::info[Solution]
+
+    $$
+    \begin{aligned}
+    y_1&=e^{\alpha x}\sin\beta x, \qquad &y'_1&=\beta e^{\alpha x}\cos\beta x+ \alpha e^{\alpha x}\sin \beta x\\
+    y_2&=e^{\alpha x}\cos\beta, \qquad &y'_2&=-\beta e^{\alpha x}\sin\beta x+ \alpha e^{\alpha x}\cos \beta x
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    W(x,x+1)&=\left| \begin{array}{cc}e^{\alpha x}\sin\beta x&e^{\alpha x}\cos\beta x\\\beta e^{\alpha x}\cos\beta x+ \alpha e^{\alpha x}\sin \beta x&-\beta e^{\alpha x}\sin\beta x+ \alpha e^{\alpha x}\cos \beta x\end{array} \right|\\
+    &=-\beta e^{2\alpha x}\sin^2 \beta x+\alpha e^{2\alpha x}\sin\beta x\cos\beta x - \beta e^{2\alpha x}\cos^2\beta x - \alpha e^{2\alpha x}\sin\beta x\cos\beta x\\
+    &=-\beta e^{2\alpha x}(sin^2\beta x+\cos^2\beta x)\\
+    &=-\beta e^{2\alpha x}
+    \end{aligned}
+    $$
+
+    Since $\beta\neq0$ and $e^{2\alpha x}\neq 0$, thus $W(y_1,y_2)\neq 0$. 
+    
+    $\therefore$ Linearly independent.
+
+    :::
