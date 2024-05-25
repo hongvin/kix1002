@@ -1,0 +1,309 @@
+---
+id: tutorial12
+slug: /tutorial12
+title: Tutorial 12
+description: Partial Differential Equation I
+sidebar_position: 10
+hide_table_of_contents: true
+---
+
+# Tutorial 12: Partial Differential Equation I
+
+```mdx-code-block
+import Question from '/pdf/tutorials/KIX1002_Tutorial_12.pdf';
+import Link from '@docusaurus/Link';
+
+<Link
+  className="button button--primary"
+  target="_blank"
+  to={Question}>
+  Tutorial Question
+</Link>
+```
+
+1. Categorize the following equations in terms of its order, linearity, and homogeneity.
+
+    a. $\frac{\partial u(x, t)}{\partial t}-\frac{\partial^2 u(x, t)}{\partial x^2}+1=0$
+
+    b. $\frac{\partial^2 u}{\partial x \partial y}-\frac{\partial u}{\partial y}+x u=0$
+
+    c. $\left(u_{t t}\right)^3-u_{x x}+x^2=0$
+
+    d. $u_x-u_{x x y}+u u_y=0$
+
+    e. $u^{\prime}+u^{\prime \prime \prime \prime}+\sqrt{1+u}=0$
+
+    :::info[Solution]
+
+    a. Second order, linear, and non-homogeneous.
+
+    b. Second order, linear, and homogeneous.
+
+    c. Second order, non-linear, and non-homogeneous.
+
+    d. Third order, non-linear, and homogeneous.
+
+    e. Fourth order, non-linear, and non-homogeneous
+
+    :::
+
+---
+
+Classify the category of the following PDEs and solve the PDEs using separation of variable method.
+
+2. $u_{x x}+u_{y y}=0$
+
+    :::info[Solution]
+
+    General form: $A \frac{\partial^2 u}{\partial x^2}+B \frac{\partial^2 u}{\partial x \partial t}+C \frac{\partial^2 u}{\partial t^2}+D \frac{\partial u}{\partial x}+E \frac{\partial u}{\partial t}+F u=0$ 
+    
+    $\mathrm{A}=1, \mathrm{~B}=0, \mathrm{C}=1, B^2-4 A C=0-4(1)(1)<0$, Elliptic PDE
+
+    **Step 1:** Let $u(x, y)=X(x) Y(y)$
+
+    $$
+    \begin{aligned}
+    \frac{\partial^2 u}{\partial x^2}+\frac{\partial^2 u}{\partial y^2}&=0 \\
+    X^{\prime \prime} Y+X Y^{\prime \prime}&=0
+    \end{aligned}
+    $$
+
+    **Step 2:** Obtain 2 ODE equations
+
+    $$
+    \begin{aligned}
+    \frac{X^{\prime \prime}}{X}&=-\frac{Y^{\prime \prime}}{Y}=-\lambda \\
+    X^{\prime \prime}+\lambda X&=0 ; \quad Y^{\prime \prime}-\lambda Y=0
+    \end{aligned}
+    $$
+
+    **Step 3:** 3 cases
+
+    <u>Case 1,</u> $\lambda=0$
+
+    | $\boldsymbol{Y}^{\prime \prime}=\mathbf{0}$ | $X^{\prime \prime}=\mathbf{0}$ |
+    | :--- | :--- |
+    | Let $Y(x)=e^{r y}$ <br /> Characteristic equation: $r^{2}=0$ <br /> $Y(y)=c_{1} e^{0 y}+c_{2} y e^{0 y}$ <br /> $\therefore Y(y)=c_{1}+c_{2} y$ | Let $X(x)=e^{r x}$ <br /> Characteristic equation: $r^{2}=0$ <br /> $X(x)=c_{3} e^{0 x}+c_{4} x e^{0 x}$ <br /> $\therefore X(x)=c_{3}+c_{4} x$ |
+
+    $$
+    \therefore u_{1}=X_{1}(x) Y_{1}(y)=\left(c_{1}+c_{2} y\right)\left(c_{3}+c_{4} x\right)
+    $$
+
+    <u>Case 2,</u> $\lambda=-\alpha^{2}, \alpha>0$
+
+    | $\boldsymbol{Y}^{\prime \prime}+\boldsymbol{\alpha}^{2} \boldsymbol{Y}=\mathbf{0}$ | $\boldsymbol{X}^{\prime \prime}-\boldsymbol{\alpha}^{2} \boldsymbol{X}=\mathbf{0}$ |
+    | :--- | :--- |
+    | Let $Y(y)=e^{r y}$ <br /> Characteristic equation: <br /> $\begin{aligned}r^{2}+\alpha^{2}&=0\\r&= \pm \sqrt{-\alpha^{2}}\\r&=+\alpha i,-\alpha i\end{aligned}$ <br /> $\therefore Y(y)=c_{5} \cos (\alpha y)+c_{6} \sin (\alpha y)$ | Let $X(x)=e^{r x}$ <br /> Characteristic equation: <br /> $\begin{aligned}r^{2}-\alpha^{2}&=0 \\ r&= \pm \sqrt{\alpha^{2}}\\r&=+\alpha,-\alpha\end{aligned}$ <br /> $\therefore X(x)=c_{7} \cosh (\alpha x)+c_{8} \sinh (\alpha x)$ |
+
+    $$
+    \therefore u_{2}=X_{2}(x) Y_{2}(y)=\left(c_{5} \cos (\alpha y)+c_{6} \sin (\alpha y)\right)\left(c_{7} \cosh (\alpha x)+c_{8} \sinh (\alpha x)\right)
+    $$ 
+
+    <u>Case 3,</u> $\lambda=+\alpha^{2}, \alpha>0$
+
+    | $\boldsymbol{Y}^{\prime \prime}-\boldsymbol{\alpha}^{2} \boldsymbol{Y}=\mathbf{0}$ | $\boldsymbol{X}^{\prime \prime}+\boldsymbol{\alpha}^{2} \boldsymbol{X}=\mathbf{0}$ |
+    | :--- | :--- |
+    | Let $Y(y)=e^{r y}$ <br /> Characteristic equation: <br /> $\begin{aligned} r^{2}-\alpha^{2}&=0\\r&= \pm \sqrt{\alpha^{2}}\\r&=+\alpha,-\alpha\end{aligned}$ <br /> $\therefore Y(y)=c_{9} \cosh (\alpha y)+c_{10} \sinh (\alpha y)$ | Let $X(x)=e^{r x}$ <br /> Characteristic equation: <br /> $\begin{aligned} r^{2}+\alpha^{2}&=0 \\ r &= \pm \sqrt{-\alpha^{2}} \\ r&=+\alpha i,-\alpha i \end{aligned}$ <br /> $\therefore X(x)=c_{11} \cos (\alpha x)+c_{12} \sin (\alpha x)$ |
+
+    $$
+    \therefore u_{3}=X_{3}(x) Y_{3}(y)=\left(c_{9} \cosh (\alpha y)+c_{10} \sinh (\alpha y)\right)\left(c_{11} \cos (\alpha x)+c_{12} \sin (\alpha x)\right)
+    $$
+
+    $\therefore$ General solution:
+    
+    $$
+    \begin{aligned}
+    u(x, y)&=u_{1}+u_{2}+u_{3}\\
+    &=\left(c_{1}+c_{2} y\right)\left(c_{3}+c_{4} x\right)+\left(c_{5} \cos (\alpha y)+c_{6} \sin (\alpha y)\right)\left(c_{7} \cosh (\alpha x)+c_{8} \sinh (\alpha x)\right)\\
+    &+\left(c_{9} \cosh (\alpha y)+c_{10} \sinh (\alpha y)\right)\left(c_{11} \cos (\alpha x)+c_{12} \sin (\alpha x)\right)
+    \end{aligned}
+    $$
+
+    :::
+
+3. $u_t-u_{x x}=0$
+
+    :::info[Solution]
+
+    $\mathrm{A}=1, \mathrm{B}=0, \mathrm{C}=0, B^{2}-4 A C=0-4(1)(0)=0$, Parabolic PDE
+
+    **Step 1:** Let $u(x, t)=X(x) T(t)$
+
+    $\frac{\partial u}{\partial t}-\frac{\partial^{2} u}{\partial x^{2}}=0$
+
+    $X T^{\prime}-X^{\prime \prime} T=0$
+
+    **Step 2:** Obtain 2 ODE equations
+
+    $\frac{X^{\prime \prime}}{X}=\frac{T^{\prime}}{T}=-\lambda$
+
+    $T^{\prime}+\lambda T=0 ; \quad X^{\prime \prime}+\lambda X=0$
+
+    **Step 3:** 3 cases
+
+    <u>Case 1,</u> $\lambda=0$
+
+    | $\boldsymbol{T}^{\prime}=\mathbf{0}$ | $\boldsymbol{X}^{\prime \prime}=\mathbf{0}$ |
+    | :--- | :--- |
+    | Let $T(t)=e^{r t}$ <br /> Characteristic equation: $r=0$ <br /> $\therefore T(t)=c_{1} e^{0 t}=c_{1}$ | Let $X(x)=e^{r x}$ <br /> Characteristic equation: $r^{2}=0$ <br /> $X(x)=c_{2} e^{0 x}+c_{3} x e^{0 x}$ <br /> $\therefore X(x)=c_{2}+c_{3} x$ |
+
+    $\therefore u_{1}=X_{1}(x) T_{1}(t)=\left(c_{2}+c_{3} x\right)\left(c_{1}\right)=A_{1} x+B_{1}$ where $A_{1}, B_{1}=$ constant
+
+    <u>Case 2,</u> $\lambda=-\alpha^{2}, \alpha>0$
+
+    | $\boldsymbol{T}^{\prime} - \boldsymbol{\alpha}^2\boldsymbol{T} =\mathbf{0}$ | $\boldsymbol{X}^{\prime \prime} - \boldsymbol{\alpha}^2\boldsymbol{X} =\mathbf{0}$ |
+    | :--- | :--- |
+    | Let $T(t)=e^{r t}$ <br /> Characteristic equation: $r-\alpha^{2}=0$ <br /> $r=\alpha^{2}$ <br /> $\therefore T(t)=c_{4} e^{\alpha^{2} t}$ | Let $X(x)=e^{r x}$ <br /> Characteristic equation: $r^{2}-\alpha^{2}=0$ <br /> $\begin{aligned} r&= \pm \sqrt{\alpha^{2}} \\ r&=+\alpha,-\alpha \end{aligned}$ <br /> $\therefore X(x)=c_{5} \cosh (\alpha x)+c_{6} \sinh (\alpha x)$ |
+
+    $\therefore u_{2}=X_{2}(x) T_{2}(t)=e^{\alpha^{2} t}\left(A_{2} \cosh (\alpha x)+B_{2} \sinh (\alpha x)\right)$ where $A_{2}, B_{2}=$ constant
+
+    <u>Case 3,</u> $\lambda=+\alpha^{2}, \alpha>0$
+
+    | $\boldsymbol{T}^{\prime} + \boldsymbol{\alpha}^2\boldsymbol{T} =\mathbf{0}$ | $\boldsymbol{X}^{\prime \prime} + \boldsymbol{\alpha}^2\boldsymbol{X} =\mathbf{0}$ |
+    | :--- | :--- |
+    | Let $T(t)=e^{r t}$ <br /> Characteristic equation: <br /> $\begin{aligned}r+\alpha^{2}&=0\\r&=-\alpha^{2}\end{aligned}$ <br /> $\therefore T(t)=c_{7} e^{-\alpha^{2} t}$ | Let $X(x)=e^{r x}$ <br /> Characteristic equation: <br /> $\begin{aligned}r^{2}+\alpha^{2}&=0\\r&= \pm \sqrt{-\alpha^{2}}\\r&=+\alpha i,-\alpha i\end{aligned}$ <br /> $\therefore X(x)=c_{8} \cos (\alpha x)+c_{9} \sin (\alpha x)$ |
+
+    $\therefore u_{3}=X_{3}(x) T_{3}(t)=e^{-\alpha^{2} t}\left(A_{3} \cos (\alpha x)+B_{3} \sin (\alpha x)\right)$ where $A_{3}, B_{3}=$ constant
+
+    $\therefore$ General solution: 
+    
+    $$
+    \begin{aligned}
+    u(x, t)&=u_{1}+u_{2}+u_{3}\\
+    &=A_{1} x+B_{1}+e^{\alpha^{2} t}\left(A_{2} \cosh (\alpha x)+B_{2} \sinh (\alpha x)\right)+e^{-\alpha^{2} t}\left(A_{3} \cos (\alpha x)+B_{3} \sin (\alpha x)\right)
+    \end{aligned}
+    $$
+
+    :::
+
+4. $u_t-\frac{1}{16} u_{x x}=0$
+
+    :::info[Solution]
+
+    $\mathrm{A}=-\frac{1}{16}, \mathrm{~B}=0, \mathrm{C}=0, B^{2}-4 A C=0-4\left(-\frac{1}{16}\right)(0)=0$, Parabolic PDE
+
+    **Step 1:** Let $u(x, t)=X(x) T(t)$
+
+    $\frac{\partial u}{\partial t}-\frac{\partial^{2} u}{16 \partial x^{2}}=0$
+
+    $X T^{\prime}-\frac{1}{16} X^{\prime \prime} T=0$
+
+    **Step 2:** Obtain 2 ODE equations
+
+    $$
+    \begin{aligned}
+    & \frac{X^{\prime \prime}}{16 X}=\frac{T^{\prime}}{T}=-\lambda \\
+    & T^{\prime}+\lambda T=0 ; \quad X^{\prime \prime}+16 \lambda X=0
+    \end{aligned}
+    $$
+
+    **Step 3:** 3 cases
+
+    <u>Case 1,</u> $\lambda=0$
+
+    | $\boldsymbol{T}^{\prime}=\mathbf{0}$ | $\boldsymbol{X}^{\prime \prime}=\mathbf{0}$ |
+    | :--- | :--- |
+    | Let $T(t)=e^{r t}$ <br /> Characteristic equation: $r=0$ <br /> $\therefore T(t)=c_{1} e^{0 t}=c_{1}$ | Let $X(x)=e^{r x}$ <br /> Characteristic equation: $r^{2}=0$ <br /> $X(x)=c_{2} e^{0 x}+c_{3} x e^{0 x}$ <br /> $\therefore X(x)=c_{2}+c_{3} x$ |
+
+    $$
+    \therefore u_{1}=X_{1}(x) T_{1}(t)=\left(c_{2}+c_{3} x\right)\left(c_{1}\right)=A_{1} x+B_{1} \text { where } A_{1}, B_{1}=\text { constant }
+    $$
+
+    <u>Case 2,</u> $\lambda=-\alpha^{2}, \alpha>0$
+
+    | $\boldsymbol{T}^{\prime}-\boldsymbol{\alpha}^2\boldsymbol{T}=\mathbf{0}$ | $\boldsymbol{X}^{\prime \prime}-\mathbf{16}\boldsymbol{\alpha}^2\boldsymbol{X}=\mathbf{0}$ |
+    | :--- | :--- |
+    | Let $T(t)=e^{r t}$ <br /> Characteristic equation: <br /> $\begin{aligned}r-\alpha^{2}&=0 \\ r&=\alpha^{2}\end{aligned}$ <br /> $\therefore T(t)=c_{4} e^{\alpha^{2} t}$| Let $X(x)=e^{r x}$ <br /> Characteristic equation: <br /> $\begin{aligned}r^{2}-16 \alpha^{2}&=0\\r&= \pm \sqrt{16 \alpha^{2}}\\r&=+4 \alpha,-4 \alpha\end{aligned}$ <br /> $\therefore X(x)=c_{5} \cosh (4 \alpha x)+c_{6} \sinh (4 \alpha x)$ |
+
+    $\therefore u_{2}=X_{2}(x) T_{2}(t)=e^{\alpha^{2} t}\left(A_{2} \cosh (4 \alpha x)+B_{2} \sinh (4 \alpha x)\right)$ where $A_{2}, B_{2}=$ constant
+
+    <u>Case 3,</u> $\lambda=+\alpha^{2}, \alpha>0$
+
+    | $\boldsymbol{T}^{\prime}+\boldsymbol{\alpha}^2\boldsymbol{T}=\mathbf{0}$ | $\boldsymbol{X}^{\prime \prime}+\mathbf{16}\boldsymbol{\alpha}^2\boldsymbol{X}=\mathbf{0}$ |
+    | :--- | :--- |
+    | Let $T(t)=e^{r t}$ <br /> Characteristic equation: <br /> $\begin{aligned} r+\alpha^{2}&=0 \\ r&=-\alpha^{2}\end{aligned}$ <br /> $\therefore T(t)=c_{7} e^{-\alpha^{2} t}$ | Let $X(x)=e^{r x}$ <br /> Characteristic equation: <br /> $\begin{aligned}r^{2}+16 \alpha^{2}&=0 \\ r&= \pm \sqrt{-16 \alpha^{2}} \\ r&=+4 \alpha i,-4 \alpha i \end{aligned}$ <br /> $\therefore X(x)=c_{8} \cos (4 \alpha x)+c_{9} \sin (4 \alpha x)$ |
+    
+    $\therefore u_{3}=X_{3}(x) T_{3}(t)=e^{-\alpha^{2} t}\left(A_{3} \cos (4 \alpha x)+B_{3} \sin (4 \alpha x)\right) \text { where } A_{3}, B_{3}=\text { constant }$
+
+    $\therefore$ General solution: 
+    
+    $$
+    \begin{aligned}
+    u(x, t)&=u_{1}+u_{2}+u_{3} \\
+    &=A_{1} x+B_{1}+e^{\alpha^{2} t}\left(A_{2} \cosh (4 \alpha x)+B_{2} \sinh (4 \alpha x)\right)+e^{-\alpha^{2} t}\left(A_{3} \cos (4 \alpha x)+B_{3} \sin (4 \alpha x)\right)
+    \end{aligned}
+    $$
+
+    :::
+
+5. $u_{t t}-u_{x x}=0$
+
+    :::info[Solution]
+
+    $\mathrm{A}=-1, \mathrm{~B}=0, \mathrm{C}=1, B^{2}-4 A C=0-4(-1)(1)>0$, Hyperbolic PDE
+
+    **Step 1:** Let $u(x, t)=X(x) T(t)$
+
+    $\frac{\partial^{2} u}{\partial t^{2}}-\frac{\partial^{2} u}{\partial x^{2}}=0$
+
+    $X T^{\prime \prime}-X^{\prime \prime} T=0$
+
+    **Step 2:** Obtain 2 ODE equations
+
+    $$
+    \begin{aligned}
+    & \frac{X^{\prime \prime}}{X}=\frac{T^{\prime \prime}}{T}=-\lambda \\
+    & T^{\prime \prime}+\lambda T=0 ; \quad X^{\prime \prime}+\lambda X=0
+    \end{aligned}
+    $$
+
+    **Step 3:** 3 cases
+    
+    <u>Case 1,</u> $\lambda=0$
+
+    | $\boldsymbol{T}^{\prime \prime}=\mathbf{0}$ | $\boldsymbol{X}^{\prime \prime}=\mathbf{0}$ |
+    | :--- | :--- |
+    | Let $T(t)=e^{r t}$ <br /> Characteristic equation: $r^{2}=0$ <br /> $T(t)=c_{1} e^{0 t}+c_{2} t e^{0 t}$ <br /> $\therefore T(t)=c_{1}+c_{2} t$ | Let $X(x)=e^{r x}$ <br /> Characteristic equation: $r^{2}=0$ <br /> $X(x)=c_{3} e^{0 x}+c_{4} x e^{0 x}$ <br /> $\therefore X(x)=c_{3}+c_{4} x$ |
+
+    $$
+    \therefore u_{1}=X_{1}(x) T_{1}(t)=\left(c_{1}+c_{2} t\right)\left(c_{3}+c_{4} x\right)
+    $$
+
+    <u>Case 2,</u> $\lambda=-\alpha^{2}, \alpha>0$
+
+    | $\boldsymbol{T}^{\prime \prime}-\boldsymbol{\alpha}^{2} \boldsymbol{T}=\mathbf{0}$ | $\boldsymbol{X}^{\prime \prime}-\boldsymbol{\alpha}^{2} \boldsymbol{X}=\mathbf{0}$ |
+    | :--- | :--- |
+    | Let $T(t)=e^{r t}$ <br /> Characteristic equation: <br /> $\begin{aligned}r^{2}-\alpha^{2}&=0\\r&= \pm \sqrt{\alpha^{2}}\\r&=+\alpha,-\alpha\end{aligned}$ <br /> $\therefore T(t)=c_{5} \cosh (\alpha t)+c_{6} \sinh (\alpha t)$ | Let $X(x)=e^{r x}$ <br /> Characteristic equation: <br /> $\begin{aligned}r^{2}-\alpha^{2}&=0\\r&= \pm \sqrt{\alpha^{2}}\\r&=+\alpha,-\alpha\end{aligned}$ <br /> $\therefore X(x)=c_{7} \cosh (\alpha x)+c_{8} \sinh (\alpha x)$ |
+
+    $\therefore u_{2}=X_{2}(x) T_{2}(t)=\left(c_{5} \cosh (\alpha t)+c_{6} \sinh (\alpha t)\right)\left(c_{7} \cosh (\alpha x)+c_{8} \sinh (\alpha x)\right)$
+
+    <u>Case 3,</u> $\lambda=+\alpha^{2}, \alpha>0$
+
+    | $\boldsymbol{T}^{\prime \prime}+\boldsymbol{\alpha}^{2} \boldsymbol{T}=\mathbf{0}$ | $\boldsymbol{X}^{\prime \prime}+\boldsymbol{\alpha}^{2} \boldsymbol{X}=\mathbf{0}$ |
+    | :--- | :--- |
+    | Let $T(t)=e^{r t}$ <br /> Characteristic equation: <br /> $\begin{aligned}r+\alpha^{2}&=0\\r&= \pm \sqrt{-\alpha^{2}}\\r&=+\alpha i,-\alpha i\end{aligned}$ <br /> $\therefore T(t)=c_{9} \cos (\alpha t)+c_{10} \sin (\alpha t)$ | Let $X(x)=e^{r x}$ <br /> Characteristic equation: <br /> $\begin{aligned}r^{2}+\alpha^{2}&=0\\r&= \pm \sqrt{-\alpha^{2}}\\r&=+\alpha i,-\alpha i\end{aligned}$ <br /> $\therefore X(x)=c_{11} \cos (\alpha x)+c_{12} \sin (\alpha x)$ |
+
+    $\therefore u_{3}=X_{3}(x) T_{3}(t)=\left(c_{9} \cos (\alpha t)+c_{10} \sin (\alpha t)\right)\left(c_{11} \cos (\alpha x)+c_{12} \sin (\alpha x)\right)$
+
+    $\therefore$ General solution: 
+    
+    $$
+    \begin{aligned}
+    u(x, t)&=u_{1}+u_{2}+u_{3}\\
+    &=\left(c_{1}+c_{2} t\right)\left(c_{3}+c_{4} x\right)+\left(c_{5} \cosh (\alpha t)+c_{6} \sinh (\alpha t)\right)\left(c_{7} \cosh (\alpha x)+c_{8} \sinh (\alpha x)\right) \\
+    &+\left(c_{9} \cos (\alpha t)+c_{10} \sin (\alpha t)\right)\left(c_{11} \cos (\alpha x)+c_{12} \sin (\alpha x)\right)
+    \end{aligned}
+    $$
+
+
+    :::
+
+6. $u_{x x}=3 u_{y y}$
+
+    :::info[Solution]
+    :::
+
+7. $u_{t t}=4 a^2 u_{x x}$
+
+    :::info[Solution]
+    :::

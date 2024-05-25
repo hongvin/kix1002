@@ -1,0 +1,705 @@
+---
+id: tutorial13
+slug: /tutorial13
+title: Tutorial 13
+description: Partial Differential Equation II
+sidebar_position: 11
+hide_table_of_contents: true
+---
+
+# Tutorial 13: Partial Differential Equation II
+
+```mdx-code-block
+import Question from '/pdf/tutorials/KIX1002_Tutorial_13.pdf';
+import Link from '@docusaurus/Link';
+
+<Link
+  className="button button--primary"
+  target="_blank"
+  to={Question}>
+  Tutorial Question
+</Link>
+```
+
+The general solutions of the following PDEs have been found in Tutorial 12, Question 2 –5.
+Continue to find the particular solution for each case based on the given boundary and initial conditions. 
+
+Laplace equation, $u_{xx}+u_{yy}=0$
+
+General solution: $u(x,y)=(c_1+c_2y)(c_3+c_4x)+\left(c_5\cos(\alpha y)+c_6\sin(\alpha y)\right)\left(c_7\cosh(\alpha x)+c_8\sinh(\alpha x)\right)+\left(c_9\cosh(\alpha y)+c_{10}\sinh (\alpha y)\right)\left(c_{11}\cos(\alpha x)+c_{12}\sin(\alpha x)\right)$
+
+Subject to the given boundary conditions:
+
+1. $\begin{aligned}u(0,y)&=0, &u(a,y)&=0, &0<y<b\\u(x,0)&=0, &u(x,b)&=f(x), &0<x<a\end{aligned}$
+
+    :::info[Solution]
+
+    To solve the Laplace equation easily, we use the boundary condition 1 & 2 with zeros first.
+
+    <u>For Case 1:</u> $\lambda=0$
+
+    **BC 1:** $u_{1}(0, y)=\left(c_{1}+c_{2} y\right)\left(c_{3}+c_{4}(0)\right)=0$
+
+    $\rightarrow$ Assume $c_{1}+c_{2} y \neq 0 ; c_{3}=0$
+
+    $\rightarrow u_{1}(x, y)=\left(c_{1}+c_{2} y\right)\left(c_{4} x\right)$
+
+    **BC 2:** $u_{1}(a, y)=\left(c_{1}+c_{2} y\right)\left(c_{4} a\right)=0$
+
+    $\rightarrow\left(c_{1}+c_{2} y\right) \neq 0$ & $a \neq 0$; hence $c_{4}=0$
+
+    $\rightarrow u_{1}(x, y)=\left(c_{1}+c_{2} y\right)(0)=0$
+
+    $\therefore u_{1}=0$; No solution for case 1
+
+    ---
+
+    <u>For Case 2:</u> $\lambda=-\alpha^{2}, \alpha>0$
+
+    **BC 1:** $u_{2}(0, y)=\left(c_{5} \cos (\alpha y)+c_{6} \sin (\alpha y)\right)\left(c_{7} \cosh (0)+c_{8} \sinh (0)\right)=0$
+
+    $\left(c_{5} \cos (\alpha y)+c_{6} \sin (\alpha y)\right)\left(c_{7}\right)=0$
+
+    $\rightarrow\left(c_{5} \cos (\alpha y)+c_{6} \sin (\alpha y)\right) \neq 0 ;$ hence $c_{7}=0$
+
+    $\rightarrow u_{2}(x, y)=\left(c_{5} \cos (\alpha y)+c_{6} \sin (\alpha y)\right)\left(c_{8} \sinh (\alpha x)\right)$
+
+    **BC 2:** $u_{2}(a, y)=\left(c_{5} \cos (\alpha y)+c_{6} \sin (\alpha y)\right)\left(c_{8} \sinh (\alpha a)\right)=0$
+
+    $\rightarrow\left(c_{5} \cos (\alpha y)+c_{6} \sin (\alpha y)\right) \neq 0, \sinh (\alpha a) \neq 0$; hence $c_{8}=0$
+
+    $\rightarrow u_{2}(x, y)=\left(c_{5} \cos (\alpha y)+c_{6} \sin (\alpha y)\right)(0)=0$
+
+    $\therefore u_{2}=0$; No solution for case 2
+
+    ---
+
+    <u>For Case 3:</u> $\lambda=+\alpha^{2}, \alpha>0$
+
+    **BC 1:** $u_{3}(0, y)=\left(c_{9} \cosh (\alpha y)+c_{10} \sinh (\alpha y)\right)\left(c_{11} \cos (0)+c_{12} \sin (0)\right)=0$
+
+    $\left(c_{9} \cosh (\alpha y)+c_{10} \sinh (\alpha y)\right)\left(c_{11}\right)=0$
+
+    $\rightarrow\left(c_{9} \cosh (\alpha y)+c_{10} \sinh (\alpha y)\right) \neq 0 ;$ hence $c_{11}=0$
+
+    $\rightarrow u_{3}(x, y)=\left(c_{9} \cosh (\alpha y)+c_{10} \sinh (\alpha y)\right)\left(c_{12} \sin (\alpha x)\right)$
+
+    **BC 2:** $u_{3}(a, y)=\left(c_{9} \cosh (\alpha y)+c_{10} \sinh (\alpha y)\right)\left(c_{12} \sin (\alpha a)\right)=0$
+
+    $\rightarrow\left(c_{9} \cosh (\alpha y)+c_{10} \sinh (\alpha y)\right), c_{12} \neq 0$; hence $\sin (\alpha a)=0$ when $\alpha \mathrm{b}=n \pi, \alpha=\frac{n \pi}{b}$ where $n=1,2,3, \ldots$
+
+    $\begin{aligned}\therefore u_{3, n}&=\left(c_{9, n} \cosh \left(\frac{n \pi}{a} y\right)+c_{10, n} \sinh \left(\frac{n \pi}{a} y\right)\right)\left(c_{12, n} \sin (\alpha x)\right) \\\quad&=\left(A_{3, n} \cosh \left(\frac{n \pi}{a} y\right)+B_{3, n} \sinh \left(\frac{n \pi}{a} y\right)\right)\left(\sin \left(\frac{n \pi}{a} x\right)\right) \text { where } n=1,2,3, \ldots\end{aligned}$
+
+    Eigenvalue, $\lambda_{n}=+\alpha_{n}{ }^{2}=\left(\frac{n \pi}{a}\right)^{2}$
+
+    Eigenfunction, $\mathrm{u}_{3, \mathrm{n}}=\left(A_{3, \mathrm{n}} \cosh \left(\frac{n \pi}{a} y\right)+B_{3, \mathrm{n}} \sinh \left(\frac{n \pi}{a} y\right)\right)\left(\sin \left(\frac{n \pi}{a} x\right)\right)$
+
+    $\therefore u_{\text {total }}(x, y)=\sum_{n=1}^{\infty}\left(A_{3, \mathrm{n}} \cosh \left(\frac{n \pi}{a} y\right)+B_{3, \mathrm{n}} \sinh \left(\frac{n \pi}{a} y\right)\right)\left(\sin \left(\frac{n \pi}{a} x\right)\right)$
+
+    **BC 3:** 
+    
+    $\begin{aligned}u_{\text {total }}(x, 0)&=\sum_{n=1}^{\infty}\left(A_{3, n} \cosh \left(\frac{n \pi}{a}(0)\right)+B_{3, n} \sinh \left(\frac{n \pi}{a}(0)\right)\right)\left(\sin \left(\frac{n \pi}{a} x\right)\right)=0\\&=\sum_{n=1}^{\infty}\left(A_{3, n}\right)\left(\sin \left(\frac{n \pi}{a} x\right)\right)=0\end{aligned}$
+
+    Recall Half-Range Fourier Sine Series Expansion:
+
+    $$A_{3, \mathrm{n}}=\frac{2}{L} \int_{0}^{\tau} f(x) \sin \left(\frac{n \pi}{a} x\right) d x=0$$
+    
+    $$u_{\text {total }}(x, y)=\sum_{n=1}^{\infty}\left(B_{3, n} \sinh \left(\frac{n \pi}{a} y\right)\right)\left(\sin \left(\frac{n \pi}{a} x\right)\right)$$
+
+    **BC 4:** $u_{\text {total }}(x, b)=\sum_{n=1}^{\infty}\left(B_{3, n} \sinh \left(\frac{n \pi}{a} b\right)\right)\left(\sin \left(\frac{n \pi}{a} x\right)\right)=f(x)$
+
+    Half-Range Fourier Sine Series Expansion:
+
+    $f(x)=\sum_{n=1}^{\infty}\left(B_{3, n} \sinh \left(\frac{n \pi}{a} b\right)\right)\left(\sin \left(\frac{n \pi}{a} x\right)\right)$
+
+    where $B_{3, n} \sinh \left(\frac{n \pi}{a} b\right)=\frac{2}{L} \int_{0}^{\tau} f(x) \sin n \omega x d x, \omega=\frac{\pi}{a}, p=\frac{2 \pi}{\omega}=2 a, L=\frac{p}{2}=a, \tau=a$
+
+    $B_{3, n} \sinh \left(\frac{n \pi}{a} b\right)=\frac{2}{a} \int_{0}^{a} f(x) \sin n \frac{\pi}{a} x d x$
+
+    $B_{3, n}=\frac{2}{\operatorname{asinh}\left(\frac{n \pi}{a} b\right)} \int_{0}^{a} f(x) \sin n \frac{\pi}{a} x d x$
+
+    $\therefore u_{\text {total }}(x, y)=\sum_{n=1}^{\infty}\left(\frac{2}{\operatorname{asinh}\left(\frac{n \pi}{a} b\right)} \int_{0}^{a} f(x) \sin n \frac{\pi}{a} x d x \sinh \left(\frac{n \pi}{a} y\right)\right)\left(\sin \left(\frac{n \pi}{a} x\right)\right)$
+
+    :::
+
+2. $\begin{aligned}u(0,y)&=0, &u(1,y)&=1-y, &0<y<1\\ \left.\frac{\partial u}{\partial y}\right|_{y=0}&=0, &\left.\frac{\partial u}{\partial y}\right|_{y=1}&=0, &0<x<1\end{aligned}$
+
+    :::info[Solution]
+
+    $$
+    \begin{aligned}
+    u(0,y)&=0,\rightarrow \text{BC3} &u(1,y)&=1-y,\rightarrow \text{BC4} &0<y<1\\ \left.\frac{\partial u}{\partial y}\right|_{y=0}&=0,\rightarrow \text{BC1} &\left.\frac{\partial u}{\partial y}\right|_{y=1}&=0,\rightarrow \text{BC2} &0<x<1
+    \end{aligned}
+    $$
+
+    <u>For Case 1:</u> $\lambda=0$
+
+    $u_{1}=\left(c_{1}+c_{2} y\right)\left(c_{3}+c_{4} x\right)$
+
+    $\frac{\partial u_{1}}{\partial y}=\left(c_{2}\right)\left(c_{3}+c_{4} x\right)$
+    
+    **BC 1:** $\frac{\partial u_{1}(x, 0)}{\partial y}=\left(c_{2}\right)\left(c_{3}+c_{4} x\right)=0$
+    
+    $\rightarrow$ let $c_{3}+c_{4} x=0 \rightarrow x=-\frac{c_{3}}{c_{4}}$ (Not true since $0<x<1$ hence, $c_{3}+c_{4} x \neq 0, c_{2}=0$
+    
+    $\rightarrow u_{1}=\left(c_{1}\right)\left(c_{3}+c_{4} x\right)=\left(A_{1}+B_{1} x\right)$
+    
+    **BC 2:** $\frac{\partial u_{1}(x, 1)}{\partial y}=\left(c_{2}\right)\left(c_{3}+c_{4} x\right)=0$
+    
+    $\rightarrow\left(c_{3}+c_{4} x\right) \neq 0$; hence $c_{2}=0 \rightarrow u_{1}=\left(c_{1}\right)\left(c_{3}+c_{4} x\right)=\left(A_{1}+B_{1} x\right)$
+    
+    $\therefore u_{1}(x, y)=\left(A_{1}+B_{1} x\right)$
+
+    ---
+
+    <u>For Case 2:</u>
+
+    $u_{2}=\left(c_{5} \cos (\alpha y)+c_{6} \sin (\alpha y)\right)\left(c_{7} \cosh (\alpha x)+c_{8} \sinh (\alpha x)\right)$
+
+    $\frac{\partial u_{2}}{\partial y}=\left(-c_{5} \alpha \sin (\alpha y)+c_{6} \alpha \cos (\alpha y)\right)\left(c_{7} \cosh (\alpha x)+c_{8} \sinh (\alpha x)\right)$
+
+    **BC 1:** $\frac{\partial u_{2}(x, 0)}{\partial y}=\left(-c_{5} \alpha \sin (0)+c_{6} \alpha \cos (0)\right)\left(c_{7} \cosh (\alpha x)+c_{8} \sinh (\alpha x)\right)=0$
+
+    $\left(c_{6} \alpha\right)\left(c_{7} \cosh (\alpha x)+c_{8} \sinh (\alpha x)\right)=0$
+
+    $\rightarrow\left(c_{7} \cosh (\alpha x)+c_{8} \sinh (\alpha x)\right) \neq 0 \& \alpha \neq 0$; hence, $c_{6}=0$
+
+    $\rightarrow \frac{\partial u_{2}}{\partial y}=\left(-c_{5} \alpha \sin (\alpha y)\right)\left(c_{7} \cosh (\alpha x)+c_{8} \sinh (\alpha x)\right)$
+
+    **BC 2:** $\frac{\partial u_{2}(x, 1)}{\partial y}=\left(-c_{5} \alpha \sin (\alpha)\right)\left(c_{7} \cosh (\alpha x)+c_{8} \sinh (\alpha x)\right)=0$
+
+    $\rightarrow\left(c_{7} \cosh (\alpha x)+c_{8} \sinh (\alpha x)\right) \neq 0 \& \alpha \neq 0$
+
+    $\rightarrow c_{11} \neq 0$ when $\sin (\alpha)=0$ for $\alpha=n \pi$ where $n=1,2,3, \ldots$
+
+    $\therefore u_{2, \mathrm{n}}(x, y)=\left(c_{5} \cos (\alpha y)\right)\left(c_{7} \cosh (\alpha x)+c_{8} \sinh (\alpha x)\right)$
+
+    $=(\cos (n \pi y))\left(A_{2, n} \cosh (n \pi x)+B_{2, n} \sinh (n \pi x)\right)$ where $n=1,2,3, \ldots$
+
+    ---
+
+    <u>For Case 3:</u>
+
+    $u_{3}=\left(c_{9} \cosh (\alpha y)+c_{10} \sinh (\alpha y)\right)\left(c_{11} \cos (\alpha x)+c_{12} \sin (\alpha x)\right)$
+
+    $\frac{\partial u_{3}}{\partial y}=\left(c_{9} \alpha \sinh (\alpha y)+c_{10} \alpha \cosh (\alpha y)\right)\left(c_{11} \cos (\alpha x)+c_{12} \sin (\alpha x)\right)$
+
+    **BC 1:** $\frac{\partial u_{3}(x, 0)}{\partial y}=\left(c_{9} \alpha \sinh (0)+c_{10} \alpha \cosh (0)\right)\left(c_{11} \cos (\alpha x)+c_{12} \sin (\alpha x)\right)=0$
+
+    $\left(c_{10} \alpha\right)\left(c_{11} \cos (\alpha x)+c_{12} \sin (\alpha x)\right)=0$
+
+    $\rightarrow\left(c_{11} \cos (\alpha x)+c_{12} \sin (\alpha x)\right) \neq 0 \& \alpha \neq 0$; hence, $c_{10}=0$
+
+    $\rightarrow \frac{\partial u_{3}}{\partial y}=\left(c_{9} \alpha \sinh (\alpha y)\right)\left(c_{11} \cos (\alpha x)+c_{12} \sin (\alpha x)\right)$
+
+    **BC 2:** $\frac{\partial u_{3}(x, 1)}{\partial y}=\left(c_{9} \alpha \sinh (\alpha)\right)\left(c_{11} \cos (\alpha x)+c_{12} \sin (\alpha x)\right)=0$
+
+    $\rightarrow\left(c_{11} \cos (\alpha x)+c_{12} \sin (\alpha x)\right) \neq 0 ; \alpha \neq 0$ \& $\sinh (\alpha) \neq 0$; hence, $c_{9}=0$
+
+    $\rightarrow u_{3}(x, y)=((0) \cosh (\alpha y)+(0) \sinh (\alpha y))\left(c_{11} \cos (\alpha x)+c_{12} \sin (\alpha x)\right)=0$
+
+    $\therefore u_{3}(x, y)=0$; No solution for case 3
+
+    $\therefore u_{\text {total }}(x, y)=\underbrace{\left(A_{1}+B_{1} x\right)}_{\text {solution } 1}+\underbrace{\sum_{n=1}^{\infty}\left(A_{2, n} \cosh (n \pi x)+B_{2, n} \sinh (n \pi x)\right)(\cos (n \pi y))}_{\text {solution } 2}$
+
+    **BC 3:** 
+    
+    $\begin{aligned}u_{\text {total }}(0, y)&=A_{1}+\sum_{n=1}^{\infty}\left(A_{2, n} \cosh (0)+B_{2, n} \sinh (0)\right)(\cos (n \pi y))=0\\&=A_{1}+\sum_{n=1}^{\infty}\left(A_{2, \mathrm{n}}\right)(\cos (n \pi y))=0\end{aligned}$
+
+    Using half-range Fourier cosine series expansion
+
+    $\begin{aligned}A_1=0\\A_{2,n}=0\end{aligned}$
+
+    Since RHS function is zero
+
+    $u_{\text {total }}(x, y)=B_{1} x+\sum_{n=1}^{\infty}\left(B_{3, \mathrm{n}} \sinh (n \pi x)\right)(\cos (n \pi y))$
+
+    **BC 4:** $u_{\text {total }}(1, y)=B_{1}+\sum_{n=1}^{\infty}\left(B_{3, \mathrm{n}} \sinh (n \pi)\right)(\cos (n \pi y))=1-y$
+
+    Half-Range Fourier Cosine Series Expansion:
+
+    $\begin{aligned}B_{1}&=\frac{1}{L} \int_{0}^{\tau} f(y) d y, \omega=\pi, p=\frac{2 \pi}{\omega}=2, L=\frac{p}{2}=1, \tau=1 \\B_{1}&=\int_{0}^{1}(1-y) d y=\frac{1}{2}\end{aligned}$
+
+    $\begin{aligned}B_{3, \mathrm{n}} \sinh (n \pi)&=\frac{2}{L} \int_{0}^{\tau} f(y) \cos (n \pi y) d y \\B_{3, \mathrm{n}} \sinh (n \pi)&=2 \int_{0}^{1}(1-y) \cos (n \pi y) d y \\B_{3, \mathrm{n}}&=\frac{2\left(1-(-1)^{n}\right)}{n^{2} \pi^{2} \sinh (n \pi)} \end{aligned}$
+    
+    $\therefore u_{t o t a l}(x, y)=\frac{1}{2} x+\frac{2}{\pi^{2}} \sum_{n=1}^{\infty}\left(\frac{\left(1-(-1)^{n}\right)}{n^{2} \sinh (n \pi)} \sinh (n \pi x)\right)(\cos (n \pi y))$
+
+    :::
+
+3. $\begin{aligned}\left.\frac{\partial u}{\partial x}\right|_{y=x}&=u(0,y), &u(\pi,y)&=1,&0<y<\pi\\u(x,0)&=0,&u(x,\pi)&=0,&0<x<1\end{aligned}$
+
+    :::info[Solution]
+
+    $$
+    \begin{aligned}
+    \left.\frac{\partial u}{\partial x}\right|_{y=x}&=u(0,y),\rightarrow\text{BC3} &u(\pi,y)&=1,\rightarrow\text{BC4} &0<y<\pi\\u(x,0)&=0,\rightarrow\text{BC1} &u(x,\pi)&=0,\rightarrow\text{BC2} &0<x<1
+    \end{aligned}
+    $$
+
+    <u>For Case 1:</u> $\lambda=0$
+
+    $u_{1}=\left(c_{1}+c_{2} y\right)\left(c_{3}+c_{4} x\right)$
+
+    **BC 1:** $u_{1}(x, 0)=\left(c_{1}+c_{2}(0)\right)\left(c_{3}+c_{4} x\right)=0$
+
+    $\rightarrow$ Assume $c_{3}+c_{4} x \neq 0 ; c_{1}=0$
+
+    $\rightarrow u_{1}(x, y)=\left(c_{2} y\right)\left(c_{3}+c_{4} x\right)$
+
+    **BC 2:** $u_{1}(x, \pi)=\left(c_{2} \pi\right)\left(c_{3}+c_{4} x\right)=0$
+
+    $\rightarrow\left(c_{3}+c_{4} x\right) \neq 0$, hence $c_{2}=0$
+
+    $\rightarrow u_{1}(x, y)=(0)\left(c_{3}+c_{4} x\right)=0$
+
+    $\therefore u_{1}=0$; No solution for case 1
+
+    ---
+
+    <u>For Case 2:</u> $\lambda=-\alpha^{2}, \alpha<0$
+
+    **BC 1:** 
+    
+    $\begin{aligned}u_{2}(x, 0)=\left(c_{5} \cos (0)+c_{6} \sin (0)\right)\left(c_{7} \cosh (\alpha x)+c_{8} \sinh (\alpha x)\right)&=0\\\left(c_{5}\right)\left(c_{7} \cosh (\alpha x)+c_{8} \sinh (\alpha x)\right)&=0\end{aligned}$
+
+    $\rightarrow\left(c_{7} \cosh (\alpha x)+c_{8} \sinh (\alpha x)\right) \neq 0 ;$ hence $c_{5}=0$
+
+    $\rightarrow u_{2}(x, y)=\left(c_{6} \sin (\alpha y)\right)\left(c_{7} \cosh (\alpha x)+c_{8} \sinh (\alpha x)\right)$
+
+    **BC 2:** $u_{2}(x, \pi)=\left(c_{6} \sin (\alpha \pi)\right)\left(c_{7} \cosh (\alpha x)+c_{8} \sinh (\alpha x)\right)=0$
+
+    $\rightarrow\left(c_{7} \cosh (\alpha x)+c_{8} \sinh (\alpha x)\right) \neq 0, c_{6} \neq 0$; hence $\sin (\alpha \pi)=0$ when $\alpha \pi=n \pi, \alpha=n$ where $\mathrm{n}=1,2,3, \ldots$
+
+    $u_{2, n}=\left(c_{6, n} \sin (n y)\right)\left(c_{7, \mathrm{n}} \cosh (n x)+c_{8, \mathrm{n}} \sinh (n x)\right)$
+
+    $=(\sin (n y))\left(A_{2, \mathrm{n}} \cosh (n x)+B_{2, \mathrm{n}} \sinh (n x)\right)$ where $n=1,2,3, \ldots$
+
+    ---
+
+    <u>For Case 3:</u> $\lambda=+\alpha^{2}, \alpha>0$
+
+    **BC 1:** $u_{3}(x, 0)=\left(c_{9} \cosh (0)+c_{10} \sinh (0)\right)\left(c_{11} \cos (\alpha x)+c_{12} \sin (\alpha x)\right)=0$
+
+    $\left(c_{9}\right)\left(c_{11} \cos (\alpha x)+c_{12} \sin (\alpha x)\right)=0$
+
+    $\rightarrow\left(c_{11} \cos (\alpha x)+c_{12} \sin (\alpha x)\right) \neq 0$; hence $c_{9}=0$
+
+    $\rightarrow u_{3}(x, y)=\left(c_{10} \sinh (\alpha y)\right)\left(c_{11} \cos (\alpha x)+c_{12} \sin (\alpha x)\right)$
+
+    **BC 2:** $u_{3}(x, \pi)=\left(c_{10} \sinh (\alpha \pi)\right)\left(c_{11} \cos (\alpha x)+c_{12} \sin (\alpha x)\right)=0$
+
+    $\rightarrow\left(c_{11} \cos (\alpha x)+c_{12} \sin (\alpha x)\right) \neq 0, \sinh (\alpha \pi) \neq 0, c_{10}=0$
+
+    $\rightarrow u_{3}(x, y)=(0)\left(c_{11} \cos (\alpha x)+c_{12} \sin (\alpha x)\right)=0$
+
+    $\therefore u_{3}=0$; No solution for case 3
+
+    $u_{\text {total }}(x, y)=\sum_{n=1}^{\infty}(\sin (n y))\left(A_{2, \mathrm{n}} \cosh (n x)+B_{2, \mathrm{n}} \sinh (n x)\right)$
+
+    $\frac{\partial u}{\partial x}=\sum_{n=1}^{\infty}(\sin (n y))\left(-A_{2, \mathrm{n}} n \sinh (n x)+B_{2, \mathrm{n}} n \cosh (n x)\right)$
+
+    **BC 3:** $\frac{\partial u(0, y)}{\partial x}=\sum_{n=1}^{\infty}(\sin (n y))\left(-A_{2, \mathrm{n}} n \sinh (0)+B_{2, \mathrm{n}} n \cosh (0)\right)$ $=u(0, y)=\sum_{n=1}^{\infty}(\sin (n y))\left(A_{2, \mathrm{n}} \cosh (0)+B_{2, \mathrm{n}} \sinh (0)\right)$
+
+    $\rightarrow B_{2, \mathrm{n}} n=A_{2, \mathrm{n}}$
+
+    **BC 4:** 
+    
+    $\begin{aligned}u_{\text {total }}(\pi, y)&=\sum_{n=1}^{\infty}(\sin (n y))\left(B_{2, \mathrm{n}} n \cosh (n \pi)+B_{2, \mathrm{n}} \sinh (n \pi)\right)\\&=\sum_{n=1}^{\infty} B_{2, n}(n \cosh (n \pi)+\sinh (n \pi))(\sin (n y))=1\end{aligned}$
+
+    Half-Range Fourier Sine Series Expansion:
+
+    $B_{2, \mathrm{n}}(n \cosh (n \pi)+\sinh (n \pi))=\frac{2}{\pi} \int_{0}^{\pi}(\sin (n y)) d y=\frac{2\left(1-(-1)^{n}\right)}{(n \pi)}$
+
+    $\therefore u_{\text {total }}(x, y)=\frac{2}{\pi} \sum_{n=1}^{\infty}\left(\frac{\left(1-(-1)^{n}\right)}{n} \frac{n \cosh (n x)+\sinh (n x)}{n \cosh (n \pi)+\sinh (n \pi)}\right)(\sin (n y))$
+
+    :::
+
+4. $\begin{aligned}u(0,y)&=0, &u(a,y)&=50, &0<y<b \\ u(x,0)&=0, &u(x,b)&=0, &0<x<a\end{aligned}$
+
+    :::info[Solution]
+
+    $$
+    \begin{aligned}
+    u(0,y)&=0, \rightarrow\text{BC3} &u(a,y)&=50, \rightarrow\text{BC4} &0<y<b \\ u(x,0)&=0, \rightarrow\text{BC1} &u(x,b)&=0, \rightarrow\text{BC2} &0<x<a
+    \end{aligned}
+    $$
+
+    <u>For Case 1:</u> $\lambda=0$
+
+    **BC 1:** $u_{1}(x, 0)=\left(c_{1}+c_{2}(0)\right)\left(c_{3}+c_{4} x\right)=0$
+
+    $\rightarrow$ Assume $c_{3}+c_{4} x \neq 0 ; c_{1}=0$
+
+    $\rightarrow u_{1}(x, y)=\left(c_{2} y\right)\left(c_{3}+c_{4} x\right)$
+
+    **BC 2:** u_{1}(x, b)=\left(c_{2} b\right)\left(c_{3}+c_{4} x\right)=0$
+
+    $\rightarrow\left(c_{3}+c_{4} x\right) \neq 0 \& b \neq 0$; hence $c_{2}=0$
+    
+    $\rightarrow u_{1}(x, y)=(0)\left(c_{3}+c_{4} x\right)=0$
+
+    $\therefore u_{1}=0$; No solution for case 1
+
+    ---
+
+    <u>For Case 2:</u> $\lambda=-\alpha^{2}, \alpha<0$
+
+    **BC 1:** 
+    
+    $\begin{aligned}u_{2}(x, 0)=\left(c_{5} \cos (0)+c_{6} \sin (0)\right)\left(c_{7} \cosh (\alpha x)+c_{8} \sinh (\alpha x)\right)&=0 \\ \left(c_{5}\right)\left(c_{7} \cosh (\alpha x)+c_{8} \sinh (\alpha x)\right)&\=0\end{aligned}$
+
+    $\rightarrow\left(c_{7} \cosh (\alpha x)+c_{8} \sinh (\alpha x)\right) \neq 0$; hence $c_{5}=0$
+
+    $\rightarrow u_{2}(x, y)=\left(c_{6} \sin (\alpha y)\right)\left(c_{7} \cosh (\alpha x)+c_{8} \sinh (\alpha x)\right)$
+
+    **BC 2:** $u_{2}(x, b)=\left(c_{6} \sin (\alpha b)\right)\left(c_{7} \cosh (\alpha x)+c_{8} \sinh (\alpha x)\right)=0$
+
+    $\rightarrow\left(c_{7} \cosh (\alpha x)+c_{8} \sinh (\alpha x)\right) \neq 0, c_{6} \neq 0$; hence $\sin (\alpha b)=0$ when $\alpha \mathrm{b}=n \pi, \alpha=\frac{n \pi}{b}$
+
+    where $n=1,2,3, \ldots$
+
+    $\begin{aligned}u_{2, n}&=\left(c_{6, n} \sin \left(\frac{n \pi}{b} y\right)\right)\left(c_{7, \mathrm{n}} \cosh \left(\frac{n \pi}{b} x\right)+c_{8, \mathrm{n}} \sinh \left(\frac{n \pi}{b} x\right)\right)\\&=\left(\sin \left(\frac{n \pi}{b} y\right)\right)\left(A_{2, \mathrm{n}} \cosh \left(\frac{n \pi}{b} x\right)+B_{2, \mathrm{n}} \sinh \left(\frac{n \pi}{b} x\right)\right) \quad \text { where } n=1,2,3, \ldots\end{aligned}$
+
+    ---
+
+    <u>For Case 3:</u> $\lambda=+\alpha^{2}, \alpha>0$
+
+    **BC 1:** $u_{3}(x, 0)=\left(c_{9} \cosh (0)+c_{10} \sinh (0)\right)\left(c_{11} \cos (\alpha x)+c_{12} \sin (\alpha x)\right)=0$
+
+    $\left(c_{9}\right)\left(c_{11} \cos (\alpha x)+c_{12} \sin (\alpha x)\right)=0$
+
+    $\rightarrow\left(c_{11} \cos (\alpha x)+c_{12} \sin (\alpha x)\right) \neq 0$; hence $c_{9}=0$
+
+    $\rightarrow u_{3}(x, y)=\left(c_{10} \sinh (\alpha y)\right)\left(c_{11} \cos (\alpha x)+c_{12} \sin (\alpha x)\right)$
+
+    **BC 2:** $u_{3}(x, b)=\left(c_{10} \sinh (\alpha b)\right)\left(c_{11} \cos (\alpha x)+c_{12} \sin (\alpha x)\right)=0$
+
+    $\rightarrow\left(c_{11} \cos (\alpha x)+c_{12} \sin (\alpha x)\right) \neq 0, \sinh (\alpha b) \neq 0, c_{10}=0$
+
+    $\rightarrow u_{3}(x, y)=(0)\left(c_{11} \cos (\alpha x)+c_{12} \sin (\alpha x)\right)=0$
+
+    $\therefore u_{3}=0$; No solution for case 3
+
+    $u_{\text {total }}(x, y)=\sum_{n=1}^{\infty}\left(\sin \left(\frac{n \pi}{b} y\right)\right)\left(A_{2, \mathrm{n}} \cosh \left(\frac{n \pi}{b} x\right)+B_{2, \mathrm{n}} \sinh \left(\frac{n \pi}{b} x\right)\right)$
+
+    **BC 3:** 
+    
+    $\begin{aligned}u_{\text {total }}(0, y)&=\sum_{n=1}^{\infty}\left(\sin \left(\frac{n \pi}{b} y\right)\right)\left(A_{2, \mathrm{n}} \cosh (0)+B_{2, \mathrm{n}} \sinh (0)\right)\\&=\sum_{n=1}^{\infty}\left(A_{2, \mathrm{n}}\right)\left(\sin \left(\frac{n \pi}{b} y\right)\right)=0\end{aligned}$
+
+    Recall Half-Range Fourier Sine Series Expansion:
+
+    $A_{2, \mathrm{n}}=\frac{2}{L} \int_{0}^{\tau} f(y) \sin \left(\frac{n \pi}{b} y\right) d y=0$
+
+    $u_{\text {total }}(x, y)=\sum_{n=1}^{\infty}\left(\sin \left(\frac{n \pi}{b} y\right)\right)\left(B_{2, \mathrm{n}} \sinh \left(\frac{n \pi}{b} x\right)\right)$
+
+    **BC 4:** $u_{\text {total }}(a, y)=\sum_{n=1}^{\infty}\left(\sin \left(\frac{n \pi}{b} y\right)\right)\left(B_{2, \mathrm{n}} \sinh \left(\frac{n \pi}{b} a\right)\right)=50$
+
+    Half-Range Fourier Sine Series Expansion:
+
+    $f(y)=\sum_{n=1}^{\infty}\left(B_{2, \mathrm{n}} \sinh \left(\frac{n \pi}{b} a\right)\right)\left(\sin \left(\frac{n \pi}{b} y\right)\right)$
+
+    where $B_{2, \mathrm{n}} \sinh \left(\frac{n \pi}{b} a\right)=\frac{2}{L} \int_{0}^{\tau} f(y) \sin \left(\frac{n \pi}{b} y\right) d y, \omega=\frac{\pi}{b}, p=\frac{2 \pi}{\omega}=2 a, L=\frac{p}{2}=b, \tau=b$
+
+    $B_{2, \mathrm{n}} \sinh \left(\frac{n \pi}{b} a\right)=\frac{2}{b} \int_{0}^{b} 50 \sin n \frac{\pi}{b} y d y$
+
+    $\begin{aligned}
+    B_{2, \mathrm{n}}&=\frac{100}{b \sinh \left(\frac{n \pi}{b} a\right)} \int_{0}^{b} \sin n \frac{\pi}{b} y d y \\
+    &=\frac{100}{\sinh \left(\frac{n \pi}{b} a\right)}\left[\frac{-\cos n \pi-(-1)}{n \pi}\right] \\
+    &=\frac{100}{n \pi \sinh \left(\frac{n \pi}{b} a\right)}\left[1-(-1)^{n}\right] \\
+    \end{aligned}$
+
+    $\therefore u_{\text {total }}(x, y)=\sum_{n=1}^{\infty}\left(\frac{100}{n \pi \sinh \left(\frac{n \pi}{b} a\right)}\left[1-(-1)^{n}\right] \sinh \left(\frac{n \pi}{b} x\right)\right)\left(\sin \left(\frac{n \pi}{b} y\right)\right)$
+
+    :::
+
+5. $\begin{aligned}u(0,y)&=0, &u(a,y)&=50, &0<y<b \\ u(x,0)&=0, &u(x,b)&=f(x), &0<x<a\end{aligned}$
+
+    :::info[Solution]
+
+    By applying superposition principle:
+
+    ![Image for Question 5](/img/tutorial/tutorial13_q5.png)
+
+    Solution $u=$ Solution $u_{\text {total }, 1}(x, y)$ of Question 4 (d) + Solution $u_{\text {total }, 2}(x, y)$ of Question 4 (a).
+
+    $u_{\text {total }, 1}(x, y)=\sum_{n=1}^{\infty}\left(\frac{100}{n \pi \sinh \left(\frac{n \pi}{b} a\right)}\left[1-(-1)^{n}\right] \sinh \left(\frac{n \pi}{b} x\right)\right)\left(\sin \left(\frac{n \pi}{b} y\right)\right)$ where $n=1,2 \ldots$
+
+    $u_{\text {total }, 2}(x, y)=\sum_{n=1}^{\infty}\left(\frac{2}{\operatorname{asinh}\left(\frac{n \pi}{a} b\right)} \int_{0}^{a} f(x) \sin n \frac{\pi}{a} x d x \sinh \left(\frac{n \pi}{a} y\right)\right)\left(\sin \left(\frac{n \pi}{a} x\right)\right)$ where $n=1,2,\ldots$
+
+    $\therefore u_{\text {total }}(x, y)=\sum_{n=1}^{\infty}\left(\frac{100}{n \pi \sinh \left(\frac{n \pi}{b} a\right)}\left[1-(-1)^{n}\right] \sinh \left(\frac{n \pi}{b} x\right)\right)\left(\sin \left(\frac{n \pi}{b} y\right)\right)+\sum_{n=1}^{\infty}\left(\frac{2}{\operatorname{asinh}\left(\frac{n \pi}{a} b\right)} \int_{0}^{a} f(x) \sin n \frac{\pi}{a} x d x \sinh \left(\frac{n \pi}{a} y\right)\right)\left(\sin \left(\frac{n \pi}{a} x\right)\right)$ where $n=1,2 \ldots$
+
+    :::
+
+6. Heat equation, $u_{t}-u_{x x}=0$
+
+    General solution: $u(x, t)=A_{1} x+B_{1}+e^{\alpha^{2} t}\left(A_{2} \cosh (\alpha x)+B_{2} \sinh (\alpha x)\right) +e^{-\alpha^{2} t}\left(A_{3} \cos (\alpha x)+B_{3} \sin (\alpha x)\right)$
+
+    Subject to the given boundary conditions:
+
+    $\begin{aligned}u(0,t)&=0, &u(2,t)&=0, &t>0 \\ u(x,0)&=\sin \frac{\pi}{2}x, &&&0<x<2\end{aligned}$
+
+    :::info[Solution]
+
+    <u>For Case 1:</u> $\lambda=0$
+
+    **BC 1:** $u_{1}(0, t)=A_{1}(0)+B_{1}=0 ; B_{1}=0$
+
+    $\rightarrow u_{1}(x, t)=A_{1} x$
+
+    **BC 2:** $u_{1}(2, t)=A_{1}(2)=0 ; A_{1}=0$
+
+    $\rightarrow u_{1}(x, t)=0$; No solution for case 1
+
+    ---
+
+    <u>For Case 2:</u>
+
+    **BC 1:** $u_{2}(0, t)=e^{\alpha^{2} t}\left(\mathrm{~A}_{2} \cosh (0)+\mathrm{B}_{2} \sinh (0)\right)=0$
+
+    Comparing coefficient $e^{\alpha^{2} t}: A_{2} \cosh (0)+B_{2} \sinh (0)=0, A_{2}=0$
+
+    Then, we get $u_{2}=e^{\alpha^{2} t}\left(\mathrm{~B}_{2} \sinh (\alpha x)\right)$
+
+    **BC 2:** $u_{2}(2, t)=e^{\alpha^{2} t}\left(\mathrm{~B}_{2} \sinh (2 \alpha)\right)=0$
+
+    Comparing coefficient $e^{\alpha^{2} t}:\left(\mathrm{B}_{2} \sinh (2 \alpha)\right)=0$
+
+    Since $\sinh (2 \alpha)$ will not be zero for $\alpha>0$, thus $B_{2}=0$
+
+    $\rightarrow u_{2}(x, t)=0$; No solution for case 2
+
+    ---
+
+    <u>For Case 3:</u>
+
+    **BC 1:** $u_{3}(0, t)=e^{-\alpha^{2} t}\left(\mathrm{~A}_{3} \cos (0)+\mathrm{B}_{3} \sin (0)\right)=0$
+
+    Comparing coefficient $e^{-\alpha^{2} t}: A_{3} \cos (0)+B_{3} \sin (0)=0 \rightarrow A_{3}=0$
+
+    Hence we get $u_{3}=e^{-\alpha^{2} t}\left(\mathrm{~B}_{3} \sin (\alpha x)\right)$
+
+    **BC 2:** $u_{3}(2, t)=e^{-\alpha^{2} t}\left(\mathrm{~B}_{3} \sin (2 \alpha)\right)=0$
+
+    Comparing coefficient $e^{-\alpha^{2} t}:\left(\mathrm{B}_{3} \sin (2 \alpha)\right)=0$
+
+    $B_3 \neq 0$ when $\sin (2 \alpha)=0$ for $2 \alpha=n \pi$ where $n=1,2,3, \ldots$
+
+    $\rightarrow u_{3, \mathrm{n}}=e^{-\left(\frac{n \pi}{2}\right)^{2} t}\left(\mathrm{~B}_{3, n} \sin \left(\frac{n \pi}{2} x\right)\right)$ where $n=1,2,3, \ldots$
+
+    $\therefore u_{\text {total }}(x, t)=\sum_{n=1}^{\infty} e^{-\left(\frac{n \pi}{2}\right)^{2} t}\left(\mathrm{~B}_{3, n} \sin \left(\frac{n \pi}{2} x\right)\right)$
+
+    **BC 3:** $u(x, 0)=\sum_{n=1}^{\infty}\left(\mathrm{B}_{3, n} \sin \left(\frac{n \pi}{2} x\right)\right)=\sin \frac{\pi}{2} x$
+
+    $B_{3, n}=\int_{0}^{2}\left(\sin \frac{\pi}{2} x\right)\left(\sin \left(\frac{n \pi}{2} x\right)\right) d x=\left\{\begin{array}{ll}1 & n=1 \\ 0 & n \neq 1\end{array} \quad\right.$ *refer to Q4
+
+    $\therefore u_{\text {total }}(x, t)=e^{-\frac{\pi^{2}}{4} t}\left(\sin \left(\frac{\pi}{2} x\right)\right)$
+
+    :::
+
+7. Heat equation, $u_{t}-\frac{1}{16} u_{x x}=0$
+
+    General solution: $u(x, t)=A_{1} x+B_{1}+e^{\alpha^{2} t}\left(A_{2} \cosh (4 \alpha x)+B_{2} \sinh (4 \alpha x)\right) +e^{-\alpha^{2} t}\left(A_{3} \cos (4 \alpha x)+B_{3} \sin (4 \alpha x)\right)$
+
+    Subject to the given boundary conditions:
+
+    $\begin{aligned}u(0,t)&=0, &u(1,t)&=0, &t>0 \\ u(x,0)&=2\sin 2\pi x, &&&0<x<1\end{aligned}$
+
+    :::info[Solution]
+
+    <u>For Case 1:</u> $\lambda=0$
+
+    **BC 1:** $u_{1}(0, t)=A_{1}(0)+B_{1}=0 ; B_{1}=0$
+
+    $\rightarrow u_{1}(x, t)=A_{1} x$
+
+    **BC 2:** $u_{1}(1, t)=A_{1}(1)=0 ; A_{1}=0$
+
+    $\rightarrow u_{1}(x, t)=0$; No solution for case 1
+
+    ---
+    
+    <u>For Case 2:</u>
+
+    **BC 1:** $u_{2}(0, t)=e^{\alpha^{2} t}\left(\mathrm{~A}_{2} \cosh (0)+\mathrm{B}_{2} \sinh (0)\right)=0$
+
+    Comparing coefficient $e^{\alpha^{2} t}: A_{2} \cosh (0)+B_{2} \sinh (0)=0, A_{2}=0$
+
+    Then, we get $u_{2}=e^{\alpha^{2} t}\left(\mathrm{~B}_{2} \sinh (4 \alpha x)\right)$
+
+    **BC 2:** $u_{2}(1, t)=e^{\alpha^{2} t}\left(\mathrm{~B}_{2} \sinh (4 \alpha)\right)=0$
+
+    Comparing coefficient $e^{\alpha^{2} t}:\left(\mathrm{B}_{2} \sinh (4 \alpha)\right)=0$
+
+    Since $\sinh (4 \alpha)$ will not be zero for $\alpha>0$, thus $B_{2}=0$
+
+    $\rightarrow u_{2}(x, t)=0$; No solution for case 2
+
+    ---
+    
+    <u>For Case 3:</u>
+
+    **BC 1:** $u_{3}(0, t)=e^{-\alpha^{2} t}\left(\mathrm{~A}_{3} \cos (0)+\mathrm{B}_{3} \sin (0)\right)=0$
+
+    Comparing coefficient $e^{-\alpha^{2} t}: A_{3} \cos (0)+B_{3} \sin (0)=0 \rightarrow A_{3}=0$
+
+    Hence we get $u_{3}=e^{-\alpha^{2} t}\left(\mathrm{~B}_{3} \sin (4 \alpha x)\right)$
+
+    **BC 2:** $u_{3}(1, t)=e^{-\alpha^{2} t}\left(\mathrm{~B}_{3} \sin (4 \alpha)\right)=0$
+
+    Comparing coefficient $e^{-\alpha^{2} t}:\left(\mathrm{B}_{3} \sin (4 \alpha)\right)=0$
+
+    $B_{3} \neq 0$ when $\sin (4 \alpha)=0$ for $4 \alpha=n \pi$ where $n=1,2,3, \ldots$
+
+    $\rightarrow u_{3, \mathrm{n}}=e^{-\left(\frac{n \pi}{4}\right)^{2} t}\left(\mathrm{~B}_{3, n} \sin (n \pi x)\right)$ where $n=1,2,3, \ldots$
+
+    $\therefore u_{\text {total }}(x, t)=\sum_{n=1}^{\infty} e^{-\left(\frac{n \pi}{4}\right)^{2} t}\left(\mathrm{~B}_{3, n} \sin (n \pi x)\right)$
+
+    **BC 3:** $u(x, 0)=\sum_{n=1}^{\infty}\left(\mathrm{B}_{3, n} \sin (n \pi x)\right)=2 \sin 2 \pi x$
+
+    $\mathrm{B}_{3, n}=2 \int_{0}^{2}(2 \sin 2 \pi x)(\sin (n \pi x)) d x= \begin{cases}2 & n=2 \\ 0 & n \neq 2\end{cases}$
+
+    $\therefore u_{\text {total }}(x, t)=2 e^{-\frac{\pi^{2}}{4} t}(\sin (2 \pi x))$
+
+    :::
+
+8. Wave equation, $u_{t t}-u_{x x}=0$
+
+    General solution: $u(x, t)=\left(c_{1}+c_{2} t\right)\left(c_{3}+c_{4} x\right) +\left(c_{5} \cosh (\alpha t)+c_{6} \sinh (\alpha t)\right)\left(c_{7} \cosh (\alpha x)+c_{8} \sinh (\alpha x)\right) +\left(c_{9} \cos (\alpha t)+c_{10} \sin (\alpha t)\right)\left(c_{11} \cos (\alpha x)+c_{12} \sin (\alpha x)\right)$
+
+    Subject to the given boundary conditions:
+
+    $\begin{aligned}u(0,t)&=0, &u(1,t)&=0, &t>0 \\ u(x,0)&=\sin\pi x, &\frac{\partial u}{\partial t}(x,0)&=0, &0<x<1\end{aligned}$
+
+    :::info[Solution]
+
+    <u>For Case 1:</u> $\lambda=0$
+
+    **BC 1:** $u_{1}(0, t)=\left(c_{1}+c_{2} t\right)\left(c_{3}+c_{4}(0)\right)=0$
+
+    $\rightarrow c_{1}+c_{2} t \neq 0$ because the vibration is changed with time, hence $T(t) \neq 0 ; c_{3}=0$
+
+    $\rightarrow u_{1}(x, t)=\left(c_{1}+c_{2} t\right)\left(c_{4} x\right)$
+
+    **BC 2:** $u_{1}(1, t)=\left(c_{1}+c_{2} t\right)\left(c_{4}\right)=0$
+
+    $\rightarrow\left(c_{1}+c_{2} t\right) \neq 0$; hence $c_{4}=0$
+
+    $\rightarrow u_{1}(x, y)=\left(c_{1}+c_{2} t\right)(0)=0$
+
+    $\therefore u_{1}=0$; No solution for case 1
+
+    ---
+    
+    <u>For Case 2:</u> $\lambda=-\alpha^{2}, \alpha>0$
+
+    **BC 1:** $u_{2}(0, t)=\left(c_{5} \cos h(\alpha t)+c_{6} \sin h(\alpha t)\right)\left(c_{7} \cos h(0)+c_{8} \sin h(0)\right)=0$
+
+    $\left(c_{5} \cosh (\alpha t)+c_{6} \sinh (\alpha t)\right)\left(c_{7}\right)=0$
+
+    $\rightarrow\left(c_{5} \cos h(\alpha t)+c_{6} \sin h(\alpha t)\right) \neq 0$; hence $c_{7}=0$
+
+    $\rightarrow u_{2}(x, t)=\left(c_{5} \cosh (\alpha t)+c_{6} \sinh (\alpha t)\right)\left(c_{8} \sinh (\alpha x)\right)$
+
+    **BC 2:** $u_{2}(1, t)=\left(c_{5} \cos h(\alpha t)+c_{6} \sinh (\alpha t)\right)\left(c_{8} \sinh (\alpha)\right)=0$
+
+    $\rightarrow\left(c_{5} \cos h(\alpha t)+c_{6} \sinh (\alpha t)\right) \neq 0, \sinh (\alpha) \neq 0$; hence $c_{8}=0$
+
+    $\rightarrow u_{2}(x, t)=\left(c_{5} \cos h(\alpha t)+c_{6} \sinh (\alpha t)\right)(0)=0$
+
+    $\therefore u_{2}=0$; No solution for case 2
+
+    ---
+
+    <u>For Case 3:</u> $\lambda=+\alpha^{2}, \alpha>0$
+
+    **BC 1:** $u_{3}(0, t)=\left(c_{9} \cos (\alpha t)+c_{10} \sin (\alpha t)\right)\left(c_{11} \cos (0)+c_{12} \sin (0)\right)=0$
+
+    $\left(c_{9} \cos (\alpha t)+c_{10} \sin (\alpha t)\right)\left(c_{11}\right)=0$
+
+    $\rightarrow\left(c_{9} \cos (\alpha t)+c_{10} \sin (\alpha t)\right) \neq 0$; hence $c_{11}=0$
+
+    $\rightarrow u_{3}(x, y)=\left(c_{9} \cos (\alpha t)+c_{10} \sin (\alpha t)\right)\left(c_{12} \sin (\alpha x)\right)$
+
+    **BC 2:** $u_{3}(1, t)=\left(c_{9} \cos (\alpha t)+c_{10} \sin (\alpha t)\right)\left(c_{12} \sin (\alpha)\right)=0$
+
+    $\rightarrow\left(c_{9} \cos (\alpha t)+c_{10} \sin (\alpha t)\right) \neq 0, c_{12} \neq 0$; hence $\sin (\alpha)=0$ when $\alpha=n \pi$, where $n=1,2,3, \ldot$
+
+    $\begin{aligned}
+    \therefore u_{3, n}=\left(c_{9} \cos (n \pi t)+c_{10} \sin (n \pi t)\right)\left(c_{12} \sin (n \pi)\right) \\
+    &=\left(A_{3, n} \cos (n \pi t)+B_{3, n} \sin (n \pi t)\right)(\sin (n \pi x)) \text { where } n=1,2,3, \ldots \\
+    \end{aligned}$
+
+    $\therefore u_{\text {total }}(x, t)=\sum_{n=1}^{\infty}\left(A_{3, n} \cos (n \pi t)+B_{3, n} \sin (n \pi t)\right)(\sin (n \pi x))$
+
+    **BC 3:** 
+    
+    $\begin{aligned}u_{\text {total }}(x, 0)&=\sum_{n=1}^{\infty}\left(A_{3, n} \cos (0)+B_{3, n} \sin (0)\right)(\sin (n \pi x))=\sin \pi x\\&=\sum_{n=1}^{\infty}(A_{3, n})(\sin(n\pi x))=\sin\pi x\end{aligned}$
+
+    Half-Range Fourier Sine Series Expansion:
+    
+    $\begin{aligned}
+    A_{3, \mathrm{n}}&=2 \int_0^1(\sin \pi x)(\sin (n \pi x)) d x \\
+    &=2 \int_0^1 \frac{1}{2}(\cos (\pi x-n \pi x))-(\cos (\pi x+n \pi x)) d x \\
+    &=\int_0^1(\cos (\pi x)(1-n))-(\cos (\pi x)(1+n)) d x \\
+    &=\frac{\sin (1-n)(\pi)}{(1-n) \pi}-\frac{\sin (1+n)(\pi)}{(1+n) \pi} \text { where } n \neq 1 \\
+    \end{aligned}$
+
+    $\begin{aligned}
+    A_{3,1}&=2 \int_0^1 \frac{1}{2}(\cos ((1-1) \pi x))-(\cos (1+1) \pi x)) d x \\
+    &=\int_0^1(\cos (0))-(\cos (2 \pi x)) d x \\
+    &=\int_0^1 1 d x-\int_0^1(\cos (2 \pi x)) d x \\
+    &=1 \\
+    \end{aligned}$
+
+    $A_{3, n}= \begin{cases}1 & n=1 \\0 & n \neq 1\end{cases}$
+
+    $\frac{\partial u(x, t)}{\partial t}=\sum_{n=1}^{\infty}\left(-A_{3, n} n \pi \sin (n \pi t)+B_{3, n} n \pi \cos (n \pi t)\right)(\sin (\pi x))$
+
+    **BC 4:** 
+    
+    $\begin{aligned}
+    \frac{\partial u(x, 0)}{\partial t}=\sum_{n=1}^{\infty}\left(-A_{3, n} n \pi \sin (0)+B_{3, n} n \pi \cos (0)\right)(\sin (\pi x)&)=0 \\
+    & \sum_{n=1}^{\infty}\left(B_{3, n} n \pi\right)(\sin (\pi x))=0, B_{3, n}&=0 \\
+    \end{aligned}$
+
+    $\therefore u_{\text {total }}(x, t)=(\cos (\pi t))(\sin (\pi x)) \text { only when } \mathrm{n}=1$
+
+    :::
+
+9. Continue to estimate the solution of Q2 at $(0.9,0.1)$ by using 2 summation terms. Assume the actual answer is 0.74045 and the allowable percentage of error is 1%. Please comment if the estimation is acceptable or not. If no, please suggest how to improve the solution. 
+
+    :::info[Solution]
+
+    $(0.9,0.1)=(x,y)$
+
+    $$
+    \begin{aligned}
+    u_{\text {total }}(0.9,0.1) &\approx \frac{1}{2}(0.9)+\frac{2}{\pi^2} \sum_{n=1}^2\left(\frac{\left(1-(-1)^n\right)}{n^2 \sinh (n \pi)} \sinh (0.9 n \pi)\right)(\cos (0.1 n \pi)) \\
+    & \approx \frac{1}{2}(0.9)+\frac{2}{\pi^2} {\left[\left(\frac{\left(1-(-1)^1\right)}{1^2 \sinh (1 \pi)} \sinh (0.9(1) \pi)(\cos (0.1(1) \pi))\right.\right.} \left.\left.\quad+\frac{\left(1-(-1)^2\right)}{2^2 \sinh (2 \pi)} \sinh (0.9(2) \pi)(\cos (0.1(2) \pi))\right)\right]
+    & \approx 0.45+0.28107+0\\
+    & \approx 0.73107\\
+    \end{aligned}
+    $$
+
+    Actual answer is 0.74045
+    
+    Percentage of error $=\frac{0.74045-0.73107}{0.74045} x 100 \%=1.27 \%$
+    
+    The estimation is not acceptable, therefore higher number of summation terms is needed for improving the estimation.
+    :::
+
+10. Identify the eigenvalue and eigenvector of PDE solutions that has been solved in Q2.
+
+    :::info[Solution]
+
+    For case 1 , eigenvalue, $\lambda=0$; eigenfunction of PDE: $u_1=\left(A_1+B_1 x\right)$
+    
+    For case 2, eigenvalue, $\lambda=-(n \pi)^2$; eigenfunction of PDE:
+    
+    $$
+    u_{2, \mathrm{n}}(x, y)=(\cos (n \pi y))\left(A_{2, n} \cosh (n \pi x)+B_{2, n} \sinh (n \pi x)\right) \text { where } n=1,2,3, \ldots
+    $$
+
+    No eigenvalue & eigenfunction for case 3.
+
+    :::
