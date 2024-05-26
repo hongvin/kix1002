@@ -45,6 +45,22 @@ const config: Config = {
     [
       'classic',
       {
+        gtag: {
+          trackingID: 'G-MBFTML3Z9K',
+          anonymizeIP: true,
+        },
+        sitemap: {
+          lastmod: 'date',
+          changefreq: 'weekly',
+          priority: 0.5,
+          ignorePatterns: ['/tags/**'],
+          filename: 'sitemap.xml',
+          createSitemapItems: async (params) => {
+            const {defaultCreateSitemapItems, ...rest} = params;
+            const items = await defaultCreateSitemapItems(rest);
+            return items.filter((item) => !item.url.includes('/page/'));
+          },
+        },
         docs: {
           routeBasePath: '/',
           sidebarPath: './sidebars.ts',

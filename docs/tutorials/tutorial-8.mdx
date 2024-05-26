@@ -206,7 +206,7 @@ import Link from '@docusaurus/Link';
 
     :::
 
-3. 3. Given $\mathcal{L}\{f(t)\}$, find $f(t)$. Show the details of your work, including the partial fraction expansion if necessary.
+3. Given $\mathcal{L}\{f(t)\}$, find $f(t)$. Show the details of your work, including the partial fraction expansion if necessary.
     
     i.   $\mathcal{L}^{-1}\left(\frac{1}{s^2}-\frac{48}{s^5}\right)$
     
@@ -304,6 +304,60 @@ import Link from '@docusaurus/Link';
 
     $$
     \begin{aligned} \mathcal{L}^{-1}\left\{\frac{e^{-2 s}}{s^{2}(s-1)}\right\} &=\mathcal{L}^{-1}\left(-\frac{e^{-2 s}}{s}-\frac{e^{-2 s}}{s^{2}}+\frac{1}{s-1}\right) \\&=\left(-1-(t-2)+e^{(t-2)}\right) u(t-2)\end{aligned}
+    $$
+
+    :::
+
+4. 
+    a. Using the Laplace transform definition, evaluate the Laplace transform for the following function:
+
+    <img src="/img/tutorial/tutorial8_q4.png" height="150" /> 
+    
+    b. Prove your answer in part (a) by expressing the functions using unit step function and find $\mathcal{L}\{f(t)\}$ by referring to the Laplace transform table.
+
+    :::info[Solution]
+    
+    a.
+
+    $$
+    f(t)=\left\{\begin{array}{c}t^{2}, 0<t<1 \\ 1,1<t<3 \\ 0, \quad t>3\end{array}\right.
+    $$
+
+    $$
+    \begin{aligned}\mathcal{L}\{f(t)\}&=\int_{0}^{1} t^{2} e^{-s t} d t+\int_{1}^{3} e^{-s t} d t\\&=-\left.\frac{1}{s} t^{2} e^{-s t}\right|_{0} ^{1}+\frac{2}{s} \int_{0}^{1} t e^{-s t} d t-\left.\frac{1}{s} e^{-s t}\right|_{1} ^{3}\\&=-\frac{1}{s} e^{-s}+\frac{2}{s}\left[-\frac{t}{s} e^{-s t}\right]_{0}^{1}+\frac{2}{s^{2}} \int_{0}^{1} e^{-s t} d t-\frac{1}{s} e^{-3 s}+\frac{1}{s} e^{-s}\\&=\frac{2}{s^{2}} e^{-s}+\frac{2}{s^{2}}\left[-\frac{1}{s} e^{-s t}\right]_{0}^{1}-\frac{1}{s} e^{-3 s}\\&=\underline{\underline{-\frac{2}{s^{2}} e^{-s}-\frac{2}{s^{3}} e^{-s}+\frac{2}{s^{3}}-\frac{1}{s} e^{-3 s}}}\end{aligned}
+    $$
+
+    b.
+
+    $$
+    \begin{aligned}f(t)&=t^{2}(u(t)-u(t-1))+1(u(t-1)-u(t-3))\\&=t^{2} u(t)+\left(1-t^{2}\right) u(t-1)-u(t-3)\\&=t^{2} u(t)+\left(1-(t-1)^{2}-2 t+1\right) u(t-1)-u(t-3)\\&=t^{2} u(t)+(t-1)^{2} u(t-1)-2(t-1) u(t-1)-u(t-3)\end{aligned}
+    $$
+
+    $$
+    \mathcal{L}\{f(t)\}=\underline{\underline{\frac{2}{s^{3}}-\frac{2}{s^{3}} e^{-s}-\frac{2}{s^{2}} e^{-s}-\frac{1}{s} e^{-3 s}}}
+    $$
+
+    :::
+
+5. Using the theorem $\mathcal{L}\left\{\int_0^tf(\tau)d\tau\right\}=\frac{1}{s}F(s)$, find $f(t)$ if $\mathcal{L}\{f(t)\}=\frac{s+1}{s^3+9s}$. You are not allowed to use partial fraction expansion.
+
+    :::info[Solution]
+
+    $$
+    \mathcal{L}\{f(t)\}=\frac{s+1}{s^{3}+9 s}=\frac{s+1}{s\left(s^{2}+9\right)}=\frac{1}{s} F(s)
+    $$
+
+    $$
+    F(s)=\frac{s+1}{s^{2}+9}=\frac{s}{s^{2}+9}+\frac{1}{s^{2}+9}
+    $$
+
+    $$
+    \mathcal{L}^{-1}\left\{\frac{s}{s^{2}+9}+\frac{1}{s^{2}+9}\right\}=\cos 3 t+\frac{1}{3} \sin 3 t
+    $$
+
+    $$
+    \begin{aligned}f(t)=\mathcal{L}^{-1}\left\{\frac{s+1}{s^{3}+9 s}\right\}&=\mathcal{L}^{-1}\left\{\frac{1}{s} F(s)\right\}\\
+    &=\int_{0}^{t} f(\tau) d \tau\\&=\int_{0}^{t} \cos 3 \tau+\frac{1}{3} \sin 3 \tau d \tau\\&=\underline{\underline{\frac{1}{3} \sin 3 t-\frac{1}{9} \cos 3 t+\frac{1}{9}}}\end{aligned}
     $$
 
     :::
