@@ -351,7 +351,58 @@ Classify the category of the following PDEs and solve the PDEs using separation 
 
     :::info[Solution]
 
+    \mathrm{A}=4 a^{2}, \mathrm{~B}=0, \mathrm{C}=-1, B^{2}-4 A C=0-4\left(4 a^{2}\right)(-1)>0, Hyperbolic PDE
 
+    **Step 1:** Let $u(x, t)=X(x) T(t)$
+
+    $\frac{\partial^{2} u}{\partial t^{2}}-4 a^{2} \frac{\partial^{2} u}{\partial x^{2}}=0$
+
+    $X T^{\prime \prime}-4 a^{2} X^{\prime \prime} T=0$
+
+    **Step 2:** Obtain 2 ODE equations
+
+    $$
+    \begin{aligned}
+    & \frac{X^{\prime \prime}}{4 a^{2} X}=\frac{T^{\prime \prime}}{T}=-\lambda \\
+    & T^{\prime \prime}+\lambda T=0 ; \quad X^{\prime \prime}+4 a^{2} \lambda X=0
+    \end{aligned}
+    $$
+
+    **Step 3:** 3 cases
+
+    <u>Case 1,</u> $\lambda=0$
+
+    | $\boldsymbol{T}^{\prime \prime}=\mathbf{0}$ | $\boldsymbol{X}^{\prime \prime}=\mathbf{0}$ |
+    | :--- | :--- |
+    | Let $T(t)=e^{r t}$ <br /> Characteristic equation: $r^{2}=0$ <br /> $T(t)=c_{1} e^{0 t}+c_{2} t e^{0 t}$ <br /> $\therefore T(t)=c_{1}+c_{2} t$ | Let $X(x)=e^{r x}$ <br /> Characteristic equation: $r^{2}=0$ <br /> $X(x)=c_{3} e^{0 x}+c_{4} x e^{0 x}$ <br /> $\therefore X(x)=c_{3}+c_{4} x$ |
+    
+    $\quad \therefore u_{1}=X_{1}(x) T_{1}(t)=\left(c_{1}+c_{2} t\right)\left(c_{3}+c_{4} x\right)$
+
+    <u>Case 2,</u> $\lambda=-\alpha^{2}, \alpha>0$
+
+    | $\boldsymbol{T}^{\prime \prime}-\boldsymbol{\alpha}^2\boldsymbol{T}=\mathbf{0}$ | $\boldsymbol{X}^{\prime \prime}-\mathbf{4}\boldsymbol{\alpha}^2\boldsymbol{\alpha}^2\boldsymbol{X}=\mathbf{0}$ |
+    | :--- | :--- |
+    | Let $T(t)=e^{r t}$ <br /> Characteristic equation: <br /> $\begin{aligned}r^{2}-\alpha^{2}&=0\\r&= \pm \sqrt{\alpha^{2}}\\r&=+\alpha,-\alpha\end{aligned}$ <br /> $\therefore T(t)=c_{5} \cosh (\alpha t)+c_{6} \sinh (\alpha t)$ | Let $X(x)=e^{r x}$ <br /> Characteristic equation: <br /> $\begin{aligned}r^{2}-4 a^{2} \alpha^{2}&=0\\r&= \pm \sqrt{4 a^{2} \alpha^{2}}\\r&=+2 a \alpha,-2 a \alpha\end{aligned}$ <br /> $\therefore X(x)=c_{7} \cosh (2 a \alpha x)+c_{8} \sinh (2 a \alpha x)$ |
+
+    $\therefore u_{2}=X_{2}(x) T_{2}(t)=\left(c_{5} \cosh (\alpha t)+c_{6} \sinh (\alpha t)\right)\left(c_{7} \cosh (2 a \alpha x)+c_{8} \sinh (2 a \alpha x)\right)$
+
+    <u>Case 3,</u> $\lambda=+\alpha^{2}, \alpha>0$
+
+    | $\boldsymbol{T}^{\prime \prime}+\boldsymbol{\alpha}^2\boldsymbol{T}=\mathbf{0}$ | $\boldsymbol{X}^{\prime \prime}+\mathbf{4}\boldsymbol{\alpha}^2\boldsymbol{\alpha}^2\boldsymbol{X}=\mathbf{0}$ |
+    | :--- | :--- |
+    | Let $T(t)=e^{r t}$ <br /> Characteristic equation: <br /> $\begin{aligned}r+\alpha^{2}=0\\r&= \pm \sqrt{-\alpha^{2}}\\r&=+\alpha i,-\alpha i\end{aligned}$ <br /> $\therefore T(t)=c_{9} \cos (\alpha t)+c_{10} \sin (\alpha t) & r=+2 a \alpha i,-2 a \alpha i$ | Let $X(x)=e^{r x}$ <br /> Characteristic equation: <br /> $\begin{aligned} r^{2}+4 a^{2} \alpha^{2}&=0 \\ r&= \pm \sqrt{-4 a^{2} \alpha^{2}} \\ r&=+2 a \alpha i,-2 a \alpha i\end{aligned}$ <br /> $\therefore X(x)=c_{11} \cos (2 a \alpha x)+c_{12} \sin (2 a \alpha x)$ |
+    
+    $\therefore u_{3}=X_{3}(x) T_{3}(t)=\left(c_{9} \cos (\alpha t)+c_{10} \sin (\alpha t)\right)\left(c_{11} \cos (2 a \alpha x)+c_{12} \sin (2 a \alpha x)\right)$
+
+    $\therefore$ General solution:
+
+    $$
+    \begin{aligned}
+    u(x, t)&=u_{1}+u_{2}+u_{3} \\
+    &=\left(c_{1}+c_{2} t\right)\left(c_{3}+c_{4} x\right)+\left(c_{5} \cos h(\alpha t)+c_{6} \sinh (\alpha t)\right)\left(c_{7} \cos h(2 a \alpha x)+c_{8} \sinh (2 a \alpha x)\right.
+    &+\left(c_{9} \cos (\alpha t)+c_{10} \sin (\alpha t)\right)\left(c_{11} \cos (2 a \alpha x)+c_{12} \sin (2 a \alpha x)\right)
+    \end{aligned}
+    $$
 
     :::
 

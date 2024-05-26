@@ -1,0 +1,159 @@
+---
+id: tutorial8
+slug: /tutorial8
+title: Tutorial 8
+description: Laplace Transform 
+sidebar_position: 6
+hide_table_of_contents: true
+---
+
+# Tutorial 8: Laplace Transform 
+
+```mdx-code-block
+import Question from '/pdf/tutorials/KIX1002_Tutorial_8.pdf';
+import Link from '@docusaurus/Link';
+
+<Link
+  className="button button--primary"
+  target="_blank"
+  to={Question}>
+  Tutorial Question
+</Link>
+```
+
+1. 1. Using the definition of Laplace transform, find the transform $\mathcal{L}\{f(t)\}$. Show the details of your integration.
+    
+    i.   $f(t)=7t-5$
+    
+    ii.   $f(t)=\sinh kt$
+    
+    iii.   $f(t)=e^{-t}\cosh t$
+    
+    iv.   $f(t)=t\sin t$
+    
+    v. <img src="/img/tutorial/tutorial8_q1v.png" height="150" /> 
+
+    vi. <img src="/img/tutorial/tutorial8_q1vi.png" height="150" /> 
+
+    vii. <img src="/img/tutorial/tutorial8_q1vii.png" height="150" /> 
+
+    viii. <img src="/img/tutorial/tutorial8_q1viii.png" height="150" /> 
+
+    :::info[Solution]
+
+    i.
+
+    $$
+    \begin{aligned}\mathcal{L}(7 t-5) &=\int_{0}^{\infty}(7 t-5) e^{-s t} d t \\&=\int_{0}^{\infty} 7 t e^{-s t} d t-\int_{0}^{\infty} 5 e^{-s t} d t \\&=-\left.\frac{7}{s} t e^{-s t}\right|_{0} ^{\infty}-\left(-\frac{7}{s}\right) \int_{0}^{\infty} e^{-s t} d t+\left.\frac{5}{s} e^{-s t}\right|_{0} ^{\infty} \\&=-\left.\frac{7}{s^{2}} e^{-s t}\right|_{0} ^{\infty}-\frac{5}{s} \\&=\frac{7}{s^{2}}-\frac{5}{s}\end{aligned}
+    $$
+
+    ii.
+
+    $$
+    \begin{aligned}\mathcal{L}(\sinh k t)&=\int_{0}^{\infty}(\sinh k t) e^{-s t} d t\\&=\int_{0}^{\infty}\left(\frac{e^{k t}-e^{-k t}}{2}\right) e^{-s t} d t \\&=\frac{1}{2}\left(\int_{0}^{\infty} e^{k t} e^{-s t} d t-\int_{0}^{\infty} e^{-k t} e^{-s t} d t\right) \\&=\frac{1}{2}\left(\int_{0}^{\infty} e^{(k-s) t} d t-\int_{0}^{\infty} e^{-(k+s) t} d t\right) \\&=\frac{1}{2}\left(\left.\frac{1}{k-s} e^{(k-s) t}\right|_{0} ^{\infty}+\left.\frac{1}{k+s} e^{-(k+s) t}\right|_{0} ^{\infty}\right) \\&=\frac{1}{2}\left(-\frac{1}{k-s}-\frac{1}{k+s}\right) \\&=\frac{1}{2}\left(\frac{1}{s-k}-\frac{1}{s+k}\right) \\&=\frac{1}{2}\left(\frac{s+k-s+k}{(s-k)(s+k)}\right) \\&=\frac{k}{s^{2}-k^{2}}\end{aligned}
+    $$
+
+    iii.
+
+    $$
+    \begin{aligned}\mathcal{L}\left(e^{-t} \cosh t\right)&=\int_{0}^{\infty} e^{-t}\left(\frac{e^{t}+e^{-t}}{2}\right) e^{-s t} d t\\&=\frac{1}{2}\left(\int_{0}^{\infty} e^{-t} e^{t} e^{-s t} d t+\int_{0}^{\infty} e^{-t} e^{-t} e^{-s t} d t\right) \\&=\frac{1}{2}\left(\int_{0}^{\infty} e^{-s t} d t+\int_{0}^{\infty} e^{-(2+s) t} d t\right) \\&=\frac{1}{2}\left(-\left.\frac{1}{s} e^{-s t}\right|_{0} ^{\infty}-\left.\frac{1}{s+2} e^{(s+2) t}\right|_{0} ^{\infty}\right) \\&=\frac{1}{2}\left(\frac{1}{s}+\frac{1}{s+2}\right)\end{aligned}
+    $$
+
+    iv.
+
+    $$
+    \mathcal{L}(t \sin t)=\int_{0}^{\infty}(t \sin t) e^{-s t} d t
+    $$
+
+    Let $u=t, d v=e^{-s t} \sin t$
+
+    $$
+    \begin{aligned}v=\int e^{-s t} \sin t d t&=-\frac{1}{s} e^{-s t} \sin t+\frac{1}{s} \int e^{-s t} \cos t d t \\&=-\frac{1}{s} e^{-s t} \sin t+\frac{1}{s}\left(-\frac{1}{s} e^{-s t} \cos t-\frac{1}{s} \int e^{-s t} \sin t d t\right)\\& =-\frac{1}{s} e^{-s t} \sin t-\frac{1}{s^{2}} e^{-s t} \cos t-\frac{1}{s^{2}} \int e^{-s t} \sin t d t \\
+    \left(1+\frac{1}{s^{2}}\right) \int e^{-s t} \sin t d t&=-\frac{1}{s} e^{-s t} \sin t-\frac{1}{s^{2}} e^{-s t} \cos t \\
+    v=\int e^{-s t} \sin t d t&=-\frac{s}{s^{2}+1} e^{-s t} \sin t-\frac{1}{s^{2}+1} e^{-s t} \cos t \\\end{aligned}
+    $$
+
+    $$
+    \begin{aligned}\mathcal{L}(t \sin t)&=\left.t\left(-\frac{s}{s^{2}+1} e^{-s t} \sin t-\frac{1}{s^{2}+1} e^{-s t} \cos t\right)\right|_{0} ^{\infty}\\ \qquad &-\int_{0}^{\infty}\left(-\frac{s}{s^{2}+1} e^{-s t} \sin t-\\frac{1}{s^{2}+1} e^{-s t} \cos t\right) d t \\& =-\left.\frac{s t}{s^{2}+1} e^{-s t} \sin t\right|_{0} ^{\infty}-\left.\frac{t}{s^{2}+1} e^{-s t} \cos t\right|_{0} ^{\infty}\\&\quad+\frac{s}{s^{2}+1} \int_{0}^{\infty} e^{-s t} \sin t d t+ \frac{1}{s^{2}+1} \int_{0}^{\infty} e^{-s t} \cos t d t \\\end{aligned}
+    $$
+
+    $$
+    \begin{aligned} \int_{0}^{\infty} e^{-s t} \sin t d t&=-\left.\frac{s}{s^{2}+1} e^{-s t} \sin t\right|_{0} ^{\infty}-\left.\frac{1}{s^{2}+1} e^{-s t} \cos t\right|_{0} ^{\infty} \\& =\frac{1}{s^{2}+1} \end{aligned}
+    $$
+
+    $$
+    \begin{aligned} \int_{0}^{\infty} e^{-s t} \cos t d t&=-\left.\frac{1}{s} e^{-s t} \cos t\right|_{0} ^{\infty}-\frac{1}{s} \int_{0}^{\infty} e^{-s t} \sin t d t \\& =\frac{1}{s}-\frac{1}{s}\left(\frac{1}{s^{2}+1}\right)=\frac{s}{s^{2}+1} \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}\mathcal{L}(t \sin t)&=\frac{s}{s^{2}+1}\left(\frac{1}{s^{2}+1}\right)+\frac{1}{s^{2}+1}\left(\frac{s}{s^{2}+1}\right) \\
+    & =\frac{2 s}{\left(s^{2}+1\right)^{2}} \end{aligned}
+    $$
+
+    v.
+
+    $$
+    f(t)=\left\{\begin{array}{cc}-1 & 0<t<1 \\ 2 & t>1\end{array}\right.
+    $$
+
+    $$
+    \begin{aligned}\mathcal{L}\{f(t)\} &=\int_{0}^{1}-e^{-s t} d t+2 \int_{1}^{\infty} e^{-s t} d t \\&=\left.\frac{1}{s} e^{-s t}\right|_{0} ^{1}-\left.\frac{2}{s} e^{-s t}\right|_{1} ^{\infty}\\& =\frac{1}{s} e^{-s}-\frac{1}{s}-\left(0-\frac{2}{s} e^{-s}\right)\\&=\frac{3}{s} e^{-s}-\frac{1}{s} \\
+    &=\frac{1}{s}\left(3 e^{-s}-1\right)\end{aligned}
+    $$
+
+    vi.
+
+    $$
+    f(t)=\left\{\begin{array}{cc}0 & 0<t<1 \\2 t-2 & t>1\end{array}\right. 
+    $$
+
+    $$
+    \begin{aligned}\mathcal{L}\{f(t)\}&=\int_{1}^{\infty}(2 t-2) e^{-s t} d t \\& =-\left.\frac{2}{s} t e^{-s t}\right|_{1} ^{\infty}+\frac{2}{s} \int_{1}^{\infty} e^{-s t} d t+\left.\frac{2}{s} e^{-s t}\right|_{1} ^{\infty} \\& =\frac{2}{s} e^{-s}+\frac{2}{s}\left[-\frac{1}{s} e^{-s t}\right]_{1}^{\infty}-\frac{2}{s} e^{-s} \\& =\frac{2}{s^{2}} e^{-s} \end{aligned}
+    $$
+
+    vii.
+
+    $$
+    f(t)=\left\{\begin{array}{cc}t & 0<t<1 \\2-t & 1<t<2 \\0 & t>2\end{array}\right. 
+    $$
+
+    $$
+    \begin{aligned}\mathcal{L}\{f(t)\}&=\int_{0}^{1} t e^{-s t} d t+\int_{1}^{2}(2-t) e^{-s t} d t\\&=-\left.\frac{1}{s} t e^{-s t}\right|_{0} ^{1}+\frac{1}{s} \int_{0}^{1} e^{-s t} d t-\left.\frac{1}{s}(2-t) e^{-s t}\right|_{1} ^{2}-\frac{1}{s} \int_{1}^{2} e^{-s t} d t \\
+    &=-\frac{1}{s} e^{-s}+\frac{1}{s}\left[-\frac{1}{s} e^{-s t}\right]_{0}^{1}+\frac{1}{s} e^{-s}-\frac{1}{s}\left[-\frac{1}{s} e^{-s t}\right]_{1}^{2} \\
+    &=\frac{1}{s^{2}}\left(-e^{-s}+1\right)-\frac{1}{s^{2}}\left(-e^{-2 s}+e^{-s}\right) \\
+    &=\frac{1}{s^{2}}\left(1-2 e^{-s}+e^{-2 s}\right)\end{aligned}
+    $$
+
+    viii.
+
+    $$
+    f(t)=\left\{\begin{array}{cc}1-t & 0<t<1 \\ 0 & t>1\end{array}\right.
+    $$
+
+    $$
+    \begin{aligned}\mathcal{L}\{f(t)\}&=\int_{0}^{1}(1-t) e^{-s t} d t\\&=-\left.\frac{1}{s}(1-t) e^{-s t}\right|_{0} ^{1}-\frac{1}{s} \int_{0}^{1} e^{-s t} d t\\& =\frac{1}{s}-\frac{1}{s}\left[-\frac{1}{s} e^{-s t}\right]_{0}^{1} \\& =\frac{1}{s}+\frac{1}{s^{2}} e^{-s}-\frac{1}{s^{2}}\end{aligned}
+    $$
+
+    :::
+
+2. Referring to the Laplace transform table, find the transform $\mathcal{L}\{f(t)\}$. Show the modification details that you need to do before the transform can be done.
+    
+    i.   $f(t)=(t+1)^3$
+    
+    ii.   $f(t)=\sin2t\cos2t$
+    
+    iii.   $f(t)=ke^{-at}\cos\omega t$
+    
+    iv.   $f(t)=\sin(4t+5)$
+    
+    v.   $f(t)=t^3e^{-2t}$
+    
+    vi.   $f(t)=(1-e^t+3e^{-4t})\cos5t$
+    
+    vii.   $f(t)=(3t+1)u(t-1)$
+    
+    viii.   $f(t)=\sin tu\left(t-\frac{\pi}{2}\right)$
+
+    :::info[Solution]
+    
+    :::

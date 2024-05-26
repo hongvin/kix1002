@@ -1,0 +1,200 @@
+---
+id: tutorial11
+slug: /tutorial11
+title: Tutorial 11
+description: Fourier Series Expansion & Its Application
+sidebar_position: 9
+hide_table_of_contents: true
+---
+
+# Tutorial 11: Fourier Series Expansion & Its Application
+
+```mdx-code-block
+import Question from '/pdf/tutorials/KIX1002_Tutorial_11.pdf';
+import Link from '@docusaurus/Link';
+
+<Link
+  className="button button--primary"
+  target="_blank"
+  to={Question}>
+  Tutorial Question
+</Link>
+```
+
+1. The function $f(t)=1-t^{2}$ is to be represented by a Fourier series expansion over the finite interval $0<t<1$. Obtain a suitable
+    
+    a. full-range series expansion
+
+    b. half-range sine series expansion
+
+    c. half-range cosine series expansion
+
+    :::info[Solution]
+
+    a. For full-range series expansion, $P=1, L=\frac{1}{2}$
+
+        $$
+        \begin{aligned}a_0&=\int_0^11-t^2dr\\&=\left[t-\frac{t^3}{3}\right]_0^1=\frac{2}{3}\\a_n&=2\int_0^1(1-t^2)\cos2n\pi tdt\\&=\left\{\left[\frac{1}{2n\pi}\sin 2n\pi t(1-t^2)\right]_0^1-\int_0^1\frac{1}{2n\pi}\sin2n\pi t(-2t)dt\right\}\\&=2\left\{0-\frac{1}{2n\pi}\left[-\frac{1}{2n\pi}\cos2n\pi t(-2t)\right]_0^1-\left(\frac{1}{2n\pi}\right)\times\int_0^1\frac{1}{n\pi}\cos2n\pi tdt\right\}\\&=2\left\{-\frac{2}{(2n\pi)^2}\cos2n\pi\right\}\\&=-\frac{1}{(n\pi)^2}\cos2n\pi\\&=-\frac{1}{(n\pi)^2}\quad\text{since }\cos2n\pi=1\text{ for integers }n\\\\b_n&=2\int_0^1(1-t)^2\sin2n\pi tdt\\&=2\left\{\left[-\frac{1}{2n\pi }\cos2n\pi t(1-t^2)\right]_0^1+\frac{1}{2n\pi}\int_0^1\cos2n\pi t(-2t)dt\right\}\\&=2\left\{\frac{1}{2n\pi}\cos0-\frac{2}{2n\pi}\left[\left[\frac{1}{2n\pi}\sin2n\pi t (t)\right]_0^1-\frac{1}{2n\pi}\int_0^1\sin2n\pi tdt\right]\right\}\\&=2\left\{\frac{1}{2n\pi}-\frac{2}{(2n\pi)^3}\left[\cos2n\pi t\right]_0^1\right\}\\&=2\left\{\frac{1}{2n\pi}-\frac{2}{(2n\pi)^3}\cos2n\pi+\frac{2}{(2n\pi)^3}\cos 0\right\}\\&=\frac{1}{n\pi}\\\\\therefore f(t)&=1-t^2=\frac{2}{3}-\frac{1}{\pi^2}\sum_{n=1}^\infty\frac{1}{n^2}\cos2n\pi t+\frac{1}{\pi}\sum_{n=1}^\infty\frac{1}{n}\sin2n\pi t\end{aligned}
+        $$
+    
+    b. For half-range sine series, $P=2,L=1$
+
+        $$
+        \begin{aligned}b_n&=2\int_0^1(1-t^2)\sin n\pi tdt\\&=2\left\{\left[-\frac{1}{n\pi}\cos n\pi t(1-t^2)\right]_0^1+\frac{1}{n\pi}\int_0^1\cos n\pi t(-2t)dr\right\}\\&=2\left\{\frac{1}{n\pi}\cos0-\frac{2}{n\pi}\left[\left[\frac{1}{n\pi}\sin n\pi t(t)\right]_0^1-\frac{1}{n\pi}\int_0^1\sin n\pi tdt\right]\right\}\\&=2\left\{\frac{1}{n\pi}+\frac{2}{(n\pi)^2}\times\left(-\frac{1}{n\pi}\right)\left[\cos n\pi t\right]_0^1\right\}\\&=2\left\{\frac{1}{n\pi}-\frac{2}{(n\pi)^3}\cos n\pi+\frac{2}{(n\pi)^3}\times1\right\}\end{aligned}
+        $$
+
+        From $\cos n\pi=(-1)^n=\begin{cases}-1&\quad\text{for odd } n\\1&\quad\text{for even }n\end{cases}$
+
+        When $n$ is odd,
+
+        $$
+        \begin{aligned}b_n&=2\left[\frac{1}{n\pi}-\frac{2}{(n\pi)^3}(-1)+\frac{2}{(n\pi)^3}\right]\\&=2\left(\frac{1}{n\pi}+\frac{4}{(n\pi)^3}\right)\end{aligned}
+        $$
+
+        When $n$ is even,
+
+        $$
+        b_n=2\left(\frac{1}{n\pi}-\frac{2}{(n\pi)^3}+\frac{2}{(n\pi)^3}\right)=\frac{2}{n\pi}
+        $$
+
+        $$
+        \therefore f(t)=\frac{2}{\pi}\sum_{n=1}^\infty \frac{1}{n}\sin2n\pi t+\frac{2}{\pi}\sum_{n=1}^\infty\left(\frac{1}{2n-1}-\frac{4}{(2n-1)^3\pi^2}\right)\sin(2n-1)\pi t
+        $$
+
+    c. Half-range cosine:
+
+        $$
+        \begin{aligned}a_0&=\int_0^1(1-t^2)dt=\frac{2}{3}\\a_n&=2\int_0^1(1-t^2)\cos n\pi tdt\\&=2\left\{\left[\frac{1}{n\pi}\sin n\pi t(1-t^2)\right]_0^1-\frac{1}{n\pi}\int_0^1\sin n\pi t(-2t)dt\right\}\\&=\frac{4}{n\pi}\left\{\left[-\frac{t}{n\pi}\cos n\pi t\right]_0^1+\frac{1}{n\pi}\int_0^1\cos n\pi tdt\right\}\\&=\frac{4}{n\pi}\left\{-\frac{1}{n\pi}\cos n\pi+\frac{1}{(n\pi)^2}\left[\sin n\pi t\right]_0^1\right\}\\&=-\frac{4}{(n\pi)^2}\cos n\pi\\&=-\frac{4}{(n\pi)^2}(-1)^n=\frac{4}{(n\pi)^2}(-1)^{n+1}\end{aligned}
+        $$
+
+        $$
+        \therefore f(t)=1-t^2=\frac{2}{3}+\frac{4}{\pi^2}\sum_{n=1}^\infty\frac{(-1)^{n+1}}{n^2}\cos n\pi t
+        $$
+    
+    :::
+
+2. Sketch the graphs of:
+
+    a. full-range series expansion
+
+    b. half-range sine series expansion
+
+    c. half-range cosine series expansion
+    
+    for $f(t)=1-t^{2}$ in Q1 for $-2<t<2$. Draw and label the period $p$ and the finite interval $\tau$ on each graph.
+
+    :::info[Solution]
+
+    The original function:
+
+    <img src="/img/tutorial/tutorial11_q2a.png" height="200" />
+
+    a. 
+
+    <img src="/img/tutorial/tutorial11_q2b.png" height="200" />
+
+    $p=1,\tau=1$
+
+    b. 
+
+    <img src="/img/tutorial/tutorial11_q2c.png" height="200" />
+
+    $p=2,\tau=1$
+
+    c.
+
+    <img src="/img/tutorial/tutorial11_q2d.png" height="200" />
+
+    $p=2,\tau=1$
+
+    :::
+
+3. The temperature distribution $T(x)$ at a distance $x$, measured from one end, along a bar of length 10 inch is given by:
+    
+    $$
+    T(x)=2 x(10-x) \quad(0 \leq x \leq 10)
+    $$
+    
+    Express $T(x)$ as a Fourier series expansion consisting of sine terms only.
+
+    :::info[Solution]
+
+    $$
+    \begin{aligned}T(x)&=2 x(10-x) \\T(x)&=\sum_{n=1}^\infty b_n\sin\frac{n\pi}{10}x\end{aligned}
+    $$
+
+    where
+
+    $$
+    \begin{aligned}b_n&=\frac{2}{10}\int_0^{10}2x(10-x)\sin\frac{n\pi}{10}xdx\\&=\frac{2}{5}\int_0^{10}(10x-x^2)\sin\frac{n\pi}{10}xdx\end{aligned}
+    $$
+
+    Consider
+
+    $$
+    \begin{aligned}&\int_0^{10}\left(10x\sin\frac{n\pi}{10}x\right)dx\\&=\left[10x\left(-\frac{10}{n\pi}\right)\cos\frac{n\pi}{10}x\right]_0^{10}+\int_0^{10}\frac{10^2}{n\pi}\cos\frac{n\pi}{10}xdx\\&=-\frac{10^3}{n\pi}\cos n\pi+0+\left[\frac{10^2}{n\pi}\times\frac{10}{n\pi}\sin\frac{n\pi}{10}x\right]_0^{10}\\&=-\frac{10^3}{n\pi}\cos n\pi\end{aligned}
+    $$
+
+    Consider
+
+    $$
+    \begin{aligned}&\int_0^{10}x^2\sin\frac{n\pi}{10}xdx\\&=\left[x^2\left(-\frac{10}{n\pi}\right)\cos\frac{n\pi}{10}x\right]_0^{10}+\int_0^{10}\frac{10}{n\pi}(2x)\cos\frac{n\pi}{10}xdx\\&=\left(-\frac{10^3}{n\pi}\cos n\pi+0\right)+\left[\frac{20x}{n\pi}\left(\frac{10}{n\pi}\right)\sin\frac{n\pi}{10}x\right]_0^{10}-\int_0^{10}\frac{200}{n^2\pi^2}\sin\frac{n\pi}{10}xdx\\&=-\frac{10^3}{n\pi}\cos n\pi-\left[\frac{200}{n^2\pi^2}\left(-\frac{10}{n\pi}\right)\cos \frac{n\pi}{10}x \right]_0^{10}\\&=-\frac{10^3}{n\pi}\cos n\pi-\left(-\frac{2\times10^3}{n^3\pi^3}\cos n\pi+\frac{2\times10^3}{n^3\pi^3}\right)\\&=-\frac{10^3}{n\pi}\cos n\pi+\frac{2\times10^3}{n^3\pi^3}(\cos n\pi-1)\end{aligned}
+    $$
+
+    $$
+    \begin{aligned}b_n&=\frac{2}{5}\left\{-\frac{10^3}{n\pi}\cos n\pi+\frac{10^3}{n\pi}\cos n\pi-\frac{2\times10^3}{n^3\pi^3}(\cos n\pi-1)\right\}\\&=\frac{2}{5}\times\frac{2\times10^3}{n^3\pi^3}(1-\cos n\pi)\\&=\frac{800}{n^3\pi^3}(1-\cos n\pi)\end{aligned}
+    $$
+
+    Since $\cos n\pi=\begin{cases}1&\quad\text{for }n\text{ is even}\\-1&\quad\text{for }n\text{ is odd}\end{cases}$,
+
+    $$
+    b_n=\begin{cases}0&\quad\text{for }n\text{ is even}\\\frac{1600}{n^3\pi^3}&\quad\text{for }n\text{ is odd}\end{cases}
+    $$
+
+    $$
+    \begin{aligned}\therefore T(x)&=\sum_{n=1}^\infty b_n\sin\frac{n\pi}{L}x\\&=\sum_{n=1}^\infty\frac{1600}{\pi^3}\left(\frac{1}{2n-1}\right)^3\sin\frac{(2n-1)\pi}{10}x\\\\\text{or}\\\\&=\sum_{n=1,3,5,...}^\infty \frac{1600}{\pi^3}\frac{1}{n^3}\sin\frac{n\pi}{10}x\end{aligned}
+    $$
+
+    :::
+
+4. Suppose a uniform beam of length $L$ is simply supported at $x=0$ and at $x=L$. If the load per unit length is given by $w(x)=\frac{w_{0} x}{L}, 0<x<L$, then the differential equation for the deflection $y(x)$ is
+    
+    $$
+    E I \frac{d^{4} y}{d x^{4}}=\frac{w_{0} x}{L}
+    $$
+    
+    where $E, I$ and $w_{0}$ are constants.
+
+    a. Expand $w(x)$ in a half-range sine series.
+
+    b. Find a particular solution $y(x)$ of the differential equation.
+
+    :::info[Solution]
+
+    a. 
+    
+    $$
+    \begin{aligned}b_n&=\frac{2}{L}\int_0^L\frac{w_0x}{L}\sin\frac{n\pi}{L}xdx\\&=\frac{2w_0}{L^2}\int_0^Lx\sin\frac{n\pi}{L}xdx\\&=\frac{2w_0}{L^2}\left\{\left[-\frac{L}{n\pi}\cos\frac{n\pi}{L}x(x)\right]_0^L+\frac{L}{n\pi}\int_0^L\cos\frac{n\pi}{L}xdx\right\}\\&=\frac{2w_0}{L^2}\left\{-\frac{L^2}{n\pi}\cos n\pi\right\}\\&=-\frac{2w_0}{n\pi}\cos n\pi=\frac{2w_0}{n\pi}(-1)^{n+1}\end{aligned}
+    $$
+
+    b. From $E I \frac{d^{4} y}{d x^{4}}=\frac{w_{0} x}{L}$,
+
+    $$
+    E I \frac{d^{4} y}{d x^{4}}=\frac{2w_{0}}{n\pi}(-1)^{n+1}\sin\frac{n\pi}{L}x
+    $$
+
+    Let
+
+    $$
+    E I \frac{d^{4} y}{d x^{4}}=\frac{2w_{0}}{n\pi}(-1)^{n+1}\sin\frac{n\pi}{L}x
+    $$
+
+    $$
+    \begin{aligned}\therefore \sum_{n=1}^\infty EI\frac{n^4\pi^4}{L^4}\beta_n\sin\frac{n\pi}{L}x&=\sum_{n=1}^\infty\frac{2w_0}{n\pi}(-1)^{n+1}\sin\frac{n\pi}{L}x\\EI\frac{n^4\pi^4}{L^4}\beta_n&=\frac{2w_0}{n\pi}(-1)^{n+1}\\\beta_n&=\frac{2w_0L^4}{EI\pi^5n^5}(-1)^{n+1}\end{aligned}
+    $$
+
+    $$
+    \therefore y(x)=\frac{2w_oL^4}{EI\pi^5}\sum_{n=1}^\infty\frac{(-1)^{n+1}}{n^5}\sin\frac{n\pi}{L}x
+    $$
+
+    :::

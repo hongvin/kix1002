@@ -102,7 +102,7 @@ const config: Config = {
           items: [
             {
               html: `
-                <img src="/img/duitnow.png" alt="duitnow QR" / height=100>
+                <img src="/img/duitnow.png" alt="duitnow QR" style="margin:0;" height=100>
               `,
             },
           ],
