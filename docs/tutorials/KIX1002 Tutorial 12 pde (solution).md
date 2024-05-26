@@ -369,7 +369,7 @@ $=\left(c_{1}+c_{2} t\right)\left(c_{3}+c_{4} x\right)+\left(c_{5} \cosh (\alpha
 
 ## Answer:
 
-$\mathrm{A}=1, \mathrm{~B}=0, \mathrm{C}=3, B^{2}-4 A C=0-4(1)(3)<0$, Elliptic $P D E$
+$\mathrm{A}=1, \mathrm{~B}=0, \mathrm{C}=3, B^{2}-4 A C=0-4(1)(3)<0$, Elliptic PDE
 
 Step 1: Let $u(x, y)=X(x) Y(y)$
 

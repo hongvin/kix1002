@@ -96,18 +96,39 @@ const config: Config = {
     footer: {
       style: 'dark',
       copyright: `Copyright © ${new Date().getFullYear()} hongvin. Built with Docusaurus.`,
+      links: [
+        {
+          title: 'Support the development',
+          items: [
+            {
+              html: `
+                <img src="/img/duitnow.png" alt="duitnow QR" / height=100>
+              `,
+            },
+          ],
+        },
+        {
+          title: 'Previous Years',
+          items: [
+            {
+              label: "KIX1001 Session 2022/2023",
+              href: "https://kix1001.hongvin.xyz/"
+            },
+            {
+              label: "KIX1001 Session 2021/2022",
+              href: "https://2021.kix1001.hongvin.xyz/"
+            },
+            {
+              label: "KIX1002 Session 2021/2022",
+              href: "https://2022.kix1002.hongvin.xyz/"
+            },
+          ],
+        },
+      ],
     },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
-    },
-    announcementBar: {
-      id: 'support_us',
-      content:
-        '⭐️ Please give me a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/hongvin/kix1002">Github</a>! It is free and easy!',
-      backgroundColor: '#fafbfc',
-      textColor: '#091E42',
-      isCloseable: true,
     },
   } satisfies Preset.ThemeConfig,
 };
