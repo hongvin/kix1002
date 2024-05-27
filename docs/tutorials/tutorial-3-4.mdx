@@ -947,3 +947,73 @@ hide_table_of_contents: true
     :::
 
     d. $y''-3y'+2y=x^2e^{3x}$
+
+    :::info[Solution]
+
+    $$
+    \begin{aligned}
+    m^2-3m+2&=0\\
+    (m-1)(m-2)&=0\\
+    m&=1,2\\ \\ 
+    y_c&=C_1e^x+C_2e^{2x}
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    g(x)&=x^2e^{3x}=P_n(x)e^{\alpha x} \\ 
+    \alpha&=3\neq m_1\neq m_2 \\ \\ 
+    P_n&=x^2
+    \end{aligned}
+    $$
+
+    Thus
+
+    $$
+    y_p=e^{3x}(Ax^2+Bx+C)
+    $$
+
+    $$
+    \begin{aligned}
+    y'_p&=3e^{3x}(Ax^2+Bx+C)+e^{3x}(2Ax+B) \\ 
+    &=e^{3x}(3Ax^2+3Bx+3C+2Ax+B)\\
+    &=e^{3x}\left[(3A)x^2+(3B+2A)x+(3C+B)\right] \\
+    y''_p&=3e^{3x}[3Ax^2+(3B+2A)x+(3C+B)]+e^{3x}[6Ax^2+(3B+2A)]\\
+    &=e^{3x}[9Ax^2+(9B+6A)x+(6C+3B)]+e^{3x}[6Ax^2+(3B+2A)] \\
+    &=e^{3x}[9Ax^2+(12A+9B)x+(2A+6B+9C)]
+    \end{aligned}
+    $$
+
+    Into equation
+
+    $$
+    \begin{aligned}
+    e^{3x}[9Ax^2+(12A+9B)x+(2A+6B+9C)]-3e^x[3Ax^2+(3B+2A)x+(3C+B)]+2e^x(Ax^2+Bx+C)&=x^2e^{3x}\\
+    e^{3x}[(9A-9A+2A)x^2+(12A+9B-9B-6A+2B)x+(2A+6B+9C-9C-3B+2C)]&=x^2e^{3x}\\
+    e^{3x}[(2A)x^2+(16A+2B)x+(2A+3B+2C)]&=x^2e^{3x}
+    \end{aligned}
+    $$
+
+    Thus
+
+    $$
+    \begin{aligned}
+    2A&=1 \qquad &6A+2B&=0 \qquad &2A+3B+2C&=0 \\ 
+    A&=\frac{1}{2} \qquad &2B&=-6(\frac{1}{2} \qquad &2C&=-2(1)-3(-\frac{3}{2}) \\
+    &&B&=-\frac{3}{2} \qquad &C&=\frac{1}{2}(\frac{7}{2})=\frac{7}{4}
+    \end{aligned}
+    $$
+
+    Thus
+
+    $$
+    \begin{aligned}
+    y+p&=e^{3x}\left(\frac{1}{2}x^2-\frac{3}{2}x+\frac{7}{4}\right) \\ &=\frac{1}{4}e^{3x}(2x^2-6x+7)
+    \end{aligned}
+    $$
+
+    $$
+    \therefore y=C_1e^x+C_2e^x+\frac{1}{4}e^{3x}(2x^2-6x+7)
+    $$
+
+    :::
