@@ -24,7 +24,7 @@ hide_table_of_contents: true
 
     $$
     \begin{aligned}
-    W(x,x+1)&=\left| \begin{array}{cc}x&x+1\\1&1\end{array} \right|\\
+    W(y_1,y_2)&=\left| \begin{array}{cc}x&x+1\\1&1\end{array} \right|\\
     &=x-(x-1)\\
     &=1 \neq 0
     \end{aligned}
@@ -47,7 +47,7 @@ hide_table_of_contents: true
 
     $$
     \begin{aligned}
-    W(x,x+1)&=\left| \begin{array}{cc}e^{\alpha x}\sin\beta x&e^{\alpha x}\cos\beta x\\\beta e^{\alpha x}\cos\beta x+ \alpha e^{\alpha x}\sin \beta x&-\beta e^{\alpha x}\sin\beta x+ \alpha e^{\alpha x}\cos \beta x\end{array} \right|\\
+    W(y_1,y_2)&=\left| \begin{array}{cc}e^{\alpha x}\sin\beta x&e^{\alpha x}\cos\beta x\\\beta e^{\alpha x}\cos\beta x+ \alpha e^{\alpha x}\sin \beta x&-\beta e^{\alpha x}\sin\beta x+ \alpha e^{\alpha x}\cos \beta x\end{array} \right|\\
     &=-\beta e^{2\alpha x}\sin^2 \beta x+\alpha e^{2\alpha x}\sin\beta x\cos\beta x - \beta e^{2\alpha x}\cos^2\beta x - \alpha e^{2\alpha x}\sin\beta x\cos\beta x\\
     &=-\beta e^{2\alpha x}(sin^2\beta x+\cos^2\beta x)\\
     &=-\beta e^{2\alpha x}
@@ -59,3 +59,891 @@ hide_table_of_contents: true
     $\therefore$ Linearly independent.
 
     :::
+
+2. Verify that each of the given functions is a solution of the differential equation, and use their Wronskian to show that these solutions are linearly independent.
+    
+    Verify the linear combination of the solutions is also a solution.
+
+    a.  $y_1=e^x\qquad y_2=e^{-2x}\qquad y''+y'-2y=0$
+
+    :::info[Solution]
+
+    $$
+    \begin{aligned}
+    y_1&=e^x,\qquad &y_1'&=e^x\qquad &y_1''&=e^x\\
+    y_2&=e^{-2x}\qquad &y_2'&=-2e^{-2x}\qquad &y_2''&=4e^{-2x}
+    \end{aligned}
+    $$
+
+    For
+
+    $$
+    \begin{aligned}
+    y_1&\rightarrow e^x+e^x-2e^x=0\\
+    y_2&\rightarrow 4e^{-2x}+(-2e^{-2x})-2(e^{-2x})=0
+    \end{aligned}
+    $$
+
+    Both are solution.
+
+    $$
+    \begin{aligned}
+    W(y_1,y_2)&=\left| \begin{array}{cc}e^x&e^{-2x}\\e^x&-2e^{-2x}\end{array} \right|\\
+    &=-2e^{-x}-e^{-x}\\
+    &=-3e^{-x}\neq 0
+    \end{aligned}
+    $$
+
+    Since $e^{-x}\neq0$, thus $W(y_1,y_2)\neq 0$. 
+    
+    $\therefore$ Linearly independent.
+
+    :::
+
+    b. $y_1=x^2\qquad y_2=x^{-1}\qquad x^2y''-2y=0$
+
+    :::info[Solution]
+
+    $$
+    \begin{aligned}
+    y_1&=x^2,\qquad &y_1'&=2x,\qquad &y_1''=2\\
+    y_2&=x^{-1},\qquad &y_2'&=-x^{-2},\qquad &y_2''=-2x^{-3}
+    \end{aligned}
+    $$
+
+    For
+
+    $$
+    \begin{aligned}
+    y_1&\rightarrow x^2y''-2y=x^2(2)-2(x^2)=0\\
+    y_2&\rightarrow x^2(2x^{-3})-2(x^{-1})=2x^{-1}-2x^{-1}=0
+    \end{aligned}
+    $$
+
+    Both are solution.
+
+    $$
+    \begin{aligned}
+    W(y_1,y_2)&=\left| \begin{array}{cc}x^2&x^{-1}\\2x&-x^{-2}\end{array} \right|\\
+    &=-x^0-2x^0\\
+    &=-3\neq 0
+    \end{aligned}
+    $$
+    
+    $\therefore$ Linearly independent.
+
+    :::
+
+    c. $y_1=e^{-x}\qquad y_2=xe^{-x}\qquad y''+2y'+y=0$
+
+    :::info[Solution]
+
+    $$
+    \begin{aligned}
+    y_1&=e^{-x} \qquad &y_1'&=-e^{-x} \qquad &y_1''&=e^{-x}\\
+    y_2&=xe^{-x} \qquad &y_2'&=-xe^{-x}+e^{-x} \qquad &y_2''&=xe^{-x}-e^{-x}-e^{-x}=xe^{-x}-2e^{-x}
+    \end{aligned}
+    $$
+
+    For
+
+    $$
+    \begin{aligned}
+    y_1&\rightarrow y''+2y'+y=e^{-x}+2(-e^{-x})+e^{-x}=0\\
+    y_2&\rightarrow (xe^{-x}-2e^{-x})+2(-xe^{-x}+e^{-x})+2e^{-x}=0
+    \end{aligned}
+    $$
+
+    Both are solution.
+
+    $$
+    \begin{aligned}
+    W(y_1,y_2)&=\left| \begin{array}{cc}e^{-x}&xe^{-x}\\-e^{-x}&xe^{-x}+e^{-x}\end{array} \right|\\
+    &=(-xe^{-2x}+e^{-2x})+(xe^{-2x})\\
+    &=e^{-2x}\neq 0
+    \end{aligned}
+    $$
+    
+    $\therefore$ Linearly independent.
+
+    :::
+
+3. Solve the following second order ODEs 
+
+    a. $y''-4y=0$ 
+
+    :::info[Solution]
+
+    $$
+    \begin{aligned}
+    y''-4y&=0\\
+    m^2-4&=0\\
+    m&=\pm 2\\
+    \Rightarrow y&=C_1e^{2x}+C_2 e^{-2x}
+    \end{aligned}
+    $$
+
+    :::
+
+    b. $y''-y'-6y=0$ 
+
+    :::info[Solution]
+
+    $$
+    \begin{aligned}
+    y''-y'+7y&=0\\
+    m^2-m+6&=0\\
+    (m-3)(m+2)&=0\\
+    m&=3,-2\\
+    \Rightarrow y&=C_1e^{3x}+C_2e^{-2x}
+    \end{aligned}
+    $$
+
+    :::
+
+    c. $6y''+y'-y=0$
+
+    :::info[Solution]
+
+    $$
+    \begin{aligned}
+    6y''+y'-y&=0\\
+    6m^2+m-1&=0\\
+    (3m-1)(2m+1)&=0\\
+    m&=\frac{1}{3}, -\frac{1}{2}\\
+    \Rightarrow y&=C_1e^{\frac{1}{3}x}+C_2e^{-\frac{1}{2}x}
+    \end{aligned}
+    $$
+
+    :::
+
+    d. $y''+y=0$ 
+
+    :::info[Solution]
+
+    $$
+    \begin{aligned}
+    y''+y&=0\\
+    m^2+1&=0\\
+    m&=\sqrt{-1}=\pm i \\
+    y_1=C_1e^{ix} &, y_2=C_1e^{-ix}\\
+    \Rightarrow y&=e^{ix}(C_1\cos x+C_2\sin x)\\
+    &=C_1\cos x+C_2\sin x
+    \end{aligned}
+    $$
+
+    :::
+    
+    e. $y''+4y'+8y=0$
+
+    :::info[Solution]
+
+    $$
+    \begin{aligned}
+    y''+4y'+8y&=0\\
+    m&2+4m+8&=0\\
+    m&=\frac{-4\pm\sqrt{4^2-4(1)(8)}}{2(1)}\\
+    &=\frac{1}{2}\left(-4\pm\sqrt{16-32}\right)\\
+    &=\frac{1}{2}(-4\pm 4i)\\&=-2\pm 2i\\
+    y_1=C_1e^{(-2+2i)x} &, y_2=C_2e^{(-2-2i)x} \\
+    y&=e^{-2x}(C_1\cos 2x + C_2\sin 2x)
+    \end{aligned}
+    $$
+
+    :::
+
+4. Solve the following second order ODEs with initial-value conditions
+
+    a. $y''-4y=0\qquad\qquad y(0)=4\qquad y'(0)=12$
+
+    :::info[Solution]
+
+    $$
+    \begin{aligned}
+    y''-4y&=0\\m^2&=4\\m&=\pm2\\
+    \end{aligned}
+    $$
+
+    General Solution, $y=C_1e^{2x}+C_2e^{-2x}$, $y'=2C_1e^{2x}-2C_2e^{-2x}$
+
+    When
+
+    $$
+    x=0, y=4 \qquad \Rightarrow \qquad 4=C_1+C_2 \tag{1}
+    $$
+
+    $$
+    x=0, y'=12 \qquad \Rightarrow \qquad 12=2C_1-2C_2 \tag{2}
+    $$
+
+    Take $(2)+2\times(1)$
+
+    $$
+    \begin{aligned}
+    (12+8)&=(2C_1+2C_2)+(2C_1-2C_2)\\
+    20&=4C_1\\
+    C_1&=5
+    \end{aligned}
+    $$
+
+    Into $(1)$,
+
+    $$
+    4=5+C_2 \qquad \Rightarrow \qquad C_2=-1
+    $$
+
+    Thus,
+
+    $$
+    y=5e^{2x}-e^{-2x}
+    $$
+
+    :::
+
+    b. $y''-6y+9y=0 \qquad \qquad y(0)=-1.4 \qquad y'(0)=4.6$
+
+    :::info[Solution]
+
+    $$
+    \begin{aligned}
+    y''-6y'+9y&=0\\m^2-6m+0&=0\\(m-3)^2&=0\\m&=3
+    \end{aligned}
+    $$
+
+    General Solution, $y=C_1e^{3x}+C_2xe^{3x}$, $y'=3C_1e^{3x}+C_2e^{3x}+3xC_2e^{3x}$
+
+    When
+
+    $$
+    \begin{aligned}
+    x=0, y=-1.4 \qquad \Rightarrow \qquad -1.4&=C_1+0 \\ 
+    C_1&=-1.4
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    x=0,y'=4.6 \qquad \Rightarrow \qquad 4.6&=3C_1+C_2+0 \\ 
+    4.6 &=3(-1.4)+C_2 \\ 
+    C_2&=8.8
+    \end{aligned}
+    $$
+
+    Thus, 
+    
+    $$
+    y=-1.4e^{-3x}+8.8xe^{-3x}
+    $$
+
+    :::
+
+    c. $4y''-8y+3y=0 \qquad\qquad y(1)=\frac{4}{5}e^{\frac{1}{2}} \qquad y'(1)=\frac{2}{5}e^{\frac{1}{2}}$
+
+    :::info[Solution]
+
+    $$
+    \begin{aligned}
+    4y''-8y'+3y&=0\\
+    4m^2-8m+3&=0\\
+    (2m-3)(2m-1)=0\\
+    m&=\frac{1}{2}, \frac{3}{2}
+    \end{aligned}
+    $$
+
+    General solution. $y=C_1e^{\frac{1}{2}x}+C_2e^{\frac{3}{2}x}$, $y'=\frac{1}{2}C_1e^{\frac{1}{2}x}+\frac{3}{2}C_2e^{\frac{3}{2}x}$
+
+    When
+
+    $$
+    \begin{aligned}
+    x=1, y=\frac{4}{5}e^{\frac{1}{2}} \qquad \Rightarrow \qquad \frac{4}{5}e^{\frac{1}{2}}&=C_1e^{\frac{1}{2}}+C_2e^{\frac{3}{2}} \\
+    \left(\frac{4}{5}-C_1\right)e^{\frac{1}{2}}&=C_2e^{\frac{3}{2}} \tag{1}
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    x=1, y'=\frac{2}{5}e^{\frac{1}{2}} \qquad \Rightarrow  \qquad \frac{2}{5}e^{\frac{1}{2}} &= \frac{1}{2}C_1e^{\frac{1}{2}}+\frac{3}{2}C_2e^{\frac{3}{2}} \\
+    \left(\frac{2}{5}-\frac{1}{2}C_1\right) e^{\frac{1}{2}} &=\frac{3}{2}C_2e^{\frac{3}{2}} \\
+    \frac{2}{3}\left(\frac{2}{5}-\frac{1}{2}C_1\right)e^{\frac{1}{2}} &= C_2e^{\frac{3}{2}} \tag{2}
+    \end{aligned}
+    $$
+
+    Let $(1) = (2)$,
+
+    $$
+    \begin{aligned}
+    \left(\frac{4}{5}-C_1\right)e^{\frac{1}{2}}&=\left(\frac{4}{15}-\frac{1}{3}C_1\right)e^{\frac{1}{2}}\\
+    \left(\frac{4}{5}-\frac{4}{15}\right)&=\left(1-\frac{1}{3}\right)C_1\\
+    \frac{2}{3}C_1&=\frac{8}{15} \\
+    C_1&=\frac{4}{5}
+    \end{aligned}
+    $$
+
+    Into $(1)$,
+
+    $$
+    \begin{aligned}
+    \left(\frac{4}{5}-\frac{4}{5}\right)e^{\frac{1}{2}}&=C_2e^{\frac{3}{2}} \\
+    C_2e^{\frac{3}{2}} &=0 \qquad e^{\frac{3}{2}} \neq 0 \\
+    C_2&=0
+    \end{aligned}
+    $$
+
+    Thus,
+
+    $$
+    y=\frac{4}{5}e^{\frac{1}{2}x}
+    $$
+
+    :::
+
+    d. $y''+y=0 \qquad\qquad y(0)=3 \qquad y'(0)=-0.5$
+
+    :::info[Solution]
+
+    $$
+    \begin{aligned}
+    y''+y&=0\\m^2+1&=0\\m&=\pm i
+    \end{aligned}
+    $$
+
+    General Solution. $y=C_1\sin x + C_2\cos x$, $y'=C_1\cos x - C_2\sin x$
+
+    When
+
+    $$
+    \begin{aligned}
+    x=0, y=3 \qquad \Rightarrow \qquad 3&=C_1(0)+C_2(1) \\ C_2&=3
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    x=0, y'=-0.5 \qquad \Rightarrow \qquad -0.5&=C_1(1)+C_2(0) \\ C_1&=-0.5
+    \end{aligned}
+    $$
+
+    Thus,
+
+    $$
+    y=-\frac{1}{2}\sin x+3\cos x
+    $$
+
+    :::
+
+    e. $y''+2y'+2y=0 \qquad\qquad y(0)=1 \qquad y'(0)=-1$
+
+    :::info[Solution]
+
+    $$
+    \begin{aligned}
+    y''+2y'+2y&=0\\
+    m^2+2m+2&=0\\
+    m=\frac{1}{2(1)}\left[-2\pm\sqrt{2^2-4(1)(2)}\right]\\
+    &=\frac{1}{2}\left[-2\pm\sqrt{4}\right]\\
+    &=-1\pm i
+    \end{aligned}
+    $$
+
+    General solution.
+
+    $$
+    \begin{aligned}
+    y&=e^{-x}(C_1\cos x+C_2\sin x) \\ 
+    y'&=-e^x(C_1\cos x+C_2 \sin x)+e^{-x}(-C_1\sin x+C_2\cos x)
+    \end{aligned}
+    $$
+
+    When
+
+    $$
+    \begin{aligned}
+    x=0, y=1 \qquad \Rightarrow \qquad 1&=C_1(1)+C_2(0) \\ C_1&=1
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    x=0, y'=-1 \qquad \Rightarrow \qquad -1&=-[C_1(1)+C_2(0)]+[-C_1(0)+C_2(1)]\\-1&=-C_1+C_2\\C_2&=C_1-1\\C_2&=0
+    \end{aligned}
+    $$
+
+    Thus,
+
+    $$
+    y=e^{-x}\cos x
+    $$
+
+    :::
+
+5. Obtain a general solution for nonhomogeneous problems using the method of undetermined coefficients.
+
+    a. $y''+3y'+2y=2x^2$ 
+
+    :::info[Solution]
+
+    $$
+    \begin{aligned}
+    m^2+3m+2&=0\\
+    (m+1)(m+2)&=0\\
+    m&=-1,-2\\ \\
+    y_c=C_1e^{-x}+C_2e^{-2x}
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    y_p&=Ax^2+Bx+c\\
+    y'p&=2Ax+B\\
+    y''p&=2A\\ \\
+    \Rightarrow 2(Ax^2+Bx+C)+3(2Ax+B)+2(2A)&=2x^2\\
+    (2A)x^2+(2B+6A)x+(2C+3B+2A)=2x^3
+    \end{aligned}
+    $$
+
+    Thus, $A=1$, $B=-3$, $C=\frac{7}{2}$
+
+    $$
+    y_p=x^2-3x+\frac{7}{2}
+    $$
+    
+    $$
+    \therefore y=C_1e^{-x}+C_2e^{-2x}+x^2-3x+\frac{7}{2}
+    $$
+
+    :::
+
+    b. $y''+4y=4x^2+6$ 
+
+    :::info[Solution]
+
+    $$
+    \begin{aligned}
+    m^2+4&=0\\
+    m&=\pm 2i\\ \\
+    y_c&=C_1e^{-2ix}+C_2e^{2ix}\\
+    y_c&=C_1\cos 2x+C_2\sin 2x
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    y_p&=Ax^2+Bx+c\\
+    y'p&=2Ax+B\\
+    y''p&=2A\\ \\
+    \Rightarrow (2A)+4(Ax^2+Bx+C)&=4x^2+6 \\ 
+    (4A)x^2 + (4B)x+(2A+4C)&=4x^2+6
+    \end{aligned}
+    $$
+
+    Thus,
+
+    $$
+    \begin{aligned}
+    4A &=4 \qquad &4B&=0 \qquad &2A+4C&=6 \\ 
+    A&=1 \qquad &B&=0 \qquad &C&=1
+    \end{aligned}
+    $$
+    
+    $$
+    y_p=x^2+1
+    $$
+    
+    $$
+    \therefore y=C_1\cos 2x+C_2\sin 2x+x^2+1
+    $$
+
+    :::
+
+    c. $y''-y=e^x$ 
+
+    :::info[Solution]
+
+    $$
+    \begin{aligned}
+    m^2-1&=0\\
+    m&=\pm 1 \\ \\ 
+    y_c&=C_1e^{-x}+C_2e^x \\ 
+    \alpha&=1 \Rightarrow m_1\neq m_2
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    y_p&=Axe^x \\ 
+    y'_p&=Ae^x+Axe^x \\ 
+    y''_p&=2Ae^x+Axe^x
+    \end{aligned}
+    $$
+
+    Thus
+
+    $$
+    \begin{aligned}
+    (2Ae^x+Axe^x)-(Axe^x)=e^x \\
+    2A&=1 \\
+    A&=\frac{1}{2}
+    \end{aligned}
+    $$
+
+    $$
+    y_p=\frac{1}{2}xe^x
+    $$
+
+    $$
+    \therefore y=C_1e^{-x}+C_2e^x+\frac{1}{2}xe^x
+    $$
+
+    :::
+
+    d. $y''+3y'-4y=10e^x$
+
+    :::info[Solution]
+
+    $$
+    \begin{aligned}
+    m^2+3m-4&=0\\
+    (m-1)(m+4)&=0\\
+    m&=1,-4 \\ \\ 
+    y_c&=C_1e^x+X_2e^{-4x} \\ 
+    \alpha&=1 \Rightarrow m_1\neq m_2
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    y_p&=Axe^x \\
+    y'_p&=Axe^x+Ae^x \\ 
+    y''_p &=2Ae^x+Axe^x
+    \end{aligned}
+    $$
+
+    Thus
+
+    $$
+    \begin{aligned}
+    (2Ae^x+Axe^x)+3(Axe^x+Ae^x)-4(Axe^x)&=10e^x \\ 
+    (A+3A-4A)xe^x+(2A+3A)e^x &=10e^x \\
+    5A&=10\\
+    A&=2
+    \end{aligned}
+    $$
+
+    $$
+    y_p=2xe^x
+    $$
+
+    $$
+    \therefore y=C_1e^x+C_2e^{-4x}+2xe^x
+    $$
+
+    :::
+
+    e. $y''-4y'+3y=2e^{3x}$ 
+
+    :::info[Solution]
+
+    $$
+    \begin{aligned}
+    m^2-4m+3&=0\\
+    (m-3)(m-1)&=0\\
+    m=1,3 \\ 
+    \alpha&=3 \Rightarrow m_2\neq m_1
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    y_p&=Axe^{3x} \\ 
+    y'_p=3Axe^{3x}+Ae^{3x} \\ 
+    y''_p=9Axe^{3x}+6Ae^{3x} \\
+    \end{aligned}
+    $$
+
+    Thus
+
+    $$
+    \begin{aligned}
+    (9Axe^{3x}+6Ae^{3x})-4(3Axe^{3x}+Ae^{3x})+3(Axe^{3x})&=2e^{3x} \\ 
+    (9A-12A+3A)xe^{3x}+(6A-4A)&=2e^{3x} \\ 
+    2A&=2\\
+    A&=1
+    \end{aligned}
+    $$
+
+    $$
+    y_p=xe^{3x}
+    $$
+
+    $$
+    \therefore y=C_1e^x+C_2e^{3x}+xe^{3x}
+    $$
+
+    :::
+
+    f. $y''+4y'-2y=2x^2-3x+6$ 
+
+    :::info[Solution]
+
+    $$
+    \begin{aligned}
+    m^2+4m-2&=0 \\
+    (m^2+4m+4)-6&=0\\
+    (m+2)^2&=6\\
+    m&=-2\pm\sqrt{6} \\ \\
+    y_c&=C_1e^{(-2-\sqrt{6})x} + C_2e^{(-2+\sqrt{6})x}
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    y_p=Ax^2+Bx+6\\
+    y'_p&=2Ax+B\\
+    y''_p=2A \\ \\ 
+    (2A)+4(2Ax+B)-2(Ax^2+Bx+C)&=2x^2-3x+6
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    -2A&=2 \qquad &8(-1)-2B&=-3 \qquad &2(-1)4\left(-\frac{5}{2}\right)-2C&=6 \\ 
+    A&=-1 &B&=-\frac{5}{2} &C&=-0
+    \end{aligned}
+    $$
+
+    $$
+    y_p=-x^2-\frac{5}{2}x-9
+    $$
+
+    $$
+    \therefore y=C_1e^{(-2-\sqrt{6})x}+C_2e^{(-2+\sqrt{6})x}-x^2-\frac{5}{2}x-9
+    $$
+
+    :::
+
+    g. $y''+3y'+2y=6$
+
+    :::info[Solution]
+
+    $$
+    \begin{aligned}
+    m^2+3m+2&=0\\
+    (m+1)(m+2)&=0\\
+    m&=-1,-2
+    \end{aligned}
+    $$
+
+    $P_n(x)$ same order as $G(s)$,
+
+    $$
+    y_p=A, y'_p=0, y''_p=0
+    $$
+
+    $$
+    \begin{aligned}
+    0+3(0)+2(A)&=6\\A&=3
+    \end{aligned}
+    $$
+
+    $$
+    y_p=3
+    $$
+
+    $$
+    \therefore y=C_1e^{-x}+C_2e^{-2x}+3
+    $$
+
+    :::
+
+6. Obtain a general solution for nonhomogeneous problems using the method of undetermined coefficients.
+
+    a. $y''-2y'+5y=e^x\cos 2x$ 
+
+    :::info[Solution]
+
+    $$
+    \begin{aligned}
+    m^2-2m+5&=0\\
+    m&=\frac{1}{2}[2\pm\sqrt{4-20}]\\
+    \frac{1}{2}(2\pm 4i)\\1\pm 2i \\ \\ 
+    y_c&=e^x(C_1\cos 2x+C_2\sin 2x)\\
+    \alpha&=(1+2i)\neq m_1\neq m_2
+    \end{aligned}
+    $$
+
+    Thus
+
+    $$
+    \begin{aligned}
+    g(x)&=e^x\cos 2x\\
+    e^x\cdot \text{Re}e^{2ix}\\
+    \text{Re}(e^{(1+2i)x})\\
+    y_p&=A_x\text{Re}(e^{(1+2i)x})
+    \end{aligned}
+    $$
+
+    Let
+
+    $$
+    \begin{aligned}
+    Y_p&=Axe^{(1+2i)x},\qquad y_p=Ax\text{Re}(e^{(1+2i)x}) \\ 
+    Y'_p&=(1+2i)Axe^{(1+2i)x}+Ae^{(1+2i)x} \\
+    Y''_p&=(1+2i)^2Axe^{(1+2i)x}+(1+2i)Ae^{(1+2i)x}+(1+2i)Ae^{(1+2i)x}\\
+    &=(-3+4i)Axe^{(1+2i)x}+2A(1+2i)e^{(1+2i)x}
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    (-3+4i)Axe^{(1+2i)x}+2A(1+2i)e^{(1+2i)x}-2\left[(1+2i)Axe^{(1+2i)x}+Ae^{(1+2i)x}\right]+5[Axe^{(1+2i)x}]=e^x\cos 2x \\
+    [-3+4i-2-4i+5]Axe^{(1+2i)x}+[2+4i-2]Ae^{(1+2i)x}&=e^x\cos 2x
+    4Ai&=1 \\ A&=-\frac{1}{4}i
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    Y_p=-\frac{1}{4}ixe^{(1+2i)x} \\ 
+    &=-\frac{1}{4}ixe^x[\cos 2x+i\sin 2x] \\ 
+    &=\frac{1}{4}xe^x[\sin 2x-i\cos 2x]\\ \\ 
+    y_p&=\text{Re}Y_p=\frac{1}{4}xe^x\sin 2x
+    \end{aligned}
+    $$
+
+    $$
+    \therefore y = e^x(C_1\cos 2x+C_2\sin 2x)+\frac{1}{4}xe^x\sin 2x
+    $$
+
+    :::
+
+    b. $y''+y=2x\sin x$ 
+
+    :::info[Solution]
+
+    $$
+    \begin{aligned}
+    m^2&=-1 \\ 
+    m&=\pm i \\ \\ 
+    y_p&=C_1e^{-ix} + C_2e^{ix} \\ 
+    &=C_1\cos x+C_2 \sin x
+    \end{aligned}
+    $$
+
+    Compare $e^{\alpha x}Q_n(x)=2x\sin x$,
+
+    $$
+    \alpha=1=m_1\neq m_2
+    $$
+
+    Let
+
+    $$
+    \begin{aligned}
+    Y_p&=(Ax^2+Bx)e^{ix}, \qquad y_p=\text{Im}Y_p \\ 
+    Y'_p&=(2Ax+B)e^{ix}+i(Ax^2+Bx)e^{ix} \\
+    Y''_p&=(2A)e^{ix}+i(2Ax+B)e^{ix}+i(2Ax+B)e^{ix}+i^2(Ax^2+Bx)e^{ix} \\ 
+    &=(2A)e^{ix}+2i(2Ax+B)e^{ix}-(Ax^2+Bx)e^{ix}
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    \left[(2Ae^{ix})+2i(2Ax+B)e^{ix}-(Ax+B)e^{ix}\right]+(Ax+B)e^{ix}&=2xe^{ix} \\ 
+    2A+4Aix+2Bi&=2x \\ 
+    (4Ai)x+(2A+2Bi)&=2x
+    \end{aligned}
+    $$
+
+    Thus
+
+    $$
+    \begin{aligned}
+    4Ai&=2 \qquad &(2A+2Bi)&=0 \\ 
+    A&=\frac{1}{2i}=-\frac{1}{2}i &B&=-\frac{A}{i}=-\frac{(\frac{1}{2}i)}{i}=\frac{1}{2}
+    \end{aligned}
+    $$
+
+    Into equation
+
+    $$
+    \begin{aligned}
+    Y_p&=\left(-\frac{1}{2}ix^2+\frac{1}{2}x\right)e^{ix} \\
+    &=\left(-\frac{1}{2}ix^2+\frac{1}{2}x\right)(\cos x+i\sin x) \\
+    &=-\frac{1}{2}ix^2\cos x+\frac{1}{2}x^2\sin x+\frac{1}{2}x\cos x+\frac{1}{2} ix \sin x \\
+    &=\left(\frac{1}{2}x^2\sin x+\frac{1}{2}x\cos x\right)+i\left(-\frac{1}{2}x^2\cos x+\frac{1}{2}x \sin x\right) \\ \\
+    y_p&=\text{Im}Y_p \\ 
+    &=-\frac{1}{2}x^2\cos x+\frac{1}{2}x\sin x
+    \end{aligned}
+    $$
+
+    $$
+    \therefore y=C_1\cos x+C_2\sin x-\frac{1}{2}x^2\cos x+\frac{1}{2}x\sin x
+    $$
+
+    :::
+
+    c. $y''+2y'+2y=e^x\sin x$ 
+
+    :::info[Solution]
+
+    $$
+    \begin{aligned}
+    m^2+2m+2&=0\\
+    m&=\frac{1}{2}[-2\pm\sqrt{4-8}]\\
+    \frac{1}{2}[-1\pm 2i]\\
+    -1\pm i \\ \\ 
+    y_c&=e^{-x}(C_1\cos x+C_2\sin x)
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    g(x)&=e^x\sin x \\ 
+    &=\text{Im}(e^xe^{ix})\\
+    &=\text{Im}(e^{(1+i)x}) \\ \\ 
+    \alpha&=1+i\neq m_1\neq m_2 \\ 
+    y_p=\text{Im}Ae^{(1+i)x}
+    \end{aligned}
+    $$
+
+    Let
+
+    $$
+    \begin{aligned}
+    Y_p&=Ae^{(1+i)x} \\ 
+    Y'_p&=(1+i)Ae^{(1+i)x} \\ 
+    Y''_p&=2iAe^{(1+i)x}
+    \end{aligned}
+    $$
+
+    Into equation
+
+    $$
+    \begin{aligned}
+    2iAe^{(1+i)x}+2\left[(1+i)Ae^{(1+i)x}\right]+2\left[Ae^{(1+i)x}\right] &=e^{(1+i)x} \\
+    (2i+2+2i+2)Ae^{(1+i)x}&= e^{(1+i)x}\\
+    4(1+i)Ae^{(1+i)x} &=\text{Im}e^{(1+i)x} \\ 
+    A&=\frac{1}{4(1+i)}=\frac{1}{8}(1-i)
+    \end{aligned}
+    $$
+
+    Thus
+
+    $$
+    \begin{aligned}
+    Y_p&=\frac{1}{8}(1-i)e^{(1+i)x} \\ 
+    &=\frac{1}{8}(1-i)e^x[\cos x+i\sin x] \\ 
+    &=\frac{1}{8}e^x[\cos x+i\sin x-i\cos x+\sin x] \\ 
+    &=\frac{1}{8}e^x[(\cos x+\sin x)+i(\cos x+\sin x)] \\ \\
+    y_p&=\text{Im}Y_p=\frac{1}{8}e^x(-\cos x+\sin x)
+    \end{aligned}
+    $$
+
+    $$
+    \therefore y=e^{-x}(C_1\cos x+C_2\sin x)+\frac{1}{8}e^x(\sin x-\cos x)
+    $$
+
+    :::
+
+    d. $y''-3y'+2y=x^2e^{3x}$
