@@ -390,17 +390,17 @@ Classify the category of the following PDEs and solve the PDEs using separation 
 
     | $\boldsymbol{T}^{\prime \prime}+\boldsymbol{\alpha}^2\boldsymbol{T}=\mathbf{0}$ | $\boldsymbol{X}^{\prime \prime}+\mathbf{4}\boldsymbol{\alpha}^2\boldsymbol{\alpha}^2\boldsymbol{X}=\mathbf{0}$ |
     | :--- | :--- |
-    | Let $T(t)=e^{r t}$ <br /> Characteristic equation: <br /> $\begin{aligned}r+\alpha^{2}=0\\r&= \pm \sqrt{-\alpha^{2}}\\r&=+\alpha i,-\alpha i\end{aligned}$ <br /> $\therefore T(t)=c_{9} \cos (\alpha t)+c_{10} \sin (\alpha t) & r=+2 a \alpha i,-2 a \alpha i$ | Let $X(x)=e^{r x}$ <br /> Characteristic equation: <br /> $\begin{aligned} r^{2}+4 a^{2} \alpha^{2}&=0 \\ r&= \pm \sqrt{-4 a^{2} \alpha^{2}} \\ r&=+2 a \alpha i,-2 a \alpha i\end{aligned}$ <br /> $\therefore X(x)=c_{11} \cos (2 a \alpha x)+c_{12} \sin (2 a \alpha x)$ |
+    | Let $T(t)=e^{r t}$ <br /> Characteristic equation: <br /> $\begin{aligned}r+\alpha^{2}=0\\r&= \pm \sqrt{-\alpha^{2}}\\r&=+\alpha i,-\alpha i\end{aligned}$ <br /> $\therefore T(t)=c_{9} \cos (\alpha t)+c_{10} \sin (\alpha t)$ | Let $X(x)=e^{r x}$ <br /> Characteristic equation: <br /> $\begin{aligned} r^{2}+4 a^{2} \alpha^{2}&=0 \\ r&= \pm \sqrt{-4 a^{2} \alpha^{2}} \\ r&=+2 \alpha \alpha i,-2 \alpha \alpha i\end{aligned}$ <br /> $\therefore X(x)=c_{11} \cos (2 \alpha \alpha x)+c_{12} \sin (2 \alpha \alpha x)$ |
     
-    $\therefore u_{3}=X_{3}(x) T_{3}(t)=\left(c_{9} \cos (\alpha t)+c_{10} \sin (\alpha t)\right)\left(c_{11} \cos (2 a \alpha x)+c_{12} \sin (2 a \alpha x)\right)$
+    $\therefore u_{3}=X_{3}(x) T_{3}(t)=\left(c_{9} \cos (\alpha t)+c_{10} \sin (\alpha t)\right)\left(c_{11} \cos (2 \alpha \alpha x)+c_{12} \sin (2 \alpha \alpha x)\right)$
 
     $\therefore$ General solution:
 
     $$
     \begin{aligned}
     u(x, t)&=u_{1}+u_{2}+u_{3} \\
-    &=\left(c_{1}+c_{2} t\right)\left(c_{3}+c_{4} x\right)+\left(c_{5} \cos h(\alpha t)+c_{6} \sinh (\alpha t)\right)\left(c_{7} \cos h(2 a \alpha x)+c_{8} \sinh (2 a \alpha x)\right.
-    &+\left(c_{9} \cos (\alpha t)+c_{10} \sin (\alpha t)\right)\left(c_{11} \cos (2 a \alpha x)+c_{12} \sin (2 a \alpha x)\right)
+    &=\left(c_{1}+c_{2} t\right)\left(c_{3}+c_{4} x\right)+\left(c_{5} \cos h(\alpha t)+c_{6} \sinh (\alpha t)\right)\left(c_{7} \cos h(2 \alpha \alpha x)+c_{8} \sinh (2 \alpha \alpha x)\right. \\ 
+    &+\left(c_{9} \cos (\alpha t)+c_{10} \sin (\alpha t)\right)\left(c_{11} \cos (2 \alpha \alpha x)+c_{12} \sin (2 \alpha \alpha x)\right)
     \end{aligned}
     $$
 

@@ -258,8 +258,8 @@ import Link from '@docusaurus/Link';
 
     Subtituting $$y=\sum _{n=0}^{\infty } c_{n} x^{n}$$ into the differential equation,
 
-    $$\
-    begin{aligned}
+    $$
+    \begin{aligned}
     ( x-1) y''+y' & =\underbrace{ \sum _{n=2}^{\infty } n( n-1) c_{n} x^{n-1}}_{k=n-1} -\underbrace{ \sum _{n=2}^{\infty } n( n-1) c_{n} x^{n-2}}_{k=n-2} +\underbrace{ \sum _{n=1}^{\infty } nc_{n} x^{n-1}}_{k=n-1}\\
     & ={ \sum _{k=1}^{\infty }( k+1) kc_{k+1} x^{k} -\sum _{k=0}^{\infty }( k+2)( k+1) c_{k+2} x^{k} +\sum _{k=0}^{\infty }( k+1) c_{k+1} x^{k}}\\
     & =-2c_{2} +c_{1} +{ \sum _{k=1}^{\infty }[( k+1) kc_{k+1} -( k+2)( k+1) c_{k+2} +( k+1) c_{k+1}] x^{k} =0}
@@ -552,11 +552,12 @@ import Link from '@docusaurus/Link';
     Dividing the equation with $$x^{3}$$
 
     $$
-    \begin{gather*}
-    y''+\frac{4x^{2}}{x^{3}} y'+\frac{3}{x^{3}} y=0\\
-    \\
+    y''+\frac{4x^{2}}{x^{3}} y'+\frac{3}{x^{3}} y=0
+    $$
+    
+    $$
     P( x) =\frac{4}{x} \quad \quad Q( x) =\frac{3}{x^{3}}
-    \end{gather*}$$
+    $$
 
     - The factor $$x$$ appears at most to the first power in the denominator of $$P( x)$$, but more that the second power in the denominator of $$Q( x)$$
     - $$x=0$$ is irregular singular point

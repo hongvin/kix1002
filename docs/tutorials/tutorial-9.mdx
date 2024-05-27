@@ -393,7 +393,7 @@ import Link from '@docusaurus/Link';
     Inverse Laplace,
 
     $$
-    \underline{\underline{x_{1}(t)=-\frac{1}{\sqrt{3}} \sin \sqrt{3} t;\quad x_{2}(t)=\frac{1}{\sqrt{3}} \sin \sqrt{3} t}}
+    x_{1}(t)=-\frac{1}{\sqrt{3}} \sin \sqrt{3} t;\quad x_{2}(t)=\frac{1}{\sqrt{3}} \sin \sqrt{3} t
     $$
 
     :::
@@ -428,7 +428,9 @@ import Link from '@docusaurus/Link';
     Solving $(1)$ and $(2)$:
 
     $$
-    \begin{aligned}Q(s)&=\frac{50 e^{-(s+1)}}{(s+1)^{2}+1}\\q(t)&=50 e^{-1} e^{-(t-1)} \sin (t-1) u(t-1)\\&=\underline{\underline{50 e^{-t} \sin (t-1) u(t-1)}}
+    \begin{aligned}
+    Q(s)&=\frac{50 e^{-(s+1)}}{(s+1)^{2}+1}\\q(t)&=50 e^{-1} e^{-(t-1)} \sin (t-1) u(t-1)\\
+    &=50 e^{-t} \sin (t-1) u(t-1)
     \end{aligned}
     $$
 
