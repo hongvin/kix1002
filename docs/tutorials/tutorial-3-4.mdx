@@ -1017,3 +1017,469 @@ hide_table_of_contents: true
     $$
 
     :::
+
+7. Solve the following nonhomogeneous with initial value using the method of undetermined coefficients.
+
+    a. $5y''+y'=-6x \qquad\qquad y(0)=0 \qquad y'(0)=0$ 
+
+    :::info[Solution]
+
+    $$
+    \begin{aligned}
+    5m^2+m&=0\\
+    m(5m+1)&=0\\
+    m&=0,-\frac{1}{5}\\ \\ 
+    \alpha&=0=m_1 \neq m_2
+    \end{aligned}
+    $$
+
+    Thus
+
+    $$
+    \begin{aligned}
+    y_p&=x(Ax+B)e^0\\
+    &=Ax^2+Bx \\
+    y'_p&=2Ax+B\\
+    y''_p&=2A
+    \end{aligned}
+    $$
+
+    Into formula
+
+    $$
+    \begin{aligned}
+    5(2A)+(2Ax+B)&=-6x \\ 
+    (10A+B)+2Ax&=-6x
+    \end{aligned}
+    $$
+
+    Thus
+
+    $$
+    A=-3,\qquad B=30
+    $$
+
+    $$
+    \Rightarrow y_p=-3x^2+30x
+    $$
+
+    General solution:
+
+    $$
+    \begin{aligned}
+    y&=C_1e^0+C_2e^{-\frac{1}{5}x}+30x-30x^2 \\ 
+    y'&=-\frac{1}{5}C_2e^{-\frac{1}{5}x}+30-60x
+    \end{aligned}
+    $$
+
+    $$
+    y(0)=0 \qquad \Rightarrow \qquad C_1+C_2=0 \quad \rightarrow \quad C_1=-C_2
+    $$
+
+    $$
+    y'(0)=0 \qquad \Rightarrow \qquad -\frac{1}{5}C_2+30=0 \quad \rightarrow \quad C_2=150
+    $$
+
+    $$
+    \therefore y=-150+150e^{-\frac{x}{5}}-30x^2+30x
+    $$
+
+    :::
+
+    b. $y''+4y'+5y=35e^{-4x} \qquad\qquad y(0)=-3 \qquad y'(0)=1$
+
+    :::info[Solution]
+
+    $$
+    \begin{aligned}
+    m^2+4m+5&=0\\
+    m&=\frac{1}{2}\left[-4\pm\sqrt{16-20}\right] \\
+    &=-\frac{1}{2}[-4\pm 2i] \\
+    &=-2\pm i \\ \\ 
+    \alpha&=-4\neq m_1\neq m_2 \\ 
+    y_c&=e^{-2x}(C_1\cos x+C_2\sin x)
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    y_p&=Ae^{-4x} \\
+    y'_p&=-4Ae^{-4x} \\ 
+    y''_p&=16Ae^{-4x}
+    \end{aligned}
+    $$
+
+    Into equation
+
+    $$
+    \begin{aligned}
+    (16Ae^{-4x})+4(-4Ae^{-4x})+5(Ae^{-4x})&=35e^{-4x} \\ 
+    5Ae^{-4x}&=35e^{-4x} \\ 
+    A&=7
+    \end{aligned}
+    $$
+
+    General Solution
+
+    $$
+    y=C_1e^{-2x}\cos x+C_2e^{-2x}\sin x+7e^{-2x}
+    $$
+
+    When
+
+    $$
+    x=0, y=-3 \qquad \Rightarrow \qquad -3=C_1+7 \quad \rightarrow \quad C_1=-10
+    $$
+
+    $$
+    \begin{aligned}
+    x=0, y'=1 \qquad \Rightarrow \qquad 1&=-2C_1e^{-2x}\cos x-C_1e^{-2x}\sin x-2C_2e^{-2x}\sin x+C_2e^{-2x}\cos x-28e^{-4x}\\
+    1&=-2C_1+C_2-28 \\ 
+    C_2&=9
+    \end{aligned}
+    $$
+
+    $$
+    \therefore y=-10e^{-2x}\cos x+9e^{-2x}\sin x+7e^{-4x}
+    $$
+
+    :::
+
+    c. $y''+25y=5x \qquad\qquad y(0)=5 \qquad y'(0)=-4.8$
+
+    :::info[Solution]
+
+    $$
+    \begin{aligned}
+    m^2+25&=0\\
+    m&=\pm 5i \\ \\
+    y_c&=C_1e^{5ix}+C_2e^{5ix}\\
+    &=A_1\cos 5x+A_2\sin5x\\
+    \alpha&=0\neq m_1\neq m_2
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    y_p&=B_1x+B_2\\
+    y_p'&=B\\
+    y_p''&=0 \\ 
+    \Rightarrow (0)+25(B_1x+B_2)&=5x\\
+    25B_1x+25B_2&=5x\\
+    B_1=\frac{1}{5} &, B_2=0
+    \end{aligned}
+    $$
+
+    $$
+    y_p=\frac{1}{5}x
+    $$
+
+    When
+
+    $$
+    \begin{aligned}
+    x=0,y=5 \qquad 5&=A_1\cos 5x+A_2\sin 5x +\frac{1}{5}x \\ 
+    5&=A_1 \\ \\ 
+    x=0, y'=-4.8 \qquad -48&=-5A_1\sin 5x+5A_2\cos 5x+\frac{1}{5} \\ 
+    -4.8&=5A_2+0.2 \\ 
+    A_2&=-1
+    \end{aligned}
+    $$
+
+    $$
+    \therefore y=5\cos 5x-\sin 5x+\frac{1}{5}x
+    $$
+
+    :::
+
+    d. $y''-2y'+y=2x^2-8x+4 \qquad\qquad y(0)=0.3 \qquad y'(0)=0.3$
+
+    :::info[Solution]
+
+    $$
+    \begin{aligned}
+    m^2-2m+1&=0\\
+    (m-1)^2&=0\\
+    m&=1\\
+    y_c&=C_1e^x+C_2xe^x
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    y_p&=Ax^2+Bx+4 \\
+    y'_p&=2Ax+B \\
+    y''_p&=2A
+    \end{aligned}
+    $$
+
+    Into formula
+
+    $$
+    \begin{aligned}
+    (2A)-2(2Ax+B)+(Ax^2+Bx+C)&=2x^2-8x+4\\
+    Ax^2+(-4A+B)x+(2A-2B+C)&=2x^2-8x+4
+    \end{aligned}
+    $$
+
+    thus
+
+    $$
+    \begin{aligned}
+    A&=2 \qquad &-4A+B &=-8 \qquad &2A-2B+C&=4 \\ &&B&=0 &C&=0
+    \end{aligned}
+    $$
+
+    $$
+    y_p=2x^2
+    $$
+
+    $$
+    \begin{aligned}
+    y&=C_1e^x+C_2xe^x+2x^2\\y'&=C_1e^x+C_2e^x+C_2xe^x+4x
+    \end{aligned}
+    $$
+
+    When
+
+    $$
+    \begin{aligned}
+    x=0, y=0.3 \qquad 0.3&=C_1+0+0 \\ 
+    C_1&=0.3\\
+    x=0, y'=0.3 \qquad 0.3&=C_1+C_2+0+0\\
+    C_1+C_2&=0.3 \\ 
+    C_2&=0
+    \end{aligned}
+    $$
+
+    $$
+    \therefore y=0.3e^x+2x^2
+    $$
+    
+    :::
+
+    e. $y''-y'-2y=3e^{2x} \qquad\qquad y(1)=e^{-1} \qquad y'(1)=-e^{-1}+e^2$
+
+    :::info[Solution]
+
+    $$
+    \begin{aligned}
+    m^2-m-2&=0\\
+    (m-2)(m+1)&=0\\
+    m&=2,-1\\ \\ 
+    y_p&=C_1e^{2x}+C_2e^{-x}\\
+    \alpha&=2=m_1\neq m_2
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    y_p&=Axe^{2x}\\
+    y'_p&=2Axe^{2x}+Ae^{2x}\\
+    y''_p&=4Axe^{2x}+2Ae^{2x}+2Ae^{2x}\\
+    &=4Axe^{2x}+4Ae^{2x}
+    \end{aligned}
+    $$
+
+    Into formula
+
+    $$
+    \begin{aligned}
+    (4Axe^{2x}+4Ae^{2x})-(2Axe^{2x}+Ae^{2x})-2(Axe^{2x})&=3e^{2x} \\ 
+    (4A-2A-2A)xe^{2x}+(4A-A)e^{2x}&=3e^{2x} \\ 
+    3A&=3\\
+    A&=1
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    y=C_1e^{2x}+C_2e^{-x}+xe^{2x} \\ 
+    y'&=2C_1e^{2x}-C_2e^{-x}+2xe^{2x}+e^{2x}
+    \end{aligned}
+    $$
+
+    When
+
+    $$
+    \begin{aligned}
+    x=1, \qquad y=C_1e^2C_2e^{-1}+e^2&=e^{-1} \\ 
+    C_1e^2+C_2e^{-1}&=e^{-1}-e^2 \tag{1}
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    x=1, \qquad y=C_1e^2C_2e^{-1}+e^2&=e^{-1} \\ 
+    C_1e^2+C_2e^{-1}&=e^{-1}-e^2 \tag{1}
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    x=1, \qquad y'=2C_1e^2-C_2e^{-1}+2e^2+e^2&=-e^{-1}+e^2\\
+    2C_1e^2-C_2e^{-1}&=-e^{-1}-2e^2 \tag{2}
+    \end{aligned}
+    $$
+
+    $(1)+(2)$,
+
+    $$
+    \begin{aligned}
+    3C_1e^2&=-3e&2\\
+    C_1&=-1
+    \end{aligned}
+    $$
+
+    Into $(1)$,
+
+    $$
+    \begin{aligned}
+    -e^2+C_2e^{-1}&=e^{-1}-e^2 \\
+    C_2e^{-1}&=e^{-1}\\
+    C_2&=1
+    \end{aligned}
+    $$
+
+    $$
+    \therefore y=-e^{2x}+e^{-x}+xe^{2x}
+    $$
+
+    :::
+
+8. Obtain a general solution using the method of <u><b>variation of parameter</b></u>.
+
+    a. $y''-4y'+4y=e^{2x}/x$ 
+
+    :::info[Solution]
+
+    $$
+    \begin{aligned}
+    m^2-4m+4&=0\\
+    (m-2)^2&=0\\m&=2\\ \\
+    y_c&=C_1e^{2x}+C_2xe^{2x}
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    y_1&=e^{2x} \qquad, \qquad &y'_1&=2e^{2x} \\ 
+    y_2&=xe^{2x} \qquad, \qquad &y'_2&=2xe^{2x}+e^{2x}
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    W(y_1,y_2)&=\left\vert \begin{array}{cc} e^{2x} & xe^{2x} \\ 2e^{2x} & 2xe^{2x}+e^{2x} \end{array}\right\vert \\
+    &=2xe^{4x}+e^{4x}-2xe^{4x}\\
+    &=e^{4x}
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    U_1(x)=-\int\frac{\left(\frac{e^{2x}}{x}\right)(xe^{2x})}{e^{4x}}dx\\
+    &=-\int dx
+    &=-x
+    U_2(x)=-\int\frac{\left(\frac{e^{2x}}{x}\right)(e^{2x})}{e^{4x}}dx\\
+    &=-\int \frac{1}{x} dx\\
+    &=\ln x
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    y_p&=(-x)(e^{2x})+(\ln x)(xe^{2x}) \\
+    &=-xe^{2x}+xe^{2x}\ln x
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    \therefore y&=C_1e^{2x}+C_2xe^{2x}-xe^{2x}+xe^{2x}\ln x \\ 
+    &=C_1e^{2x}+(C_2-1)xe^{2x}+xe^{2x}\ln x \\
+    &=C_1e^{2x}+C_3xe^{2x}+xe^{2x}\ln x
+    \end{aligned}
+    $$
+
+    where $C_3=C_2-1$
+
+    :::
+
+    b. $y''+2y'+y=x^{3/2}/e^x$ 
+
+    :::info[Solution]
+
+    $$
+    \begin{aligned}
+    m^2+2m+1&=0\\
+    (m+1)(m+1)&=0\\
+    m&=-1\\ \\
+    y_c&=C_1e^{-x}+C_2xe^{-x}
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    y_1&=e^{-x} \qquad, \qquad &y'_1&=-e^{-x} \\ 
+    y_2&=xe^{-x} \qquad, \qquad &y'_2&=-xe^{-x}+e^{-x}
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    W(y_1,y_2)&=\left\vert \begin{array}{cc} e^{-x} & xe^{-x} \\ -e^{-x} & -xe^{-x}+e^{-x} \end{array}\right\vert \\
+    &=-xe^{-2x}+e^{-2x}+xe^{-2x} \\ 
+    &=e^{-2x}
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    U_1(x)=-\int\frac{\left(\frac{x^{\frac{3}{2}}}{e^x}\right)(xe^{-x})}{e^{-2x}} dx \\
+    &=-\int x^{\frac{5}{2}} dx \\ 
+    &=-\frac{2}{7}x^{\frac{7}{2}} \\
+    U_2(x)=-\int\frac{\left(\frac{x^{\frac{3}{2}}}{e^x}\right)(e^{-x})}{e^{-2x}}dx\\
+    &=\int x^{\frac{3}{2}} dx \\ 
+    &=-\frac{2}{5}x^{\frac{5}{2}} \\
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    y_p&=\left(-\frac{2}{7}x^{\frac{7}{2}}\right)(e^{-x})+\left(\frac{2}{5}x^{\frac{5}{2}}xe^{-x}\right) \\ 
+    &=\left(-\frac{10}{35}+\frac{14}{35}\right)x^{\frac{7}{2}}e^{-x} \\ 
+    &=\frac{4}{35}x^{\frac{7}{2}}e^{-x}
+    \end{aligned}
+    $$
+
+    $$
+    \therefore C_1e^{-x}+C_2xe^{-x}+\frac{4}{35}x^{\frac{7}{2}}e^{-x}
+    $$
+
+    :::
+
+    c. $y''-2y'+y=e^x\sin x$
+
+    :::info[Solution]
+    :::
+
+    d. $y''+2y'+2y=e^{-x}\sec x$ 
+
+    :::info[Solution]
+    :::
+
+    e. $y''-4y'+4y=(x+1)e^{2x}$ 
+
+    :::info[Solution]
+    :::
+
+    f. $y''-5y'+6y=2e^x$ 
+
+    :::info[Solution]
+    :::
+
+    g. $y''+2y'+y=4e^{-x}$
+
+    :::info[Solution]
+    :::
