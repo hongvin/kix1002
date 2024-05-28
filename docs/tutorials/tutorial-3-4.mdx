@@ -796,9 +796,10 @@ hide_table_of_contents: true
 
     $$
     \begin{aligned}
-    (-3+4i)Axe^{(1+2i)x}+2A(1+2i)e^{(1+2i)x}-2\left[(1+2i)Axe^{(1+2i)x}+Ae^{(1+2i)x}\right]+5[Axe^{(1+2i)x}]=e^x\cos 2x \\
-    [-3+4i-2-4i+5]Axe^{(1+2i)x}+[2+4i-2]Ae^{(1+2i)x}&=e^x\cos 2x
-    4Ai&=1 \\ A&=-\frac{1}{4}i
+    (-3+4i)Axe^{(1+2i)x}+2A(1+2i)e^{(1+2i)x}-2\left[(1+2i)Axe^{(1+2i)x}+Ae^{(1+2i)x}\right]+5[Axe^{(1+2i)x}]&=e^x\cos 2x \\
+    [-3+4i-2-4i+5]Axe^{(1+2i)x}+[2+4i-2]Ae^{(1+2i)x}&=e^x\cos 2x \\
+    4Ai&=1 \\ 
+    A&=-\frac{1}{4}i
     \end{aligned}
     $$
 
@@ -1462,24 +1463,261 @@ hide_table_of_contents: true
     c. $y''-2y'+y=e^x\sin x$
 
     :::info[Solution]
+
+    $$
+    \begin{aligned}
+    m^2-2m+1&=0\\
+    (m-1)^2&=0\\
+    m&=1\\ \\ 
+    y_c&=C_1e^x+C_2xe^x
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    y_1&=e^x \qquad , \qquad &y'_1=&e^x \\ 
+    y_2&=xe^x \qquad , \qquad &y'_2&=xe^x+e^x
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    W(y_1,y_2)&=\left\vert \begin{array}{cc} e^x&xe^x\\e^x&xe^x+e^x \end{array}\right\vert \\
+    &=xe^{2x}+e^{2x}-xe^{2x} \\ 
+    &=e^{2x}
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    U_1(x)&=-\int \frac{(e^x\sin x)(xe^x)}{e^{2x}} dx \\ 
+    &=-\int x\sin x dx \\ 
+    &=x\cos x - \sin x \\
+    U_2(x)&=-\int \frac{(e^x\sin x)(e^x)}{e^{2x}} dx \\ 
+    &=-\int \sin x dx \\ 
+    &=-\cos x
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    y_p=(x\cos x-\sin x)e^x+(-\cos x)xe^x \\
+    &=xe^x\cos x-e^x\sin x - xe^x\cos x \\ 
+    &=-e^x\sin x
+    \end{aligned}
+    $$
+
+    $$
+    \therefore y=C_1e^x+C_2xe^x-e^x\sin x
+    $$
+
     :::
 
     d. $y''+2y'+2y=e^{-x}\sec x$ 
 
     :::info[Solution]
+
+    $$
+    \begin{aligned}
+    m^2+2m+2&=0 \\ 
+    m&=\frac{1}{2}[-2\pm\sqrt{4-4(1)(2)}] \\ 
+    &=\frac{1}{2}[-2\pm 2i] \\ 
+    &=-1\pm i \\ \\ 
+    y_c&=e^{-x}(C_1\cos x+C_2\sin x)
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    y_1&=e^{-x}\cos x \qquad , \qquad &y'_1&=-e^{-x}\cos x-e^{-x}\sin x \\
+    y_2&=e^{-x}\sin x \qquad , \qquad &y'_1&=-e^{-x}\sin x+e^{-x}\cos x
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    W(y_1,y_2)&=\left\vert \begin{array}{cc} e^{-x}\cos x & e^{-x}\sin x \\ -e^{-x}\cos x-e^{-x}\sin x & -e^{-x}\sin x+e^{-x}\cos x \end{array}\right\vert \\
+    &=-e^{-2x}\sin x\cos x +e^{-2x}\cos^2 x + e^{-2x}\sin x\cos x+e^{-2x} \sin^2 x \\ 
+    &=e^{-2x} (\cos^2 x+\sin^2 x) \\
+    &=e^{-2x}
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    U_1(x)&=-\int\frac{(e^{-x}\sec x)(e^{-x}\sin x)}{e^{-2x}} dx \\ 
+    &=-\int \frac{\sin x}{\cos x} dx \\ 
+    &= \ln \vert\cos x\vert \\
+    U_2(x)&=-\int\frac{(e^{-x}\sec x)(e^{-x}\cos x)}{e^{-2x}} dx \\ 
+    &=-\int  dx \\ 
+    &= x
+    \end{aligned}
+    $$
+
+    $$
+    y_p=e^{-x}\cos x \ln \vert \cos x \vert + e^{-x}\sin x \cdot x
+    $$
+
+    $$
+    \therefore y=e^{-x}(C_1\cos x+C_2\sin x)+e^{-x}\cos x \ln \vert \cos x \vert + xe^{-x}\sin x
+    $$
+
     :::
 
     e. $y''-4y'+4y=(x+1)e^{2x}$ 
 
     :::info[Solution]
+
+    $$
+    \begin{aligned}
+    m^2-4m+4&=0 \\ 
+    (m-2)(m-2)&=0 \\ 
+    m&=2 \\ \\ 
+    y_c&=C_1e^{2x}+C_2xe^{2x}
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    y_1 &=e^{2x} \qquad , \qquad &y'_1&=2e^{2x} \\ 
+    y_2&=xe^{2x} \qquad , \qquad &y'_2&=2xe^{2x}+e^{2x}
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    W(y_1,y_2)&=\left\vert \begin{array}{cc} e^{2x} & xe^{2x} \\ 2e^{2x} & 2xe^{2x}+e^{2x} \end{array}\right\vert \\
+    &= 2xe^{4x}+e^{4x}-2xe^{4x} \\
+    &=e^{4x}
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    U_1(x)=-\int \frac{(x+1)e^{2x}\cdot xe^{2x}}{e^{4x}} dx \\ 
+    &=-\int x^2+x dx \\ 
+    &=-\frac{1}{3}x^3 - \frac{1}{2} x^2 \\
+    U_2(x)=-\int \frac{(x+1)e^{2x}\cdot e^{2x}}{e^{4x}} dx \\ 
+    &=-\int x+1 dx \\ 
+    &=\frac{1}{2}x^2 +x
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    y_p&=\left(-\frac{1}{3}x^3-\frac{1}{2}x^2\right)(e^{2x})+\left(\frac{1}{2}x^2+x\right)(xe^{2x}) \\
+    &=-\frac{1}{3}x^3e^{2x}-\frac{1}{2}x^2e^{2x}+\frac{1}{2}x^3e^{2x}+x^2e^{2x} \\
+    &=\frac{1}{6}x^3e^{2x}+\frac{1}{2}x^2e^{2x}
+    \end{aligned}
+    $$
+
+    $$
+    \therefore y=C_1e^{2x} + C_2 xe^{2x} + \frac{1}{6}x^3e^{2x}+\frac{1}{2}x^2e^{2x}
+    $$
+
     :::
 
     f. $y''-5y'+6y=2e^x$ 
 
     :::info[Solution]
+
+    $$
+    \begin{aligned}
+    m^2+2m+1&=0\\
+    (m+1)(m+1)&=0\\
+    m&=-1 \\ \\ 
+    y_c&=C_1e^{-x}+C_2xe^{-x}
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    y_1&=e^{-x} \qquad , \qquad &y'_1&=-e^{-x} \\ 
+    y_2&=xe^{-x} \qquad , \qquad &y'_2&=-xe^{-x}+e^{-x}
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    W(y_1,y_2)&=\left\vert \begin{array}{cc} e^{-x} & xe^{-x} \\ -e^{-x} & -xe^{-x}+e^{-x} \end{array}\right\vert \\
+    &=-xe^{-2x}+e^{-2x}+xe^{-2x} \\ 
+    &=e^{-2x}
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    U_1(x)&=-\int \frac{(4e^{-x})(xe^{-x})}{e^{-2x}} dx \\ 
+    &=-\int 4x dx \\ 
+    &=-2x^2 \\
+    U_2(x)&=-\int \frac{(4e^{-x})(e^{-x})}{e^{-2x}} dx \\ 
+    &=-\int 4 dx \\ 
+    &=4x
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    y_p&=(-2x^2)(e^{-x})+(4x)(xe^{-x}) \\ 
+    &=-2x^2e^{-x}+4x^2e^{-x} \\ 
+    &=2x^2e^{-x}
+    \end{aligned}
+    $$
+
+    $$
+    \therefore y=C_1e^{-x}+C_2xe^{-x}+2x^2e^{-x}
+    $$
+
     :::
 
     g. $y''+2y'+y=4e^{-x}$
 
     :::info[Solution]
+
+    $$
+    \begin{aligned}
+    m^2-5m+6&=0\\
+    (m-3)(m-2)&=0\\m&=2,3 \\ \\ 
+    y_c&=C_1e^{2x}+C_2e^{3x}
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    y_1=e^{2x} \qquad , \qquad &y'_1&=2e^{2x} \\ 
+    y_2=e^{3x} \qquad , \qquad &y'_2&=3e^{3x}
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    W(y_1,y_2)&=\left\vert \begin{array}{cc} e^{2x} & e^{3x} \\ 2e^{2x} & 3e^{3x} \end{array}\right\vert \\
+    &= 3e^{5x}-2e^{5x} \\ 
+    &=e^{5x}
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    U_1(x) &= -\int\frac{(2e^x)(e^{3x})}{e^{5x}} dx \\ 
+    &=-\int 2 e^{-x} dx \\ 
+    &=2e^{-x} \\
+    U_2(x) &= -\int\frac{(2e^x)(e^{2x})}{e^{5x}} dx \\ 
+    &=\int 2 e^{-2x} dx \\ 
+    &=-e^{-2x} 
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    y_p&=(2e^{-x})(e^{2x})+(-e^{-2x})(e^{3x}) \\ 
+    &=2e^x-e^x \\ 
+    &=e^x
+    \end{aligned}
+    $$
+
+    $$
+    \therefore y = C_1e^{2x}+C_2e^{3x}+e^x
+    $$
+
     :::
